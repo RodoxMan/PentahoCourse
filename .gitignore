@@ -1,2 +1,4 @@
 #Ignorar todos os arquivos e sub-pastas da pasta de downloads!
 downloads/
+designer-tools/
+pentaho-server/
