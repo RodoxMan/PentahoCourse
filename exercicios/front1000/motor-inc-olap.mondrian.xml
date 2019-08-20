@@ -1,0 +1,24 @@
+<Schema name="Motor Inc" description="Cudo de Vendas">
+  <Dimension type="TimeDimension" visible="true" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="TempoId" caption="Calend&#225;rio">
+      <Table name="tbl_dmns_tmp">
+      </Table>
+      <Level name="Ano" visible="true" column="AnoTempo" type="String" uniqueMembers="false" levelType="TimeYears">
+      </Level>
+      <Level name="Trimestre" visible="true" column="TrimestreTempo" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      </Level>
+      <Level name="Mes" visible="true" column="MesTempo" nameColumn="MesDescTempo" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Semana" visible="true" hasAll="true" allMemberName="Todas as semanas" primaryKey="TempoId">
+      <Table name="tbl_dmns_tmp">
+      </Table>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Motor Inc Vendas" visible="true" cache="true" enabled="true">
+    <Table name="tbl_ft_vnds">
+    </Table>
+    <Measure name="Quantidade Pedida" column="QuantidadePedida" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
