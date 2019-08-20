@@ -7,11 +7,50 @@
   <created_user>-</created_user>
   <created_date>2019/08/14 10:59:52.828</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/08/14 12:14:59.588</modified_date>
+  <modified_date>2019/08/14 18:52:24.824</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
-    </slaveservers>
+    <slaveserver>
+      <name>Carte 8081</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Carte 8082</name>
+      <hostname>localhost</hostname>
+      <port>8082</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Carte 8083</name>
+      <hostname>localhost</hostname>
+      <port>8083</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+  </slaveservers>
   <job-log-table>
     <connection/>
     <schema/>
@@ -308,7 +347,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Transformation</name>
+      <name>exercicio_param_b1</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -360,7 +399,7 @@
   <hops>
     <hop>
       <from>Start</from>
-      <to>Transformation</to>
+      <to>exercicio_param_b1</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
