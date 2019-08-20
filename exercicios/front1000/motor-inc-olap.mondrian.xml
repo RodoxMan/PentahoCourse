@@ -1,23 +1,53 @@
 <Schema name="Motor Inc" description="Cudo de Vendas">
-  <Dimension type="TimeDimension" visible="true" name="Tempo">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
     <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="TempoId" caption="Calend&#225;rio">
       <Table name="tbl_dmns_tmp">
       </Table>
-      <Level name="Ano" visible="true" column="AnoTempo" type="String" uniqueMembers="false" levelType="TimeYears">
+      <Level name="Ano" visible="true" column="AnoTempo" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
       </Level>
-      <Level name="Trimestre" visible="true" column="TrimestreTempo" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      <Level name="Trimestre" visible="true" column="TrimestreTempo" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
       </Level>
-      <Level name="Mes" visible="true" column="MesTempo" nameColumn="MesDescTempo" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      <Level name="Mes" visible="true" column="MesTempo" nameColumn="MesDescTempo" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
       </Level>
     </Hierarchy>
     <Hierarchy name="Semana" visible="true" hasAll="true" allMemberName="Todas as semanas" primaryKey="TempoId">
       <Table name="tbl_dmns_tmp">
       </Table>
+      <Level name="Ano" visible="true" column="AnoTempo" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Semana" visible="true" column="SemanaAnoTempo" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+      </Level>
     </Hierarchy>
   </Dimension>
   <Cube name="Motor Inc Vendas" visible="true" cache="true" enabled="true">
     <Table name="tbl_ft_vnds">
     </Table>
+    <DimensionUsage source="Tempo" name="Tempo Pedido" caption="Tempo Perdido" visible="true" foreignKey="TempoIdPedido" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Tempo" name="Tempo Entrega" caption="Tempo Entrega" visible="true" foreignKey="TempoIdEntrega" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="ClienteId" highCardinality="false" name="Cliente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os clientes" primaryKey="ClienteId">
+        <Table name="tbl_dmns_clnt">
+        </Table>
+        <Level name="Territorio" visible="true" column="TerritorioCliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Territ&#243;rio">
+        </Level>
+        <Level name="Pais" visible="true" column="PaisCliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Pa&#237;s">
+        </Level>
+        <Level name="Estado" visible="true" column="EstadoCliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cidade" visible="true" column="CidadeCliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cliente" visible="true" column="NomeCliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="ProdutoId" name="Produto">
+      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+        <Table name="tbl_dmns_prdt">
+        </Table>
+      </Hierarchy>
+    </Dimension>
     <Measure name="Quantidade Pedida" column="QuantidadePedida" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
     </Measure>
   </Cube>
