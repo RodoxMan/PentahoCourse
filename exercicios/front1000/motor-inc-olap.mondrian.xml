@@ -42,10 +42,27 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="ProdutoId" name="Produto">
-      <Hierarchy name="New Hierarchy 0" visible="true" hasAll="true">
+    <Dimension type="StandardDimension" visible="true" foreignKey="ProdutoId" highCardinality="false" name="Produto">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os produtos" primaryKey="ProdutoId">
         <Table name="tbl_dmns_prdt">
         </Table>
+        <Level name="Linha" visible="true" column="LinhaProduto" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Fornecedor" visible="true" column="FornecedorProduto" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Produto" visible="true" column="NomeProduto" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Situacao" caption="Situa&#231;&#227;o">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as situacoes" allMemberCaption="Todas as situa&#231;&#245;es">
+        <Level name="Situacao" visible="true" column="Situacao" type="String" uniqueMembers="false" levelType="Regular" caption="Situa&#231;&#227;o">
+          <CaptionExpression>
+            <SQL dialect="mysql">
+              <![CDATA[Case Situacao When 'E' Then 'Enviado' When 'R' Then 'Resolvido' When 'C' Then 'Cancelado' When 'A' Then 'Aguardando' When 'N' Then 'Negociado' Else 'Processando' End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
       </Hierarchy>
     </Dimension>
     <Measure name="Quantidade Pedida" column="QuantidadePedida" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
