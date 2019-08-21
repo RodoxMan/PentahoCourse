@@ -46,11 +46,11 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos os produtos" primaryKey="ProdutoId">
         <Table name="tbl_dmns_prdt">
         </Table>
-        <Level name="Linha" visible="true" column="LinhaProduto" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Linha" visible="true" column="LinhaProduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Fornecedor" visible="true" column="FornecedorProduto" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Fornecedor" visible="true" column="FornecedorProduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Produto" visible="true" column="NomeProduto" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Produto" visible="true" column="NomeProduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -58,14 +58,52 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas as situacoes" allMemberCaption="Todas as situa&#231;&#245;es">
         <Level name="Situacao" visible="true" column="Situacao" type="String" uniqueMembers="false" levelType="Regular" caption="Situa&#231;&#227;o">
           <CaptionExpression>
-            <SQL dialect="mysql">
+            <SQL dialect="generic">
               <![CDATA[Case Situacao When 'E' Then 'Enviado' When 'R' Then 'Resolvido' When 'C' Then 'Cancelado' When 'A' Then 'Aguardando' When 'N' Then 'Negociado' Else 'Processando' End]]>
             </SQL>
           </CaptionExpression>
         </Level>
       </Hierarchy>
     </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="VendedorId" name="Vendedor">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os vendedores" primaryKey="VendedorId">
+        <Table name="tbl_dmns_vnddr">
+        </Table>
+        <Level name="Presidente" visible="true" column="NomeVendedor3" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="VP" visible="true" column="NomeVendedor2" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Gerente" visible="true" column="NomeVendedor1" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Vendedor" visible="true" column="NomeVendedor" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
     <Measure name="Quantidade Pedida" column="QuantidadePedida" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
     </Measure>
+    <Measure name="Preco Total" column="PrecoTotal" datatype="Numeric" formatString="#.###.00" aggregator="sum" caption="Pre&#231;o Total" visible="true">
+    </Measure>
+    <CalculatedMember name="Percentual Produto" formula="([Produto].CurrentMember/[Produto].CurrentMember.Parent)" dimension="Measures" visible="true">
+      <CalculatedMemberProperty name="format_string" expression="IIf(([Measures].[Percentual Produto] &#60; 0.08), &#34;|0.00%|style=red&#34;, &#34;|0.00%|style=lightgreen&#34;)">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
   </Cube>
+  <Role name="Administrator">
+    <SchemaGrant access="all">
+    </SchemaGrant>
+  </Role>
+  <Role name="Authenticated">
+    <SchemaGrant access="none">
+    </SchemaGrant>
+  </Role>
+  <Role name="LATAM">
+    <SchemaGrant access="all">
+      <CubeGrant cube="Motor Inc Vendas" access="all">
+        <HierarchyGrant hierarchy="[Cliente]" topLevel="[Cliente].[Territorio]" access="custom">
+          <MemberGrant member="[Cliente].[LATAM]" access="all">
+          </MemberGrant>
+        </HierarchyGrant>
+      </CubeGrant>
+    </SchemaGrant>
+  </Role>
 </Schema>
