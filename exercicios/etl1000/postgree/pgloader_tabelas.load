@@ -1,0 +1,11 @@
+LOAD DATABASE
+     FROM mysql://docker:rodk1605@172.17.0.1/motor-inc-star
+     INTO postgresql://postgres:rodk1605@172.17.0.1/motor-inc-star
+
+ WITH include drop
+
+EXCLUDING TABLE NAMES MATCHING 'stage_pais_territorio','stage_territorio','tbl_dmns_clnt','tbl_dmns_tmp','tbl_dmns_vnddr','tbl_ft_vnds'
+INCLUDING ONLY TABLE NAMES MATCHING 'tbl_dmns_prdt'
+
+
+ALTER SCHEMA 'motor-inc-star' RENAME TO 'public';
