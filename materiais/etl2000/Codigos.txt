@@ -48,7 +48,7 @@ WHERE
 pan /rep:etl2000 /trans:exercicio9_arg_a "2010-01-21 00:00:00" "2010-01-22 00:00:00" /dir: /level:Basic /log:"/mnt/dados/treinamento/designer-tools/data-integration/executa_trans.log"
 
 ### LINUX:
-./pan.sh -rep=etl2000 -trans=exercicio_arg_a "2010-01-21 00:00:00" "2010-01-22 00:00:00" -dir= -level:Basic -log="/mnt/dados/treinamento/designer-tools/data-integration/executa_trans.log"
+./pan.sh -rep=etl2000_com_postgress -trans=exercicio_arg_a "2010-01-21 00:00:00" "2010-01-22 00:00:00" -dir= -level:Basic -log="/mnt/dados/treinamento/designer-tools/data-integration/executa_trans.log"
 
 ### WINDOWS:
 kitchen /rep:etl2000 /job:exercicio9_param_b "-param:VAR_DATA_INICIAL=2010-01-21 00:00:00" "-param:VAR_DATA_FINAL=2010-01-22 00:00:00" /dir: /level:Detailed /log:"C:\treinamento\design-tools\data-integration\executa_job.log"
