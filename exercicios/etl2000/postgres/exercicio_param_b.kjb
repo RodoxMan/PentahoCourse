@@ -3,15 +3,65 @@
   <description/>
   <extended_description/>
   <job_version/>
+  <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2019/09/09 16:28:07.034</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/09/09 16:36:15.277</modified_date>
+  <modified_date>2019/09/12 11:33:08.017</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>VAR_DATA_FINAL</name>
+      <default_value>20100121</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>VAR_DATA_INICIAL</name>
+      <default_value>20100122</default_value>
+      <description/>
+    </parameter>
+  </parameters>
   <slaveservers>
-    </slaveservers>
+    <slaveserver>
+      <name>Carte 8081</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Carte 8082</name>
+      <hostname>localhost</hostname>
+      <port>8082</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Carte 8084</name>
+      <hostname>localhost</hostname>
+      <port>8084</port>
+      <webAppName/>
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+  </slaveservers>
   <job-log-table>
     <connection/>
     <schema/>
@@ -337,17 +387,7 @@
       <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
       <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>VAR_DATA_INICIAL</name>
-          <stream_name/>
-          <value/>
-        </parameter>
-        <parameter>
-          <name>VAR_DATA_FINAL</name>
-          <stream_name/>
-          <value/>
-        </parameter>
+        <pass_all_parameters>N</pass_all_parameters>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
