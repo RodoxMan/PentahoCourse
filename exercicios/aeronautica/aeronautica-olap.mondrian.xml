@@ -1,0 +1,42 @@
+<Schema name="Acidente de Avioes">
+  <Dimension type="TimeDimension" visible="true" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="tempo_id" caption="Calend&#225;rio">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      </Level>
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesctempo" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Acidente de Avioes" caption="Acidentes de avi&#227;o" visible="true" cache="true" enabled="true">
+    <Table name="ft_acidentes" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Dados" caption="Tempo Dados" visible="true" foreignKey="tempo_id">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_aeronave" name="Aeronaves">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Aeronaves" primaryKey="id_aeronave">
+        <Table name="dim_aeronaves" schema="public">
+        </Table>
+        <Level name="Pais Fabricante" visible="true" column="pais_fabricante" type="String" uniqueMembers="false" levelType="Regular" caption="Pa&#237;s Fabricante">
+        </Level>
+        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Categoria" visible="true" column="categoria" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Categoria Operador" visible="true" column="categoria_operador" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Segmento" visible="true" column="segmento" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Dano" visible="true" column="dano" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Total de Fatalidades" column="total_fatalidades" datatype="Integer" formatString="#" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

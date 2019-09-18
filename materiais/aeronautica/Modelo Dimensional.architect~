@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.8">
+ <project-name>Modelo Dimensional</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="Modelo de Dados" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="580a3574-8fc4-4895-974d-736001235833" name="DIM_AERONAVE" objectType="TABLE" physicalName="DIM_AERONAVE" >
+   <remarks></remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="d6ae04a5-deae-43e4-9642-e582b59bf2f8" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_id_aeronave_seq" defaultValue="" name="id_aeronave" nullable="0" physicalName="id_aeronave" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="24b3a440-f413-4748-b98c-96289b40d638" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_codigo_ocorrencia_seq" defaultValue="" name="cod_ocorrencia" nullable="0" physicalName="codigo_ocorrencia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+     <remarks></remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="8baf9910-fca4-4de6-8a3d-fbe40867c524" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_tipo_veiculo_seq" defaultValue="" name="categoria" nullable="0" physicalName="aeronave_tipo_veiculo" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="2ea6fb50-1a00-4d65-8ab0-a876856079a6" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_operador_categoria_seq" defaultValue="" name="categoria_operador" nullable="0" physicalName="aeronave_operador_categoria" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="846d7da4-76a9-494d-a12c-e76ae6212db3" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_pais_fabricante_seq" defaultValue="" name="pais_fabricante" nullable="0" physicalName="aeronave_pais_fabricante" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL7" populated="true" UUID="de8223b1-bcd0-466b-a6b5-fe971f9d1662" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_fabricante_seq" defaultValue="" name="fabricante" nullable="0" physicalName="aeronave_fabricante" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL8" populated="true" UUID="589a4599-efd1-4cd6-9f33-b0507ffa12f4" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_registro_segmento_seq" defaultValue="" name="segmento" nullable="0" physicalName="aeronave_registro_segmento" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL9" populated="true" UUID="01aad3ae-79a0-40f1-9ebe-b9470601ae71" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_nivel_dano_seq" defaultValue="" name="dano" nullable="0" physicalName="aeronave_nivel_dano" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL10" populated="true" UUID="c1db5804-ee04-423c-b4a9-c9f816784c29" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_aeronave_modelo_seq" defaultValue="" name="modelo" nullable="0" physicalName="aeronave_modelo" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX11" populated="true" UUID="0afe2b13-4fe1-43f3-9232-9dcd63d0d2ad" clustered="false" name="id_aeronave" physicalName="id_aeronave" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC12" populated="true" UUID="77277561-04ad-457c-b1c9-8b9191a181f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="id_aeronave" physicalName="id_aeronave" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB13" populated="true" UUID="55e44938-45f5-45a2-9156-e1b0ac0040af" name="FT_ACIDENTES" objectType="TABLE" physicalName="oco" >
+   <remarks></remarks>
+   <folder id="FOLTAB131" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL14" populated="true" UUID="eabc282d-370c-4a33-bc4a-6143597043ee" autoIncrement="true" autoIncrementSequenceName="oco_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="2c7fc6e6-0b6a-40a6-a66b-b3f3c655c90b" autoIncrement="false" autoIncrementSequenceName="oco_tempo_id_seq" defaultValue="" name="tempo_id" nullable="0" physicalName="tempo_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="e0055ff4-a5c1-4851-9ca5-36cc9d5ea7ab" autoIncrement="false" autoIncrementSequenceName="oco_id_aeronave_seq" defaultValue="" name="id_aeronave" nullable="0" physicalName="id_aeronave" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="4a1200f0-4290-405f-8fa8-8b54b789dde6" autoIncrement="false" autoIncrementSequenceName="oco_id_fator_contribuinte_seq" defaultValue="" name="id_fator_contribuinte" nullable="0" physicalName="id_fator_contribuinte" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL18" populated="true" UUID="fe703086-f95b-4f9a-b1e1-d46a8962edec" autoIncrement="false" autoIncrementSequenceName="oco_id_ocorrencia_seq" defaultValue="" name="id_ocorrencia" nullable="0" physicalName="id_ocorrencia" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="82e5080d-4c3d-4215-9c27-fa2bd50ae0fe" autoIncrement="false" autoIncrementSequenceName="oco_total_fatalidades_seq" defaultValue="" name="total_fatalidades" nullable="0" physicalName="total_fatalidades" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="a3b0671f-f17f-4367-b8df-86e919680676" autoIncrement="false" autoIncrementSequenceName="oco_total_aeronaves_envolvidas_seq" defaultValue="" name="total_aeronaves_envolvidas" nullable="0" physicalName="total_aeronaves_envolvidas" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB133" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB132" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB134" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX21" populated="true" UUID="b8a6eadb-54fb-48ff-b2d5-2e614997d022" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC22" populated="true" UUID="8cb69ebb-989e-4da2-bd67-9db089918e4a" ascendingOrDescending="UNSPECIFIED" column-ref="COL14" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB23" populated="true" UUID="f06968d1-c3c7-451a-af2a-4bb3cf2b95a3" name="DIM_OCORRENCIA" objectType="TABLE" physicalName="oco" >
+   <remarks></remarks>
+   <folder id="FOLTAB231" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL24" populated="true" UUID="ad4b4639-4930-4706-8ce1-0684662873a2" autoIncrement="false" autoIncrementSequenceName="oco_id_ocorrencia_seq" defaultValue="" name="id_ocorrencia" nullable="0" physicalName="id_ocorrencia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL25" populated="true" UUID="ecfda42a-1cb7-4c95-b778-5129afa33e24" autoIncrement="false" autoIncrementSequenceName="oco_codigo_ocorrencia_seq" defaultValue="" name="cod_ocorrencia" nullable="0" physicalName="codigo_ocorrencia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+     <remarks></remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="0d378f84-d375-44e4-883e-cb9b5d9c2908" autoIncrement="false" autoIncrementSequenceName="oco_ocorrencia_cassificacao_seq" defaultValue="" name="classificacao" nullable="0" physicalName="ocorrencia_cassificacao" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL27" populated="true" UUID="16ff8987-d5e3-4b1e-ab38-eac4ac42e56c" autoIncrement="false" autoIncrementSequenceName="oco_ocorrencia_tipo_seq" defaultValue="" name="tipo" nullable="0" physicalName="ocorrencia_tipo" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL28" populated="true" UUID="d8cf70db-6be7-47b0-a743-4ab21d806858" autoIncrement="false" autoIncrementSequenceName="oco_ocorrencia_uf_seq" defaultValue="" name="estado" nullable="0" physicalName="ocorrencia_uf" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL29" populated="true" UUID="7f3615df-5f19-4880-86e2-a4d3787332f8" autoIncrement="false" autoIncrementSequenceName="oco_ocorrencia_cidade_seq" defaultValue="" name="cidade" nullable="0" physicalName="ocorrencia_cidade" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL30" populated="true" UUID="20d2a311-f1fc-442b-b011-61938c72beed" autoIncrement="false" autoIncrementSequenceName="oco_ocorrencia_dia_seq" defaultValue="" name="data_ocorrencia" nullable="0" physicalName="ocorrencia_dia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB233" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB232" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB234" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX31" populated="true" UUID="1297e3c9-6b2f-43dc-9cdd-841a426b4e03" clustered="false" name="id_ocorrencia" physicalName="id_ocorrencia" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC32" populated="true" UUID="b8239879-89df-4ebc-ac99-c43c7656a02d" ascendingOrDescending="UNSPECIFIED" column-ref="COL24" name="id_ocorrencia" physicalName="id_ocorrencia" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB33" populated="true" UUID="b39f78a8-51ad-4529-81e4-be19780d0245" name="DIM_FATOR_CONTRIBUINTE" objectType="TABLE" physicalName="ftc" >
+   <remarks></remarks>
+   <folder id="FOLTAB331" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL34" populated="true" UUID="4d89e793-bb0c-4062-930d-01e8a4176636" autoIncrement="false" autoIncrementSequenceName="ftc_id_fator_contribuinte_seq" defaultValue="" name="id_fator_contribuinte" nullable="0" physicalName="id_fator_contribuinte" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL35" populated="true" UUID="1af5951e-1f2c-46e0-9ecc-7e1f5c7964ba" autoIncrement="false" autoIncrementSequenceName="DIM_AERONAVE_codigo_ocorrencia_seq" defaultValue="" name="cod_ocorrencia" nullable="0" physicalName="codigo_ocorrencia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+     <remarks></remarks>
+    </column>
+    <column id="COL36" populated="true" UUID="ca9356a5-0fbe-460e-8395-6ccb037a4602" autoIncrement="false" autoIncrementSequenceName="ftc_fator_area_seq" defaultValue="" name="area" nullable="0" physicalName="fator_area" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL37" populated="true" UUID="e84b8e75-68ad-4b82-bb10-15a8cb806c27" autoIncrement="false" autoIncrementSequenceName="ftc_fator_nome_seq" defaultValue="" name="nome_fator" nullable="0" physicalName="fator_nome" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="323081c9-0bbc-4579-9b18-f0f95c495488" autoIncrement="false" autoIncrementSequenceName="ftc_fator_aspecto_seq" defaultValue="" name="aspecto" nullable="0" physicalName="fator_aspecto" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB333" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB332" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB334" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX39" populated="true" UUID="048835a9-d54e-40fb-bfe3-ba35f0693a41" clustered="false" name="id_fator_contribuinte" physicalName="id_fator_contribuinte" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC40" populated="true" UUID="f5876298-b280-4c23-9805-2538722e7d4c" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="id_fator_contribuinte" physicalName="id_fator_contribuinte" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB41" populated="true" UUID="330fa749-4dbb-4552-b4c9-9eaa759e71ba" name="dim_tempo" objectType="TABLE" physicalName="dim_tempo" >
+   <remarks></remarks>
+   <folder id="FOLTAB411" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL42" populated="true" UUID="00f2badf-8c99-4431-820d-c83e3d1f6fa0" autoIncrement="true" autoIncrementSequenceName="dim_tempo_tempo_id_seq" defaultValue="" name="tempo_id" nullable="0" physicalName="tempo_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL43" populated="true" UUID="a173aa4d-3087-4a82-96f8-852de55ba67a" autoIncrement="false" autoIncrementSequenceName="dim_tempo_data_tempo_seq" defaultValue="" name="data_tempo" nullable="0" physicalName="data_tempo" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL44" populated="true" UUID="78c91238-48b1-4130-b7d3-108fac96df49" autoIncrement="false" autoIncrementSequenceName="dim_tempo_ano_seq" defaultValue="" name="ano" nullable="0" physicalName="ano" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL45" populated="true" UUID="34eba30d-5411-4ba9-9d3f-9839fd440b6b" autoIncrement="false" autoIncrementSequenceName="dim_tempo_mes_seq" defaultValue="" name="mes" nullable="0" physicalName="mes" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL46" populated="true" UUID="965a8761-987a-44f3-a536-bfdbbce4d485" autoIncrement="false" autoIncrementSequenceName="dim_tempo_dia_seq" defaultValue="" name="dia" nullable="0" physicalName="dia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL47" populated="true" UUID="f92d5e2a-eebb-4ee0-bd71-1c598b6fa4a1" autoIncrement="false" autoIncrementSequenceName="dim_tempo_diames_seq" defaultValue="" name="diames" nullable="0" physicalName="diames" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL48" populated="true" UUID="69aee141-8fdb-4227-bda4-67a2670ecd97" autoIncrement="false" autoIncrementSequenceName="dim_tempo_mesdesctempo_seq" defaultValue="" name="mesdesctempo" nullable="0" physicalName="mesdesctempo" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL49" populated="true" UUID="cd11c9d5-35f9-4cc2-b383-71a03a1cd386" autoIncrement="false" autoIncrementSequenceName="dim_tempo_mesdescabrvtempo_seq" defaultValue="" name="mesdescabrvtempo" nullable="0" physicalName="mesdescabrvtempo" precision="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL50" populated="true" UUID="301b8070-455c-403f-990f-c82b269bffb5" autoIncrement="false" autoIncrementSequenceName="oco_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB413" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB412" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB414" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX51" populated="true" UUID="be612b86-b2a3-4ed4-98d4-fd0693d48250" clustered="false" name="tempo_id" physicalName="tempo_id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC52" populated="true" UUID="c3e9f4b0-e3ff-41c8-adc5-629cd5f2c381" ascendingOrDescending="UNSPECIFIED" column-ref="COL42" name="tempo_id" physicalName="tempo_id" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL53" populated="true" UUID="3e729422-764d-41ea-b825-e5d9f6d26170" deferrability="7" deleteRule="3" fk-table-ref="TAB13" fkCardinality="7" identifying="false" name="DM_AERONAVE_oco_fk" physicalName="DM_AERONAVE_oco_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP54" populated="true" UUID="cb6e9ed1-40a8-4a4b-8441-3e641ccdb6e1" fk-column-ref="COL16" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL55" populated="true" UUID="b4efc6f8-71a4-4b8b-8443-49821b905394" deferrability="7" deleteRule="3" fk-table-ref="TAB41" fkCardinality="7" identifying="false" name="oco_dim_tempo_fk" physicalName="oco_dim_tempo_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP56" populated="true" UUID="fcdf0447-2c73-48a7-af37-8037a4c4572f" fk-column-ref="COL50" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
+   </relationship>
+   <relationship id="REL57" populated="true" UUID="794c3bc8-5443-4cab-8e6e-f16efcbfab55" deferrability="7" deleteRule="3" fk-table-ref="TAB13" fkCardinality="7" identifying="false" name="oco_oco_fk" physicalName="oco_oco_fk" pk-table-ref="TAB23" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP58" populated="true" UUID="ee45dfbc-6c90-4f3a-821a-fab928c61402" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL24" />
+   </relationship>
+   <relationship id="REL59" populated="true" UUID="a0cb48bb-c303-450d-88ee-96e0df130543" deferrability="7" deleteRule="3" fk-table-ref="TAB13" fkCardinality="7" identifying="false" name="ftc_oco_fk" physicalName="ftc_oco_fk" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP60" populated="true" UUID="d6ed5af7-4169-4c7b-9bdf-e5e48a7b9a36" fk-column-ref="COL17" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="127" y="119" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB13" x="588" y="367" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB23" x="1106" y="127" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB33" x="202" y="551" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB41" x="1109" y="544" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL53" pkConnection="0.92" fkConnection="0.0" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="129"/>
+  <table-link relationship-ref="REL59" pkConnection="0.8360655737704918" fkConnection="0.05211726384364821" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL57" pkConnection="0.09615384615384616" fkConnection="0.8892508143322475" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL55" pkConnection="0.9111111111111111" fkConnection="0.15333333333333332" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
