@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>transformacao_dim_ocrrencia</name>
+    <name>transformacao_dim_aeronaves</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -426,9 +426,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2019/09/18 07:53:23.857</created_date>
+    <created_date>2019/09/17 15:07:53.208</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/09/19 16:52:23.749</modified_date>
+    <modified_date>2019/09/19 16:18:39.486</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -544,6 +544,82 @@
     </hop>
   </order>
   <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>2</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>aeronautica</connection>
+    <schema>public</schema>
+    <table>dim_aeronaves</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>cod_aeronave</column_name>
+        <stream_name>cod_aeronave</stream_name>
+      </field>
+      <field>
+        <column_name>categoria</column_name>
+        <stream_name>categoria</stream_name>
+      </field>
+      <field>
+        <column_name>categoria_operador</column_name>
+        <stream_name>categoria_operador</stream_name>
+      </field>
+      <field>
+        <column_name>pais_fabricante</column_name>
+        <stream_name>pais_fabricante</stream_name>
+      </field>
+      <field>
+        <column_name>segmento</column_name>
+        <stream_name>segmento</stream_name>
+      </field>
+      <field>
+        <column_name>dano</column_name>
+        <stream_name>dano</stream_name>
+      </field>
+      <field>
+        <column_name>modelo</column_name>
+        <stream_name>modelo</stream_name>
+      </field>
+      <field>
+        <column_name>fabricante</column_name>
+        <stream_name>fabricante</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
@@ -555,9 +631,9 @@
       <schema_name/>
     </partitioning>
     <connection>aeronautica-oltp</connection>
-    <sql>SELECT codigo_ocorrencia,classificacao,tipo,estado,cidade,data_ocorrencia
-FROM stg_ocorrencias
-</sql>
+    <sql>SELECT cod_aeronave,categoria,categoria_operador,
+pais_fabricante,fabricante,segmento,dano,modelo
+FROM stg_aeronaves</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -568,11 +644,11 @@ FROM stg_ocorrencias
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>codigo_ocorrencia</name>
-        <length>15</length>
+        <name>cod_aeronave</name>
+        <length>9</length>
         <precision>0</precision>
         <origin>Table input</origin>
-        <comments>codigo_ocorrencia</comments>
+        <comments>cod_aeronave</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -591,11 +667,11 @@ FROM stg_ocorrencias
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>classificacao</name>
+        <name>categoria</name>
         <length>50</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>classificacao</comments>
+        <comments>categoria</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -614,57 +690,11 @@ FROM stg_ocorrencias
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>tipo</name>
-        <length>100</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>tipo</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>estado</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>estado</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>cidade</name>
+        <name>categoria_operador</name>
         <length>50</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>cidade</comments>
+        <comments>categoria_operador</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -681,13 +711,105 @@ FROM stg_ocorrencias
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>data_ocorrencia</name>
-        <length>-1</length>
+        <name>pais_fabricante</name>
+        <length>50</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>data_ocorrencia</comments>
+        <comments>pais_fabricante</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>fabricante</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>fabricante</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>segmento</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>segmento</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>dano</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>dano</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>modelo</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>modelo</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -713,76 +835,8 @@ FROM stg_ocorrencias
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>2</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>aeronautica</connection>
-    <schema/>
-    <table>dim_ocorrencia</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>classificacao</column_name>
-        <stream_name>classificacao</stream_name>
-      </field>
-      <field>
-        <column_name>tipo</column_name>
-        <stream_name>tipo</stream_name>
-      </field>
-      <field>
-        <column_name>estado</column_name>
-        <stream_name>estado</stream_name>
-      </field>
-      <field>
-        <column_name>cidade</column_name>
-        <stream_name>cidade</stream_name>
-      </field>
-      <field>
-        <column_name>data_ocorrencia</column_name>
-        <stream_name>data_ocorrencia</stream_name>
-      </field>
-      <field>
-        <column_name>cod_ocorrencia</column_name>
-        <stream_name>codigo_ocorrencia</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>288</yloc>
+      <xloc>368</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
