@@ -20,11 +20,11 @@
       <Hierarchy name="Categorias" visible="true" hasAll="true" allMemberName="Todas as Categorias" primaryKey="id_aeronave">
         <Table name="dim_aeronaves" schema="public">
         </Table>
-        <Level name="Tipo Aeronave" visible="true" column="categoria" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Tipo Aeronave" visible="true" column="categoria" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
       <Hierarchy name="Categoria Operador" visible="true" hasAll="true" allMemberName="Todas as Categoria Operador" primaryKey="id_aeronave">
@@ -32,19 +32,49 @@
         </Table>
         <Level name="Tipo Operador" visible="true" column="categoria_operador" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
       <Hierarchy name="Segmento Aeronave" visible="true" hasAll="true" allMemberName="Todos os Segmentos" primaryKey="id_aeronave">
         <Table name="dim_aeronaves" schema="public">
         </Table>
-        <Level name="Segmento" visible="true" column="segmento" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="Segmento" visible="true" column="segmento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" name="Occurrences" caption="Occurrences">
+      <Hierarchy name="Tipo Ocorrencia" visible="false" hasAll="true" allMemberName="Todas as Ocorrencias" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencia" schema="public">
+        </Table>
+        <Level name="Classificacao" visible="true" column="classificacao" type="String" uniqueMembers="false" levelType="Regular" caption="Classifica&#231;&#227;o">
+        </Level>
+        <Level name="Tipo" visible="true" column="tipo" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Region" visible="true" hasAll="true" allMemberName="Todas as Regioes" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencia" schema="public">
+        </Table>
+        <Level name="State" visible="true" column="estado" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="City" visible="true" column="cidade" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_fator_contribuinte" name="Fatores Contribuintes">
+      <Hierarchy name="Fatores" visible="true" hasAll="true" allMemberName="Todos os Fatores" primaryKey="id_fator_contribuinte">
+        <Table name="dim_fator_contribuinte" schema="public">
+        </Table>
+        <Level name="Area" visible="true" column="fator_area" type="String" uniqueMembers="false" levelType="Regular" caption="&#193;rea">
+        </Level>
+        <Level name="Aspecto" visible="true" column="fator_aspecto" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Nome" visible="true" column="fator_nome" type="String" uniqueMembers="false" levelType="Regular">
         </Level>
       </Hierarchy>
     </Dimension>
