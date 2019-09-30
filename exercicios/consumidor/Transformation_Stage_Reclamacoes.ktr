@@ -428,8 +428,8 @@
     <created_user>-</created_user>
     <created_date>2019/09/27 11:49:04.364</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/09/27 14:38:07.350</modified_date>
-    <key_for_session_key/>
+    <modified_date>2019/09/30 11:32:21.086</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -532,16 +532,133 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>If field value is null</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>If field value is null</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>linorigem</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Origem 2017</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>linorigem</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Origem 2018</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants 3</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>linorigem</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Origem 2018</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Consumidor 2017</name>
     <type>CsvInput</type>
@@ -998,76 +1115,6 @@
     <GUI>
       <xloc>176</xloc>
       <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get system info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>lindata</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>linorigem</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Origem 2017</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>176</xloc>
-      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1531,76 +1578,6 @@
     </GUI>
   </step>
   <step>
-    <name>Get system info 2</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>lindata</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add constants 2</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>linorigem</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Origem 2018</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Consumidor 2018 - 2 Semestre</name>
     <type>CsvInput</type>
     <description/>
@@ -2060,6 +2037,68 @@
     </GUI>
   </step>
   <step>
+    <name>Get system info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>lindata</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get system info 2</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>lindata</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Get system info 3</name>
     <type>SystemInfo</type>
     <description/>
@@ -2091,27 +2130,34 @@
     </GUI>
   </step>
   <step>
-    <name>Add constants 3</name>
-    <type>Constant</type>
+    <name>If field value is null</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>1</copies>
+    <copies>3</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
       <field>
-        <name>linorigem</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Origem 2018</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
+        <name>Nota do Consumidor</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Data Resposta</name>
+        <value>01/01/1900</value>
+        <mask>dd/MM/yyyy</mask>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
@@ -2124,8 +2170,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>256</yloc>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2142,6 +2188,10 @@
     </partitioning>
     <fields>
       <field>
+        <name>Canal de Origem</name>
+        <rename/>
+      </field>
+      <field>
         <name>Data Abertura</name>
         <rename/>
       </field>
@@ -2151,18 +2201,6 @@
       </field>
       <field>
         <name>Nota do Consumidor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Gestor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>lindata</name>
-        <rename/>
-      </field>
-      <field>
-        <name>linorigem</name>
         <rename/>
       </field>
       <field>
@@ -2190,6 +2228,14 @@
         <rename/>
       </field>
       <field>
+        <name>Área</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Assunto</name>
+        <rename/>
+      </field>
+      <field>
         <name>Nome Fantasia</name>
         <rename/>
       </field>
@@ -2202,7 +2248,15 @@
         <rename/>
       </field>
       <field>
-        <name>Assunto</name>
+        <name>lindata</name>
+        <rename/>
+      </field>
+      <field>
+        <name>linorigem</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Total</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -2216,47 +2270,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>3</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>Nota do Consumidor</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
+      <xloc>640</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2291,6 +2305,10 @@
     <return_field/>
     <fields>
       <field>
+        <column_name>canal_origem</column_name>
+        <stream_name>Canal de Origem</stream_name>
+      </field>
+      <field>
         <column_name>data_abertura</column_name>
         <stream_name>Data Abertura</stream_name>
       </field>
@@ -2301,18 +2319,6 @@
       <field>
         <column_name>nota_reclamacao</column_name>
         <stream_name>Nota do Consumidor</stream_name>
-      </field>
-      <field>
-        <column_name>gestor</column_name>
-        <stream_name>Gestor</stream_name>
-      </field>
-      <field>
-        <column_name>lindata</column_name>
-        <stream_name>lindata</stream_name>
-      </field>
-      <field>
-        <column_name>linorigem</column_name>
-        <stream_name>linorigem</stream_name>
       </field>
       <field>
         <column_name>regiao</column_name>
@@ -2339,6 +2345,14 @@
         <stream_name>Segmento de Mercado</stream_name>
       </field>
       <field>
+        <column_name>area</column_name>
+        <stream_name>Área</stream_name>
+      </field>
+      <field>
+        <column_name>assunto</column_name>
+        <stream_name>Assunto</stream_name>
+      </field>
+      <field>
         <column_name>nome_fantasia</column_name>
         <stream_name>Nome Fantasia</stream_name>
       </field>
@@ -2351,8 +2365,16 @@
         <stream_name>Problema</stream_name>
       </field>
       <field>
-        <column_name>assunto</column_name>
-        <stream_name>Assunto</stream_name>
+        <column_name>lindata</column_name>
+        <stream_name>lindata</stream_name>
+      </field>
+      <field>
+        <column_name>linorigem</column_name>
+        <stream_name>linorigem</stream_name>
+      </field>
+      <field>
+        <column_name>total</column_name>
+        <stream_name>Total</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -2364,7 +2386,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>808</xloc>
+      <xloc>912</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2372,7 +2394,7 @@
   <step_error_handling>
     <error>
       <source_step>Table output</source_step>
-      <target_step>Text file output</target_step>
+      <target_step/>
       <is_enabled>N</is_enabled>
       <nr_valuename/>
       <descriptions_valuename/>
