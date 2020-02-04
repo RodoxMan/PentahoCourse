@@ -1,0 +1,78 @@
+<Schema name="Crimes em MG">
+  <Dimension type="TimeDimension" visible="true" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os Calendarios" allMemberCaption="Todos os Calend&#225;rios" primaryKey="tempo_id">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      </Level>
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesc" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Crimes em MG" visible="true" cache="true" enabled="true">
+    <Table name="ft_crimes" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Crime" visible="true" foreignKey="tempo_id">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" name="Ocorrencias" caption="Ocorr&#234;ncias">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Ocorrencias" allMemberCaption="Todas as Ocorr&#234;ncias" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="Municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" caption="Munic&#237;pio">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Natureza Crime">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Naturezas" allMemberCaption="Todas as Naturezas">
+        <Level name="Natureza" visible="true" column="natureza" type="String" uniqueMembers="false" levelType="Regular">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case natureza
+   When 1 Then 'Estupro Consumado'
+   When 2 Then 'Estupro de Vulnerável Consumado'
+   When 3 Then 'Estupro de Vulnerável Tentado'
+   When 4 Then 'Estupro Tentado'
+   When 5 Then 'Extorsão Consumado'
+   When 6 Then 'Extorsão Mediante Sequestro Consumado'
+   When 7 Then 'Furto Consumado'
+   When 8 Then 'Homicídio Consumado (Registros)'
+   When 9 Then 'Homicídio Tentado'
+   When 10 Then 'Lesão Corporal Consumado'
+   When 11 Then 'Roubo'
+   When 12 Then 'Roubo Consumado'
+   When 13 Then 'Sequestro e Cárcere Privado Consumado'
+   When 14 Then 'Vítima de Homicídio Consumado'
+Else 'N/A'
+END]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="Alvo Crime">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Alvos">
+        <Level name="Alvo" visible="true" column="alvo" type="String" uniqueMembers="false" levelType="Regular">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[CASE alvo
+   When 1 Then 'Cargas'
+   When 2 Then 'Estabelecimento Comercial'
+   When 3 Then 'Pessoas'
+   When 4 Then 'Residência'
+   When 5 Then 'Transeunte'
+   When 6 Then 'Transporte Coletivo'
+   When 7 Then 'Veículos'
+Else 'N/A'
+END
+]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="quantidade" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

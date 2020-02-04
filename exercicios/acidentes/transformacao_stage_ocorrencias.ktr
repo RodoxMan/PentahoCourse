@@ -428,7 +428,11 @@
     <created_user>-</created_user>
     <created_date>2019/09/24 13:50:37.911</created_date>
     <modified_user>-</modified_user>
+<<<<<<< HEAD
+    <modified_date>2019/10/07 12:59:29.924</modified_date>
+=======
     <modified_date>2019/09/27 09:03:28.027</modified_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -487,6 +491,8 @@
   </connection>
   <order>
     <hop>
+<<<<<<< HEAD
+=======
       <from>Microsoft Excel input</from>
       <to>BR</to>
       <enabled>Y</enabled>
@@ -497,6 +503,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <from>Tipo Pista</from>
       <to>Tracado Via</to>
       <enabled>Y</enabled>
@@ -526,6 +533,44 @@
       <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
+<<<<<<< HEAD
+    <hop>
+      <from>Classificacao Acidente</from>
+      <to>Tipo Acidente</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BR</from>
+      <to>Classificacao Acidente</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel input</from>
+      <to>Classificacao Acid</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Classificacao Acid</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>BR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Tipo Acidente</from>
+      <to>Causa Acidente</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Causa Acidente</from>
+      <to>Tipo Pista</to>
+      <enabled>Y</enabled>
+    </hop>
+=======
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
   </order>
   <step>
     <name>BR</name>
@@ -556,8 +601,269 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>384</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Causa Acidente</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>causa_acidente</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>animais na pista</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>avaria no pneu</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>carga mal acondicionada</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>condutor dormindo</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>defeito mecânico no veículo</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>defeito na via</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>deficiência ou não acionamento do sistema de iluminação/sinalização do veículo</source_value>
+        <target_value>7</target_value>
+      </field>
+      <field>
+        <source_value>desobediência à sinalização</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>dormindo</source_value>
+        <target_value>9</target_value>
+      </field>
+      <field>
+        <source_value>falta de atenção</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>falta de atenção à condução</source_value>
+        <target_value>11</target_value>
+      </field>
+      <field>
+        <source_value>falta de atenção do pedestre</source_value>
+        <target_value>12</target_value>
+      </field>
+      <field>
+        <source_value>fenômenos da natureza</source_value>
+        <target_value>13</target_value>
+      </field>
+      <field>
+        <source_value>ingestão de álcool</source_value>
+        <target_value>14</target_value>
+      </field>
+      <field>
+        <source_value>ingestão de substâncias psicoativas</source_value>
+        <target_value>15</target_value>
+      </field>
+      <field>
+        <source_value>mal súbito</source_value>
+        <target_value>16</target_value>
+      </field>
+      <field>
+        <source_value>não guardar distância de segurança</source_value>
+        <target_value>17</target_value>
+      </field>
+      <field>
+        <source_value>obstáculo estático sobre a via</source_value>
+        <target_value>18</target_value>
+      </field>
+      <field>
+        <source_value>outras</source_value>
+        <target_value>19</target_value>
+      </field>
+      <field>
+        <source_value>pista escorregadia</source_value>
+        <target_value>20</target_value>
+      </field>
+      <field>
+        <source_value>restrição de visibilidade</source_value>
+        <target_value>21</target_value>
+      </field>
+      <field>
+        <source_value>sinalização da via insuficiente ou inadequada</source_value>
+        <target_value>22</target_value>
+      </field>
+      <field>
+        <source_value>ultrapassagem indevida</source_value>
+        <target_value>23</target_value>
+      </field>
+      <field>
+        <source_value>velocidade incompatível</source_value>
+        <target_value>24</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Classificacao Acid</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>classificacao_acidente</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipo_acidente</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>causa_acidente</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipo_pista</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tracado_via</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>fase_dia</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>condicao_metereologica</name>
+        <value>n/a</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Classificacao Acidente</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>classificacao_acidente</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>com vítimas fatais</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>com vítimas feridas</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>ignorado</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>n/a</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>sem vítimas</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>(null)</source_value>
+        <target_value>4</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>400</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -577,6 +883,55 @@
     <non_match_default/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <source_value>céu claro</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>chuva</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>garoa/chuvisco</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>granizo</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>ignorado</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>n/a</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>neve</source_value>
+        <target_value>7</target_value>
+      </field>
+      <field>
+        <source_value>nevoeiro/neblina</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>nublado</source_value>
+        <target_value>9</target_value>
+      </field>
+      <field>
+        <source_value>sol</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>vento</source_value>
+        <target_value>11</target_value>
+      </field>
+      <field>
+        <source_value>(null)</source_value>
+        <target_value>6</target_value>
+      </field>
+=======
         <source_value>Chuva</source_value>
         <target_value>1</target_value>
       </field>
@@ -616,6 +971,7 @@
         <source_value>Vento</source_value>
         <target_value>10</target_value>
       </field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -626,8 +982,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>880</xloc>
+      <yloc>256</yloc>
+=======
       <xloc>768</xloc>
       <yloc>96</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -647,6 +1008,31 @@
     <non_match_default/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <source_value>amanhecer</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>anoitecer</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>n/a</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>plena noite</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>pleno dia</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>(null)</source_value>
+        <target_value>3</target_value>
+      </field>
+=======
         <source_value>Amanhecer</source_value>
         <target_value>1</target_value>
       </field>
@@ -662,6 +1048,7 @@
         <source_value>Pleno dia</source_value>
         <target_value>4</target_value>
       </field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -672,8 +1059,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>880</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>768</xloc>
       <yloc>256</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -704,7 +1096,11 @@
     <accept_field/>
     <accept_stepname/>
     <file>
+<<<<<<< HEAD
+      <name>/mnt/dados/treinamento/materiais/acidentes/Datatran 2017 por UF por BR e por Km.xlsx</name>
+=======
       <name>/home/rodolfo/Documentos/Dados Publicos/Datatran 2017 por UF por BR e por Km.xlsx</name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1071,8 +1467,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>64</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>200</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1089,6 +1490,74 @@
     </partitioning>
     <fields>
       <field>
+<<<<<<< HEAD
+        <name>data_inversa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>uf</name>
+        <rename/>
+      </field>
+      <field>
+        <name>municipio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>br</name>
+        <rename/>
+      </field>
+      <field>
+        <name>classificacao_acidente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipo_acidente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>causa_acidente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipo_pista</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tracado_via</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fase_dia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>condicao_metereologica</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pessoas</name>
+        <rename/>
+      </field>
+      <field>
+        <name>mortos</name>
+        <rename/>
+      </field>
+      <field>
+        <name>feridos_leves</name>
+        <rename/>
+      </field>
+      <field>
+        <name>feridos_graves</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ilesos</name>
+        <rename/>
+      </field>
+      <field>
+        <name>veiculos</name>
+        <rename/>
+=======
         <name>id</name>
       </field>
       <field>
@@ -1141,6 +1610,7 @@
       </field>
       <field>
         <name>veiculos</name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1228,6 +1698,60 @@
         <currency_symbol/>
         <storage_type/>
       </meta>
+<<<<<<< HEAD
+      <meta>
+        <name>classificacao_acidente</name>
+        <rename>classificacao_acidente</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>tipo_acidente</name>
+        <rename>tipo_acidente</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>causa_acidente</name>
+        <rename>causa_acidente</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+=======
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1238,8 +1762,131 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>1040</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>classificacao_acidente</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>tipo_acidente</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>causa_acidente</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>tipo_pista</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>tracado_via</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>fase_dia</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>condicao_metereologica</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>240</yloc>
+=======
       <xloc>976</xloc>
       <yloc>96</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1273,6 +1920,34 @@
     <return_field/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <column_name>data_ocorrencia</column_name>
+        <stream_name>data_inversa</stream_name>
+      </field>
+      <field>
+        <column_name>uf</column_name>
+        <stream_name>uf</stream_name>
+      </field>
+      <field>
+        <column_name>municipio</column_name>
+        <stream_name>municipio</stream_name>
+      </field>
+      <field>
+        <column_name>br</column_name>
+        <stream_name>br</stream_name>
+      </field>
+      <field>
+        <column_name>classificacao_acidente</column_name>
+        <stream_name>classificacao_acidente</stream_name>
+      </field>
+      <field>
+        <column_name>tipo_acidente</column_name>
+        <stream_name>tipo_acidente</stream_name>
+      </field>
+      <field>
+        <column_name>causa_acidente</column_name>
+        <stream_name>causa_acidente</stream_name>
+=======
         <column_name>cod_ocorrencia</column_name>
         <stream_name>id</stream_name>
       </field>
@@ -1299,6 +1974,7 @@
       <field>
         <column_name>municipio</column_name>
         <stream_name>municipio</stream_name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
       <field>
         <column_name>tipo_pista</column_name>
@@ -1317,10 +1993,13 @@
         <stream_name>condicao_metereologica</stream_name>
       </field>
       <field>
+<<<<<<< HEAD
+=======
         <column_name>br</column_name>
         <stream_name>br</stream_name>
       </field>
       <field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <column_name>pessoas</column_name>
         <stream_name>pessoas</stream_name>
       </field>
@@ -1354,7 +2033,11 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>1040</xloc>
+=======
       <xloc>1152</xloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1391,7 +2074,11 @@
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
+<<<<<<< HEAD
+      <add_date>Y</add_date>
+=======
       <add_date>N</add_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -1402,6 +2089,8 @@
     </file>
     <fields>
       <field>
+<<<<<<< HEAD
+=======
         <name>id</name>
         <type>Integer</type>
         <format/>
@@ -1414,6 +2103,7 @@
         <precision>0</precision>
       </field>
       <field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <name>classificacao_acidente</name>
         <type>String</type>
         <format/>
@@ -1663,8 +2353,119 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>1184</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tipo Acidente</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>tipo_acidente</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>atropelamento de animal</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>atropelamento de pedestre</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>capotamento</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>colisão com bicicleta</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>colisão com objeto em movimento</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>colisão com objeto estático</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>colisão frontal</source_value>
+        <target_value>7</target_value>
+      </field>
+      <field>
+        <source_value>colisão lateral</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>colisão transversal</source_value>
+        <target_value>9</target_value>
+      </field>
+      <field>
+        <source_value>colisão traseira</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>danos eventuais</source_value>
+        <target_value>11</target_value>
+      </field>
+      <field>
+        <source_value>derramamento de carga</source_value>
+        <target_value>12</target_value>
+      </field>
+      <field>
+        <source_value>engavetamento</source_value>
+        <target_value>13</target_value>
+      </field>
+      <field>
+        <source_value>incêndio</source_value>
+        <target_value>14</target_value>
+      </field>
+      <field>
+        <source_value>queda de motocicleta / bicicleta / veículo</source_value>
+        <target_value>15</target_value>
+      </field>
+      <field>
+        <source_value>queda de ocupante de veículo</source_value>
+        <target_value>16</target_value>
+      </field>
+      <field>
+        <source_value>saída de leito carroçável</source_value>
+        <target_value>17</target_value>
+      </field>
+      <field>
+        <source_value>saída de pista</source_value>
+        <target_value>18</target_value>
+      </field>
+      <field>
+        <source_value>tombamento</source_value>
+        <target_value>19</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>1152</xloc>
       <yloc>240</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1684,6 +2485,27 @@
     <non_match_default/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <source_value>dupla</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>múltipla</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>simples</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>n/a</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>(null)</source_value>
+        <target_value>4</target_value>
+      </field>
+=======
         <source_value>Dupla</source_value>
         <target_value>1</target_value>
       </field>
@@ -1695,6 +2517,7 @@
         <source_value>Simples</source_value>
         <target_value>3</target_value>
       </field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1705,8 +2528,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>704</xloc>
+      <yloc>240</yloc>
+=======
       <xloc>400</xloc>
       <yloc>256</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1726,6 +2554,59 @@
     <non_match_default/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <source_value>cruzamento</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>curva</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>desvio temporário</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>interseção de vias</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>n/a</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>reta</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>retorno regulamentado</source_value>
+        <target_value>7</target_value>
+      </field>
+      <field>
+        <source_value>rotatória</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>túnel</source_value>
+        <target_value>9</target_value>
+      </field>
+      <field>
+        <source_value>viaduto</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>(null)</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>ponte</source_value>
+        <target_value>11</target_value>
+      </field>
+      <field>
+        <source_value>não informado</source_value>
+        <target_value>5</target_value>
+      </field>
+=======
         <source_value>Curva</source_value>
         <target_value>1</target_value>
       </field>
@@ -1765,6 +2646,7 @@
         <source_value>Viaduto</source_value>
         <target_value>10</target_value>
       </field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1775,8 +2657,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>704</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>600</xloc>
       <yloc>256</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,0 +1,78 @@
+<Schema name="Reclamacao de Consumidores - 2017 a 2018" measuresCaption="Reclamacao de Consumidores - 2017 &#224; 2018">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os Calendarios" allMemberCaption="Todos os Calend&#225;rios" primaryKey="tempo_id">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesc" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Semana" visible="true" hasAll="true" allMemberName="Todas as Semanas" primaryKey="tempo_id">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Semana" visible="true" column="diasemana" nameColumn="diasemanadesc" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Reclamacao de Consumidores - 2017 a 2018" visible="true" description="Reclama&#231;&#227;o de Consumidores - 2017 &#224; 2018" cache="true" enabled="true">
+    <Table name="ft_reclamacoes" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Abertura" caption="Tempo Abertura" visible="true" foreignKey="tempo_id_abertura" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Tempo" name="Tempo Resposta" caption="Tempo Resposta" visible="true" foreignKey="tempo_id_resposta" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_consumidor" highCardinality="false" name="Consumidor">
+      <Hierarchy name="Localizacao" visible="true" hasAll="true" allMemberName="Todas as Localizacoes" allMemberCaption="Todas as Localiza&#231;&#245;es" primaryKey="id_consumidor">
+        <Table name="dim_consumidor" schema="public">
+        </Table>
+        <Level name="Regiao" visible="true" column="regiao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Regi&#227;o">
+        </Level>
+        <Level name="UF" visible="true" column="uf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cidade" visible="true" column="cidade" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Sexo Cliente" visible="true" hasAll="true" allMemberName="Todos os Sexos" primaryKey="id_consumidor">
+        <Table name="dim_consumidor" schema="public">
+        </Table>
+        <Level name="Sexo" visible="true" column="sexo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_empresa" highCardinality="false" name="Empresa">
+      <Hierarchy name="Classificacao" visible="true" hasAll="true" allMemberName="Todas as Classificacoes" allMemberCaption="Todas as Classifica&#231;&#245;es" primaryKey="id_empresa">
+        <Table name="dim_empresa" schema="public">
+        </Table>
+        <Level name="Segmento" visible="true" column="segmento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Area" visible="true" column="area" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#193;rea">
+        </Level>
+        <Level name="Assunto" visible="true" column="assunto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Nome" visible="true" hasAll="true" allMemberName="Todos os Nomes" primaryKey="id_empresa">
+        <Table name="dim_empresa" schema="public">
+        </Table>
+        <Level name="Nome Fantasia" visible="true" column="nome_fantasia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_grupo" highCardinality="false" name="Grupo Problema">
+      <Hierarchy name="Grupo" visible="true" hasAll="true" allMemberName="Todos os Grupos" primaryKey="id_grupo">
+        <Table name="dim_grupo_problema" schema="public">
+        </Table>
+        <Level name="Grupo" visible="true" column="grupo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Problema" visible="true" column="problema" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Total" column="total" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

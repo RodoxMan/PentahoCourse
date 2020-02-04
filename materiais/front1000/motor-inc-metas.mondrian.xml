@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+<Schema name="Motor Inc">
+  <Dimension type="TimeDimension" visible="true" name="Tempo">
+    <Hierarchy visible="true" hasAll="true" allMemberName="Todos os produtos" primaryKey="tempoid">
+      <Table name="tbl_dmns_tmp" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="anotempo" type="String" uniqueMembers="false" levelType="TimeYears">
+      </Level>
+      <Level name="Trimeste" visible="true" column="trimestretempo" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      </Level>
+      <Level name="Mes" visible="true" column="mestempo" nameColumn="mesdescabrvtempo" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Motor Inc Vendas" visible="true" description="Esquema de Cubo de Vendas" cache="true" enabled="true">
+    <Table name="tbl_ft_vnds" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo" visible="true" foreignKey="tempoidpedido">
+    </DimensionUsage>
+    <Measure name="Quantidade" column="quantidadepedida" datatype="Numeric" formatString="#,###" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
+=======
 <Schema name="Motor Inc">
   <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
     <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="TempoId" caption="Calend&#225;rio">
@@ -128,3 +152,4 @@
     </SchemaGrant>
   </Role>
 </Schema>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29

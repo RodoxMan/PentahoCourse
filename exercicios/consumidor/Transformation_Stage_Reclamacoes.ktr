@@ -428,7 +428,11 @@
     <created_user>-</created_user>
     <created_date>2019/09/27 11:49:04.364</created_date>
     <modified_user>-</modified_user>
+<<<<<<< HEAD
+    <modified_date>2019/10/08 11:33:38.286</modified_date>
+=======
     <modified_date>2019/09/30 11:32:21.086</modified_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2189,6 +2193,59 @@
     <fields>
       <field>
         <name>Canal de Origem</name>
+<<<<<<< HEAD
+      </field>
+      <field>
+        <name>Data Abertura</name>
+      </field>
+      <field>
+        <name>Data Resposta</name>
+      </field>
+      <field>
+        <name>Nota do Consumidor</name>
+      </field>
+      <field>
+        <name>Região</name>
+      </field>
+      <field>
+        <name>UF</name>
+      </field>
+      <field>
+        <name>Cidade</name>
+      </field>
+      <field>
+        <name>Sexo</name>
+      </field>
+      <field>
+        <name>Faixa Etária</name>
+      </field>
+      <field>
+        <name>Segmento de Mercado</name>
+      </field>
+      <field>
+        <name>Área</name>
+      </field>
+      <field>
+        <name>Assunto</name>
+      </field>
+      <field>
+        <name>Nome Fantasia</name>
+      </field>
+      <field>
+        <name>Grupo Problema</name>
+      </field>
+      <field>
+        <name>Problema</name>
+      </field>
+      <field>
+        <name>lindata</name>
+      </field>
+      <field>
+        <name>linorigem</name>
+      </field>
+      <field>
+        <name>Total</name>
+=======
         <rename/>
       </field>
       <field>
@@ -2258,6 +2315,7 @@
       <field>
         <name>Total</name>
         <rename/>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2386,7 +2444,11 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>864</xloc>
+=======
       <xloc>912</xloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>

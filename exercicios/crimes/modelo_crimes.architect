@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.8">
+ <project-name>modelo_crimes</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="Modelo de Dados" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="45b97d3d-7277-4031-abf0-3fa4bdfef974" name="DIM_OCORRENCIAS" objectType="TABLE" physicalName="DIM_OCORRENCIAS" >
+   <remarks></remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="ab6cb5bc-1859-461c-b3a4-1d272ce46cdb" autoIncrement="true" autoIncrementSequenceName="DIM_OCORRENCIAS_id_ocorrencia_seq" defaultValue="" name="id_ocorrencia" nullable="0" physicalName="id_ocorrencia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="5c730303-00c5-4b83-ad78-3fb5c126b3a9" autoIncrement="false" autoIncrementSequenceName="DIM_OCORRENCIAS_cod_ocorrencia_seq" defaultValue="" name="cod_ocorrencia" nullable="0" physicalName="cod_ocorrencia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="432caa32-10ea-4cd4-971e-c8375957181e" autoIncrement="false" autoIncrementSequenceName="DIM_OCORRENCIAS_municipio_seq" defaultValue="" name="municipio" nullable="0" physicalName="municipio" precision="40" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="659fcfd1-34c0-44f8-8f29-ad8665eb94c2" autoIncrement="false" autoIncrementSequenceName="DIM_OCORRENCIAS_lindata_seq" defaultValue="" name="lindata" nullable="0" physicalName="lindata" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="b97a9302-9247-435e-b580-400cc87ab8fc" autoIncrement="false" autoIncrementSequenceName="DIM_OCORRENCIAS_linorigem_seq" defaultValue="" name="linorigem" nullable="0" physicalName="linorigem" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX7" populated="true" UUID="b13b622a-52d9-468e-9869-010ab8af1341" clustered="false" name="id_ocorrencia" physicalName="id_ocorrencia" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC8" populated="true" UUID="95f9d675-ec5d-4cdc-9263-f759f5be6b83" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="id_ocorrencia" physicalName="id_ocorrencia" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB9" populated="true" UUID="2e50887c-7dd7-4d3a-8ef5-f24683e2c770" name="FT_CRIMES" objectType="TABLE" physicalName="FT_CRIMES" >
+   <remarks></remarks>
+   <folder id="FOLTAB91" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL10" populated="true" UUID="f3aef7f5-1a2c-42bc-ba36-f3d4ad85f0de" autoIncrement="true" autoIncrementSequenceName="FT_CRIMES_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL11" populated="true" UUID="0cf50bfa-b08d-4f11-a7c0-3fa203c4d304" autoIncrement="false" autoIncrementSequenceName="FT_CRIMES_id_ocorrencia_seq" defaultValue="" name="id_ocorrencia" nullable="0" physicalName="id_ocorrencia" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="8befd716-7559-49bc-9e8c-ebefcfb796d4" autoIncrement="false" autoIncrementSequenceName="FT_CRIMES_tempo_id_seq" defaultValue="" name="tempo_id" nullable="0" physicalName="tempo_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="c4feb37e-25f8-431b-b97f-eaa30b6a72e4" autoIncrement="false" autoIncrementSequenceName="FT_CRIMES_natureza_seq" defaultValue="" name="natureza" nullable="0" physicalName="natureza" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="372244c1-7d0a-4c34-843d-4bc7705e3a93" autoIncrement="false" autoIncrementSequenceName="FT_CRIMES_alvos_seq" defaultValue="" name="alvos" nullable="0" physicalName="alvos" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="094e8857-d90b-4686-a137-443889504d52" autoIncrement="false" autoIncrementSequenceName="FT_CRIMES_registros_seq" defaultValue="" name="quantidade" nullable="0" physicalName="registros" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB93" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB92" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB94" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX16" populated="true" UUID="f82eefc0-41af-4cb3-8d36-3840a9b9e013" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC17" populated="true" UUID="c9abd977-f1ee-4f22-92ea-9a07c2e72300" ascendingOrDescending="UNSPECIFIED" column-ref="COL10" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB18" populated="true" UUID="48e8c660-2d39-476e-a5ad-ee686ed6163d" name="DIM_TEMPO" objectType="TABLE" physicalName="DIM_TEMPO" >
+   <remarks></remarks>
+   <folder id="FOLTAB181" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL19" populated="true" UUID="1cd82388-8b87-4a0f-a9ce-0ccb553b9219" autoIncrement="true" autoIncrementSequenceName="DIM_TEMPO_tempo_id_seq" defaultValue="" name="tempo_id" nullable="0" physicalName="tempo_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="5e58fd97-a393-4803-96ca-7aa5cb8efd2f" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_data_tempo_seq" defaultValue="" name="data_tempo" nullable="0" physicalName="data_tempo" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks></remarks>
+    </column>
+    <column id="COL21" populated="true" UUID="de483cfb-681b-4abc-94ac-7f2325187059" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_ano_seq" defaultValue="" name="ano" nullable="0" physicalName="ano" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL22" populated="true" UUID="6ad7ed50-81e2-4bd8-a934-57957cfb1a7f" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_trimestre_seq" defaultValue="" name="trimestre" nullable="0" physicalName="trimestre" precision="5" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks></remarks>
+    </column>
+    <column id="COL23" populated="true" UUID="c216feea-d25e-44fc-bb48-ffaa578d359e" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_mes_seq" defaultValue="" name="mes" nullable="0" physicalName="mes" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL24" populated="true" UUID="74ed7638-ec42-4a9e-ac4f-e24582e51477" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_dia_seq" defaultValue="" name="dia" nullable="0" physicalName="dia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
+     <remarks></remarks>
+    </column>
+    <column id="COL25" populated="true" UUID="41dd3b55-47cc-41ca-aac0-0e72686d8fba" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_mesdesc_seq" defaultValue="" name="mesdesc" nullable="0" physicalName="mesdesc" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="72849279-5033-40ff-b088-08107d093c73" autoIncrement="false" autoIncrementSequenceName="DIM_TEMPO_mesdescabrv_seq" defaultValue="" name="mesdescabrv" nullable="0" physicalName="mesdescabrv" precision="3" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB183" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB182" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB184" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX27" populated="true" UUID="bce5c4ed-749b-4d7a-9022-d61bf8afd739" clustered="false" name="tempo_id" physicalName="tempo_id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC28" populated="true" UUID="5e880aaf-9ed1-42ef-9555-b742c4454ea6" ascendingOrDescending="UNSPECIFIED" column-ref="COL19" name="tempo_id" physicalName="tempo_id" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL29" populated="true" UUID="52faccd0-4cd6-4401-9003-d8449ba9d84f" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="false" name="DIM_OCORRENCIAS_FT_CRIMES_fk" physicalName="DIM_OCORRENCIAS_FT_CRIMES_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP30" populated="true" UUID="34ef2a73-3d3b-40b5-a847-7fc8d6857a45" fk-column-ref="COL11" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL31" populated="true" UUID="0cda13e5-5ff0-4d2a-8d9d-6f6a16ffcd1a" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="false" name="DIM_TEMPO_FT_CRIMES_fk" physicalName="DIM_TEMPO_FT_CRIMES_fk" pk-table-ref="TAB18" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP32" populated="true" UUID="db7ac89c-6f78-4a5d-9769-4ab2bf54966f" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL19" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="192" y="230" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB9" x="616" y="464" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB18" x="1081" y="230" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL29" pkConnection="0.8538461538461538" fkConnection="0.09266409266409266" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL31" pkConnection="0.8733333333333333" fkConnection="0.0" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="130"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

@@ -428,7 +428,11 @@
     <created_user>-</created_user>
     <created_date>2019/09/25 08:00:11.927</created_date>
     <modified_user>-</modified_user>
+<<<<<<< HEAD
+    <modified_date>2019/10/07 13:12:27.189</modified_date>
+=======
     <modified_date>2019/09/27 09:32:02.532</modified_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -555,7 +559,11 @@
       <schema_name/>
     </partitioning>
     <connection>Acidentes-oltp</connection>
+<<<<<<< HEAD
+    <sql>select cod_ocorrencia, data_ocorrencia, uf, municipio, br
+=======
     <sql>select cod_ocorrencia, classificacao, tipo, causa, data_acidente, uf, municipio
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
 from stage_ocorrencias</sql>
     <limit>0</limit>
     <lookup/>
@@ -588,6 +596,15 @@ from stage_ocorrencias</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+<<<<<<< HEAD
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>data_ocorrencia</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>data_ocorrencia</comments>
+=======
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>classificacao</name>
@@ -595,6 +612,7 @@ from stage_ocorrencias</sql>
         <precision>-1</precision>
         <origin>Table input</origin>
         <comments>classificacao</comments>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -613,11 +631,19 @@ from stage_ocorrencias</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
+<<<<<<< HEAD
+        <name>uf</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>uf</comments>
+=======
         <name>tipo</name>
         <length>50</length>
         <precision>-1</precision>
         <origin>Table input</origin>
         <comments>tipo</comments>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -636,11 +662,19 @@ from stage_ocorrencias</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
+<<<<<<< HEAD
+        <name>municipio</name>
+        <length>40</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>municipio</comments>
+=======
         <name>causa</name>
         <length>100</length>
         <precision>-1</precision>
         <origin>Table input</origin>
         <comments>causa</comments>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -657,6 +691,16 @@ from stage_ocorrencias</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+<<<<<<< HEAD
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>br</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Table input</origin>
+        <comments>br</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+=======
         <type>Date</type>
         <storagetype>normal</storagetype>
         <name>data_acidente</name>
@@ -711,6 +755,7 @@ from stage_ocorrencias</sql>
         <origin>Table input</origin>
         <comments>municipio</comments>
         <conversion_Mask/>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>

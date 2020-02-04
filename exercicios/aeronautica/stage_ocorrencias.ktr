@@ -428,7 +428,11 @@
     <created_user>-</created_user>
     <created_date>2019/09/19 14:20:55.972</created_date>
     <modified_user>-</modified_user>
+<<<<<<< HEAD
+    <modified_date>2019/10/08 09:59:13.785</modified_date>
+=======
     <modified_date>2019/09/19 16:47:34.746</modified_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -487,6 +491,20 @@
   </connection>
   <order>
     <hop>
+<<<<<<< HEAD
+      <from>Select values</from>
+      <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CSV file input</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
+      <to>Select values</to>
+=======
       <from>CSV file input</from>
       <to>Select values</to>
       <enabled>Y</enabled>
@@ -494,6 +512,7 @@
     <hop>
       <from>Select values</from>
       <to>Table output</to>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -775,8 +794,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>96</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>200</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -786,7 +810,11 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
+<<<<<<< HEAD
+    <copies>3</copies>
+=======
     <copies>1</copies>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <partitioning>
       <method>none</method>
       <schema_name/>
@@ -797,6 +825,17 @@
         <rename/>
       </field>
       <field>
+<<<<<<< HEAD
+        <name>ocorrencia_dia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ocorrencia_classificacao</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ocorrencia_tipo</name>
+=======
         <name>ocorrencia_classificacao</name>
         <rename/>
       </field>
@@ -806,6 +845,7 @@
       </field>
       <field>
         <name>ocorrencia_cidade</name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <rename/>
       </field>
       <field>
@@ -813,7 +853,11 @@
         <rename/>
       </field>
       <field>
+<<<<<<< HEAD
+        <name>ocorrencia_cidade</name>
+=======
         <name>ocorrencia_dia</name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <rename/>
       </field>
       <field>
@@ -831,8 +875,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>416</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>400</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -842,7 +891,11 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
+<<<<<<< HEAD
+    <copies>3</copies>
+=======
     <copies>1</copies>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <partitioning>
       <method>none</method>
       <schema_name/>
@@ -866,10 +919,21 @@
     <return_field/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <column_name>cod_ocorrencia</column_name>
+        <stream_name>codigo_ocorrencia</stream_name>
+      </field>
+      <field>
+        <column_name>data_ocorrencia</column_name>
+        <stream_name>ocorrencia_dia</stream_name>
+      </field>
+      <field>
+=======
         <column_name>codigo_ocorrencia</column_name>
         <stream_name>codigo_ocorrencia</stream_name>
       </field>
       <field>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <column_name>classificacao</column_name>
         <stream_name>ocorrencia_classificacao</stream_name>
       </field>
@@ -886,10 +950,7 @@
         <stream_name>ocorrencia_cidade</stream_name>
       </field>
       <field>
-        <column_name>data_ocorrencia</column_name>
-        <stream_name>ocorrencia_dia</stream_name>
-      </field>
-      <field>
+<<<<<<< HEAD
         <column_name>total_aeronaves_envolvidas</column_name>
         <stream_name>total_aeronaves_envolvidas</stream_name>
       </field>
@@ -903,8 +964,60 @@
       </output>
     </remotesteps>
     <GUI>
+      <xloc>576</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>ocorrencia_uf</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>***</replace_string>
+        <replace_by_string>NA</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+=======
+        <column_name>data_ocorrencia</column_name>
+        <stream_name>ocorrencia_dia</stream_name>
+      </field>
+      <field>
+        <column_name>total_aeronaves_envolvidas</column_name>
+        <stream_name>total_aeronaves_envolvidas</stream_name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+<<<<<<< HEAD
+      <xloc>256</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>600</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>

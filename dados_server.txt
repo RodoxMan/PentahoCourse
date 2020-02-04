@@ -1,0 +1,2 @@
+ssh root@10.0.3.33
+senha: zaq1!QAZ

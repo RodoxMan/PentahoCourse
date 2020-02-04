@@ -428,7 +428,11 @@
     <created_user>-</created_user>
     <created_date>2019/09/19 15:31:14.075</created_date>
     <modified_user>-</modified_user>
+<<<<<<< HEAD
+    <modified_date>2019/10/09 15:01:23.286</modified_date>
+=======
     <modified_date>2019/09/19 16:45:26.268</modified_date>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -487,13 +491,47 @@
   </connection>
   <order>
     <hop>
+<<<<<<< HEAD
+      <from>Select values</from>
+      <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>CSV file input</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
+      <to>Operadores</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Operadores</from>
+      <to>Segmentos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Segmentos</from>
+      <to>Danos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Danos</from>
+=======
+      <from>CSV file input</from>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+<<<<<<< HEAD
+      <from>Table output</from>
+      <to>Text file output</to>
+=======
       <from>Select values</from>
       <to>Table output</to>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -808,8 +846,238 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>112</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Danos</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>aeronave_nivel_dano</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>DESTRUÍDA</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>INDETERMINADO</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>LEVE</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>NENHUM</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>SUBSTANCIAL</source_value>
+        <target_value>5</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Operadores</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>aeronave_operador_categoria</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>AEROCLUBE</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>ESCOLA DE AVIAÇÃO</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>FABRICANTE AERONÁUTICO</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>OPERADOR DE AERONAVE</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>OPERADOR PARTICULAR</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>ÓRGÃO PÚBLICO</source_value>
+        <target_value>6</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>aeronave_registro_segmento</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>***</replace_string>
+        <replace_by_string>NÃO INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Segmentos</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>aeronave_registro_segmento</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>ADMINISTRAÇÃO DIRETA</source_value>
+        <target_value>1</target_value>
+      </field>
+      <field>
+        <source_value>ADMINISTRAÇÃO INDIRETA</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>AGRÍCOLA</source_value>
+        <target_value>3</target_value>
+      </field>
+      <field>
+        <source_value>ESPECIALIZADA</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>EXPERIMENTAL</source_value>
+        <target_value>5</target_value>
+      </field>
+      <field>
+        <source_value>HISTÓRICA</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>INSTRUÇÃO</source_value>
+        <target_value>7</target_value>
+      </field>
+      <field>
+        <source_value>MÚLTIPLA</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>NÃO REGULAR</source_value>
+        <target_value>9</target_value>
+      </field>
+      <field>
+        <source_value>PARTICULAR</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>REGULAR</source_value>
+        <target_value>11</target_value>
+      </field>
+      <field>
+        <source_value>TÁXI AÉREO</source_value>
+        <target_value>12</target_value>
+      </field>
+      <field>
+        <source_value>NÃO INFORMADO</source_value>
+        <target_value>13</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>240</yloc>
+=======
       <xloc>200</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -862,6 +1130,60 @@
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
+<<<<<<< HEAD
+      <meta>
+        <name>aeronave_operador_categoria</name>
+        <rename>aeronave_operador_categoria</rename>
+        <type>Integer</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>aeronave_registro_segmento</name>
+        <rename>aeronave_registro_segmento</rename>
+        <type>Integer</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>aeronave_nivel_dano</name>
+        <rename>aeronave_nivel_dano</rename>
+        <type>Integer</type>
+        <length>11</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+=======
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -872,8 +1194,13 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>608</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>400</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -892,7 +1219,11 @@
     <schema>public</schema>
     <table>stg_aeronaves</table>
     <commit>1000</commit>
+<<<<<<< HEAD
+    <truncate>N</truncate>
+=======
     <truncate>Y</truncate>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -907,7 +1238,11 @@
     <return_field/>
     <fields>
       <field>
+<<<<<<< HEAD
+        <column_name>cod_ocorrencia</column_name>
+=======
         <column_name>codigo_ocorrencia</column_name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <stream_name>codigo_ocorrencia</stream_name>
       </field>
       <field>
@@ -915,11 +1250,31 @@
         <stream_name>aeronave_tipo_veiculo</stream_name>
       </field>
       <field>
+<<<<<<< HEAD
+        <column_name>modelo</column_name>
+        <stream_name>aeronave_modelo</stream_name>
+      </field>
+      <field>
+        <column_name>operador</column_name>
+        <stream_name>aeronave_operador_categoria</stream_name>
+      </field>
+      <field>
+        <column_name>segmento</column_name>
+        <stream_name>aeronave_registro_segmento</stream_name>
+      </field>
+      <field>
+        <column_name>dano</column_name>
+        <stream_name>aeronave_nivel_dano</stream_name>
+      </field>
+      <field>
+        <column_name>pais</column_name>
+=======
         <column_name>categoria_operador</column_name>
         <stream_name>aeronave_operador_categoria</stream_name>
       </field>
       <field>
         <column_name>pais_fabricante</column_name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <stream_name>aeronave_pais_fabricante</stream_name>
       </field>
       <field>
@@ -927,6 +1282,211 @@
         <stream_name>aeronave_fabricante</stream_name>
       </field>
       <field>
+<<<<<<< HEAD
+        <column_name>total_fatalidades</column_name>
+        <stream_name>total_fatalidades</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Text file output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${caminho}aeronaves_rejeitados</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>Y</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>codigo_ocorrencia</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>15</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>aeronave_operador_categoria</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>20</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>aeronave_tipo_veiculo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>11</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>aeronave_fabricante</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>34</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>aeronave_modelo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>15</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>aeronave_pais_fabricante</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>14</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>aeronave_registro_segmento</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>20</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>aeronave_nivel_dano</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>11</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>total_fatalidades</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>15</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>nr_error</name>
+        <type>Integer</type>
+        <format>####0;-####0</format>
+        <currency/>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>desc_error</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>field_error</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+=======
         <column_name>segmento</column_name>
         <stream_name>aeronave_registro_segmento</stream_name>
       </field>
@@ -941,6 +1501,7 @@
       <field>
         <column_name>total_fatalidades</column_name>
         <stream_name>total_fatalidades</stream_name>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
     </fields>
     <attributes/>
@@ -952,12 +1513,32 @@
       </output>
     </remotesteps>
     <GUI>
+<<<<<<< HEAD
+      <xloc>976</xloc>
+      <yloc>96</yloc>
+=======
       <xloc>600</xloc>
       <yloc>100</yloc>
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+<<<<<<< HEAD
+    <error>
+      <source_step>Table output</source_step>
+      <target_step>Text file output</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename>nr_error</nr_valuename>
+      <descriptions_valuename>desc_error</descriptions_valuename>
+      <fields_valuename>field_error</fields_valuename>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+=======
+>>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>

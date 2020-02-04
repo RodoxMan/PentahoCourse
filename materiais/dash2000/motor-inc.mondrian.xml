@@ -1,0 +1,126 @@
+<Schema name="Motor Inc">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy visible="true" hasAll="true" allMemberName="Todos os tempos" primaryKey="tempoid">
+      <Table name="tbl_dmns_tmp" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="anotempo" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestretempo" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="mestempo" nameColumn="mesdescabrvtempo" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Motor Inc Vendas" visible="true" cache="true" enabled="true">
+    <Table name="tbl_ft_vnds" schema="public">
+      <AggName name="a_t_motor-inc" ignorecase="true">
+        <AggFactCount column="factcount">
+        </AggFactCount>
+        <AggForeignKey factColumn="clienteid" aggColumn="clienteid">
+        </AggForeignKey>
+        <AggForeignKey factColumn="produtoid" aggColumn="produtoid">
+        </AggForeignKey>
+        <AggForeignKey factColumn="vendedorid" aggColumn="vendedorid">
+        </AggForeignKey>
+        <AggMeasure column="QuantidadePedida" name="[Measures].[Quantidade]">
+        </AggMeasure>
+        <AggMeasure column="PrecoTotal" name="[Measures].[Preco Total]">
+        </AggMeasure>
+        <AggLevel column="AnoTempo" name="[Tempo].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="TrimestreTempo" name="[Tempo].[Trimestre]" collapsed="true">
+        </AggLevel>
+      </AggName>
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo" visible="true" foreignKey="tempoidpedido" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clienteid" highCardinality="false" name="Cliente">
+      <Hierarchy name="Cliente" visible="true" hasAll="true" allMemberName="Todos os clientes" primaryKey="clienteid">
+        <Table name="tbl_dmns_clnt" schema="public">
+        </Table>
+        <Level name="Nome Cliente" visible="true" column="nomecliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clienteid" highCardinality="false" name="Mercado">
+      <Hierarchy name="Mercado" visible="true" hasAll="true" allMemberName="Todos os mercados" primaryKey="clienteid">
+        <Table name="tbl_dmns_clnt" schema="public">
+        </Table>
+        <Level name="Territorio" visible="true" column="territoriocliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Territ&#243;rio">
+        </Level>
+        <Level name="Pais" visible="true" column="paiscliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Pa&#237;s">
+        </Level>
+        <Level name="Estado" visible="true" column="estadocliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cidade" visible="true" column="cidadecliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="produtoid" highCardinality="false" name="Produto">
+      <Hierarchy name="Produto" visible="true" hasAll="true" allMemberName="Todos os produtos" primaryKey="produtoid">
+        <Table name="tbl_dmns_prdt" schema="public">
+        </Table>
+        <Level name="Linha" visible="true" column="linhaproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Fornecedor" visible="true" column="fornecedorproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Produto" visible="true" column="nomeproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="vendedorid" highCardinality="false" name="Vendedor">
+      <Hierarchy name="Vendedor" visible="true" hasAll="true" allMemberName="Todos os vendedores" primaryKey="vendedorid">
+        <Table name="tbl_dmns_vnddr" schema="public">
+        </Table>
+        <Level name="CEO" visible="true" column="nomevendedor3" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="VP" visible="true" column="nomevendedor2" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Gerente" visible="true" column="nomevendedor1" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Vendedor" visible="true" column="nomevendedor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Situacao">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as situacoes">
+        <Level name="Situacao" visible="true" column="situacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case Situacao
+   When 'E' Then 'Enviado'
+   When 'R' Then 'Resolvido'
+   When 'C' Then 'Cancelado'
+   When 'A' Then 'Aguardando'
+   When 'N' Then 'Negociado'
+   Else 'Processando'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="quantidadepedida" datatype="Numeric" formatString="#,###" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Preco Total" column="precototal" datatype="Numeric" aggregator="sum" caption="Pre&#231;o Total" visible="true">
+    </Measure>
+  </Cube>
+  <Role name="Administrator">
+    <SchemaGrant access="all">
+    </SchemaGrant>
+  </Role>
+  <Role name="Authenticated">
+    <SchemaGrant access="none">
+    </SchemaGrant>
+  </Role>
+  <Role name="LATAM">
+    <SchemaGrant access="all_dimensions">
+      <CubeGrant cube="Motor Inc Vendas" access="all">
+        <HierarchyGrant hierarchy="[Mercado.Mercado]" topLevel="[Mercado.Mercado].[Territorio]" access="custom">
+          <MemberGrant member="[Mercado].[LATAM]" access="all">
+          </MemberGrant>
+        </HierarchyGrant>
+      </CubeGrant>
+    </SchemaGrant>
+  </Role>
+</Schema>
