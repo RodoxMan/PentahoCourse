@@ -428,18 +428,18 @@
     <created_user>-</created_user>
     <created_date>2020/02/05 20:25:42.711</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/02/05 21:38:51.112</modified_date>
-    <key_for_session_key/>
+    <modified_date>2020/02/06 08:50:33.682</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>Datawarehouse Sucos</name>
+    <name>Datawarehouse Sucos - MYSQL</name>
     <server/>
-    <type>POSTGRESQL</type>
+    <type>MARIADB</type>
     <access>JNDI</access>
-    <database>${banco}</database>
+    <database>${sucosMysql}</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -497,6 +497,145 @@
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Dimensão Organizacional</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Datawarehouse Sucos - MYSQL</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>dim_organizacional</table>
+      <key>
+        <name>matricula</name>
+        <field>cod_organizacional</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cod_organizacional</name>
+        <rename>matricula</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>desc_organizacional</name>
+        <rename>VENDEDOR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cod_pai</name>
+        <rename>matricula2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>esquerda</name>
+        <rename>ESQUERDA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>direita</name>
+        <rename>DIREITA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nivel</name>
+        <rename>NIVEL</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inicializa Esquerda Direita Nível</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>NIVEL</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>0</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>ESQUERDA</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>0</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>DIREITA</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>0</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Leitura Funcionarios Grupo 1</name>
     <type>ExcelInput</type>
@@ -640,145 +779,6 @@
     </remotesteps>
     <GUI>
       <xloc>160</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dimensão Organizacional</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Datawarehouse Sucos</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>public</schema>
-      <table>dim_organizacional</table>
-      <key>
-        <name>matricula</name>
-        <field>cod_organizacional</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>cod_organizacional</name>
-        <rename>matricula</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>desc_organizacional</name>
-        <rename>VENDEDOR</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cod_pai</name>
-        <rename>matricula2</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>esquerda</name>
-        <rename>ESQUERDA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>direita</name>
-        <rename>DIREITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>nivel</name>
-        <rename>NIVEL</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inicializa Esquerda Direita Nível</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
-    <calculation>
-      <field_name>NIVEL</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>0</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>ESQUERDA</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>0</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>DIREITA</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>0</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
