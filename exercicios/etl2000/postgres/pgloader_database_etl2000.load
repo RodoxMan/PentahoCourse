@@ -1,7 +1,0 @@
-LOAD DATABASE
-     FROM mysql://docker:rodk1605@172.17.0.1/etl2000
-     INTO postgresql://postgres:rodk1605@172.17.0.1/etl2000
-
- WITH include drop, create tables
-
-ALTER SCHEMA 'etl2000' RENAME TO 'public';

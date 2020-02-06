@@ -1,7 +1,0 @@
-LOAD DATABASE
-     FROM mysql://docker:rodk1605@172.17.0.1/motor-inc-star
-     INTO postgresql://postgres:rodk1605@172.17.0.1/motor-inc-star
-
- WITH include drop, create tables
-
-ALTER SCHEMA 'motor-inc-star' RENAME TO 'public';
