@@ -1,32 +1,32 @@
 <Schema name="Crimes em MG">
-  <Dimension type="TimeDimension" visible="true" name="Tempo">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
     <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os Calendarios" allMemberCaption="Todos os Calend&#225;rios" primaryKey="tempo_id">
       <Table name="dim_tempo" schema="public">
       </Table>
-      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears">
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
       </Level>
-      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
       </Level>
-      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesc" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesc" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
       </Level>
     </Hierarchy>
   </Dimension>
   <Cube name="Crimes em MG" visible="true" cache="true" enabled="true">
     <Table name="ft_crimes" schema="public">
     </Table>
-    <DimensionUsage source="Tempo" name="Tempo Crime" visible="true" foreignKey="tempo_id">
+    <DimensionUsage source="Tempo" name="Tempo Crime" visible="true" foreignKey="tempo_id" highCardinality="false">
     </DimensionUsage>
-    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" name="Ocorrencias" caption="Ocorr&#234;ncias">
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" highCardinality="false" name="Ocorrencias" caption="Ocorr&#234;ncias">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Ocorrencias" allMemberCaption="Todas as Ocorr&#234;ncias" primaryKey="id_ocorrencia">
         <Table name="dim_ocorrencias" schema="public">
         </Table>
-        <Level name="Municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" caption="Munic&#237;pio">
+        <Level name="Municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" name="Natureza Crime">
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Natureza Crime">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Naturezas" allMemberCaption="Todas as Naturezas">
-        <Level name="Natureza" visible="true" column="natureza" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Natureza" visible="true" column="natureza" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <CaptionExpression>
             <SQL dialect="postgres">
               <![CDATA[Case natureza
@@ -51,9 +51,9 @@ END]]>
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" name="Alvo Crime">
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Alvo Crime">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Alvos">
-        <Level name="Alvo" visible="true" column="alvo" type="String" uniqueMembers="false" levelType="Regular">
+        <Level name="Alvo" visible="true" column="alvo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <CaptionExpression>
             <SQL dialect="postgres">
               <![CDATA[CASE alvo
@@ -65,8 +65,7 @@ END]]>
    When 6 Then 'Transporte Coletivo'
    When 7 Then 'Veículos'
 Else 'N/A'
-END
-]]>
+END]]>
             </SQL>
           </CaptionExpression>
         </Level>

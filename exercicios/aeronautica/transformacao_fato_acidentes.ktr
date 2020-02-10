@@ -428,11 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/09/18 09:31:25.275</created_date>
     <modified_user>-</modified_user>
-<<<<<<< HEAD
-    <modified_date>2019/10/21 16:53:32.718</modified_date>
-=======
-    <modified_date>2019/09/20 08:40:41.071</modified_date>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
+    <modified_date>2020/02/10 09:29:02.986</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -542,33 +538,17 @@
   </connection>
   <order>
     <hop>
-<<<<<<< HEAD
-=======
-      <from>Dim Tempo</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <from>Select values 2</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Dim Aeronaves</from>
-<<<<<<< HEAD
       <to>Dim Fatores Ocorrencias</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Dim Fatores Ocorrencias</from>
-=======
-      <to>Database lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database lookup</from>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <to>Dim Ocorrencia</to>
       <enabled>Y</enabled>
     </hop>
@@ -583,7 +563,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-<<<<<<< HEAD
       <from>Dim Tempo</from>
       <to>Dim Fabricante</to>
       <enabled>Y</enabled>
@@ -594,19 +573,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <from>Table output</from>
       <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-<<<<<<< HEAD
     <name>Dim Aeronaves</name>
-=======
-    <name>Database lookup</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -622,16 +595,11 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema>public</schema>
-<<<<<<< HEAD
       <table>dim_aeronaves</table>
-=======
-      <table>dim_fator_contribuinte</table>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-<<<<<<< HEAD
         <name>cod_aeronave</name>
         <field>cod_aeronave</field>
         <condition>=</condition>
@@ -682,21 +650,12 @@
       <key>
         <name>cod_fabricante</name>
         <field>cod_fabricante</field>
-=======
-        <name>cod_fator_contribuinte</name>
-        <field>cod_fator_contribuinte</field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-<<<<<<< HEAD
         <name>id_fabricante</name>
         <rename>id_fabricante</rename>
-=======
-        <name>id_fator_contribuinte</name>
-        <rename>id_fator_contribuinte</rename>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <default>-1</default>
         <type>Integer</type>
       </value>
@@ -710,21 +669,13 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>688</xloc>
-=======
-      <xloc>496</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-<<<<<<< HEAD
     <name>Dim Fatores Ocorrencias</name>
-=======
-    <name>Dim Aeronaves</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -740,35 +691,20 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema>public</schema>
-<<<<<<< HEAD
       <table>dim_fatores_ocorrencias</table>
-=======
-      <table>dim_aeronaves</table>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-<<<<<<< HEAD
         <name>cod_fator_contribuinte</name>
         <field>cod_fator_contribuinte</field>
-=======
-        <name>cod_aeronave</name>
-        <field>cod_aeronave</field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-<<<<<<< HEAD
         <name>id_fator_contribuinte</name>
         <rename>id_fator_contribuinte</rename>
         <default>-1</default>
-=======
-        <name>id_aeronave</name>
-        <rename>id_aeronave</rename>
-        <default/>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <type>Integer</type>
       </value>
     </lookup>
@@ -782,11 +718,7 @@
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-<<<<<<< HEAD
       <yloc>288</yloc>
-=======
-      <yloc>128</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -807,20 +739,12 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema>public</schema>
-<<<<<<< HEAD
       <table>dim_ocorrencias</table>
-=======
-      <table>dim_ocorrencia</table>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-<<<<<<< HEAD
         <name>cod_ocorrencia</name>
-=======
-        <name>codigo_ocorrencia</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <field>cod_ocorrencia</field>
         <condition>=</condition>
         <name2/>
@@ -841,13 +765,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>512</xloc>
       <yloc>288</yloc>
-=======
-      <xloc>656</xloc>
-      <yloc>128</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -894,11 +813,7 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>512</xloc>
-=======
-      <xloc>832</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -928,7 +843,6 @@
         <name>id_ocorrencia</name>
       </field>
       <field>
-<<<<<<< HEAD
         <name>id_fabricante</name>
       </field>
       <field>
@@ -941,19 +855,14 @@
         <name>dano</name>
       </field>
       <field>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <name>total_fatalidades</name>
       </field>
       <field>
         <name>total_aeronaves_envolvidas</name>
       </field>
-<<<<<<< HEAD
       <field>
         <name>total_acidentes</name>
       </field>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -965,11 +874,7 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>688</xloc>
-=======
-      <xloc>832</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -988,7 +893,6 @@
     <connection>aeronautica-oltp</connection>
     <sql>SELECT stg_ocorrencias.data_ocorrencia
 ,stg_aeronaves.cod_aeronave
-<<<<<<< HEAD
 ,stg_fatores_ocorrencias.cod_fator_contribuinte
 ,stg_ocorrencias.cod_ocorrencia
 ,stg_fabricante.id_fabricante as cod_fabricante
@@ -1002,16 +906,6 @@ FROM stg_aeronaves
 INNER JOIN stg_ocorrencias ON stg_aeronaves.cod_ocorrencia = stg_ocorrencias.cod_ocorrencia
 INNER JOIN stg_fatores_ocorrencias ON stg_ocorrencias.cod_ocorrencia = stg_fatores_ocorrencias.cod_ocorrencia
 INNER JOIN stg_fabricante ON stg_fabricante.cod_aeronave = stg_aeronaves.cod_aeronave</sql>
-=======
-,stg_fatores_ocorrencias.id_fator_contribuinte as cod_fator_contribuinte
-,stg_ocorrencias.codigo_ocorrencia
-,total_fatalidades
-,stg_ocorrencias.total_aeronaves_envolvidas
-FROM stg_aeronaves
-INNER JOIN stg_ocorrencias ON stg_aeronaves.codigo_ocorrencia = stg_ocorrencias.codigo_ocorrencia
-LEFT JOIN stg_fatores_ocorrencias ON stg_ocorrencias.codigo_ocorrencia = stg_fatores_ocorrencias.codigo_ocorrencia
-order by id_fator_contribuinte;</sql>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1091,7 +985,6 @@ order by id_fator_contribuinte;</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-<<<<<<< HEAD
         <name>cod_ocorrencia</name>
         <length>15</length>
         <precision>0</precision>
@@ -1189,13 +1082,6 @@ order by id_fator_contribuinte;</sql>
         <precision>0</precision>
         <origin>Table input</origin>
         <comments>dano</comments>
-=======
-        <name>codigo_ocorrencia</name>
-        <length>15</length>
-        <precision>0</precision>
-        <origin>Table input</origin>
-        <comments>codigo_ocorrencia</comments>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1257,7 +1143,6 @@ order by id_fator_contribuinte;</sql>
         <date_format_timezone>America/New_York</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-<<<<<<< HEAD
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
@@ -1281,8 +1166,6 @@ order by id_fator_contribuinte;</sql>
         <date_format_timezone>America/New_York</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -1337,11 +1220,7 @@ order by id_fator_contribuinte;</sql>
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>880</xloc>
-=======
-      <xloc>1008</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1371,22 +1250,14 @@ order by id_fator_contribuinte;</sql>
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-<<<<<<< HEAD
       <name>${caminho}ft_acidentes_rejeitados</name>
-=======
-      <name>${caminho}acidentes_rejeitados</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
-<<<<<<< HEAD
       <add_date>Y</add_date>
-=======
-      <add_date>N</add_date>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -1445,7 +1316,6 @@ order by id_fator_contribuinte;</sql>
         <precision>0</precision>
       </field>
       <field>
-<<<<<<< HEAD
         <name>id_fabricante</name>
         <type>Integer</type>
         <format>####0;-####0</format>
@@ -1494,8 +1364,6 @@ order by id_fator_contribuinte;</sql>
         <precision>0</precision>
       </field>
       <field>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <name>total_fatalidades</name>
         <type>Integer</type>
         <format>####0;-####0</format>
@@ -1520,7 +1388,6 @@ order by id_fator_contribuinte;</sql>
         <precision>0</precision>
       </field>
       <field>
-<<<<<<< HEAD
         <name>total_acidentes</name>
         <type>Integer</type>
         <format>####0;-####0</format>
@@ -1533,8 +1400,6 @@ order by id_fator_contribuinte;</sql>
         <precision>0</precision>
       </field>
       <field>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <name>nr_error</name>
         <type>Integer</type>
         <format>####0;-####0</format>
@@ -1580,11 +1445,7 @@ order by id_fator_contribuinte;</sql>
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>1072</xloc>
-=======
-      <xloc>1184</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>

@@ -428,11 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/09/24 13:50:37.911</created_date>
     <modified_user>-</modified_user>
-<<<<<<< HEAD
     <modified_date>2019/10/07 12:59:29.924</modified_date>
-=======
-    <modified_date>2019/09/27 09:03:28.027</modified_date>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -491,19 +487,6 @@
   </connection>
   <order>
     <hop>
-<<<<<<< HEAD
-=======
-      <from>Microsoft Excel input</from>
-      <to>BR</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BR</from>
-      <to>Tipo Pista</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <from>Tipo Pista</from>
       <to>Tracado Via</to>
       <enabled>Y</enabled>
@@ -533,7 +516,6 @@
       <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
-<<<<<<< HEAD
     <hop>
       <from>Classificacao Acidente</from>
       <to>Tipo Acidente</to>
@@ -569,8 +551,6 @@
       <to>Tipo Pista</to>
       <enabled>Y</enabled>
     </hop>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
   </order>
   <step>
     <name>BR</name>
@@ -601,7 +581,6 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>384</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
@@ -860,10 +839,6 @@
     <GUI>
       <xloc>384</xloc>
       <yloc>96</yloc>
-=======
-      <xloc>400</xloc>
-      <yloc>100</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -883,7 +858,6 @@
     <non_match_default/>
     <fields>
       <field>
-<<<<<<< HEAD
         <source_value>céu claro</source_value>
         <target_value>1</target_value>
       </field>
@@ -931,47 +905,6 @@
         <source_value>(null)</source_value>
         <target_value>6</target_value>
       </field>
-=======
-        <source_value>Chuva</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>Céu Claro</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>Garoa/Chuvisco</source_value>
-        <target_value>3</target_value>
-      </field>
-      <field>
-        <source_value>Granizo</source_value>
-        <target_value>4</target_value>
-      </field>
-      <field>
-        <source_value>Ignorado</source_value>
-        <target_value>5</target_value>
-      </field>
-      <field>
-        <source_value>Neve</source_value>
-        <target_value>6</target_value>
-      </field>
-      <field>
-        <source_value>Nevoeiro/Neblina</source_value>
-        <target_value>7</target_value>
-      </field>
-      <field>
-        <source_value>Nublado</source_value>
-        <target_value>8</target_value>
-      </field>
-      <field>
-        <source_value>Sol</source_value>
-        <target_value>9</target_value>
-      </field>
-      <field>
-        <source_value>Vento</source_value>
-        <target_value>10</target_value>
-      </field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -982,13 +915,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>880</xloc>
       <yloc>256</yloc>
-=======
-      <xloc>768</xloc>
-      <yloc>96</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1008,7 +936,6 @@
     <non_match_default/>
     <fields>
       <field>
-<<<<<<< HEAD
         <source_value>amanhecer</source_value>
         <target_value>1</target_value>
       </field>
@@ -1032,23 +959,6 @@
         <source_value>(null)</source_value>
         <target_value>3</target_value>
       </field>
-=======
-        <source_value>Amanhecer</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>Anoitecer</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>Plena Noite</source_value>
-        <target_value>3</target_value>
-      </field>
-      <field>
-        <source_value>Pleno dia</source_value>
-        <target_value>4</target_value>
-      </field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1059,13 +969,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>880</xloc>
       <yloc>96</yloc>
-=======
-      <xloc>768</xloc>
-      <yloc>256</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1096,11 +1001,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-<<<<<<< HEAD
       <name>/mnt/dados/treinamento/materiais/acidentes/Datatran 2017 por UF por BR e por Km.xlsx</name>
-=======
-      <name>/home/rodolfo/Documentos/Dados Publicos/Datatran 2017 por UF por BR e por Km.xlsx</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1467,13 +1368,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>64</xloc>
       <yloc>96</yloc>
-=======
-      <xloc>200</xloc>
-      <yloc>100</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1490,7 +1386,6 @@
     </partitioning>
     <fields>
       <field>
-<<<<<<< HEAD
         <name>data_inversa</name>
         <rename/>
       </field>
@@ -1557,60 +1452,6 @@
       <field>
         <name>veiculos</name>
         <rename/>
-=======
-        <name>id</name>
-      </field>
-      <field>
-        <name>classificacao_acidente</name>
-      </field>
-      <field>
-        <name>tipo_acidente</name>
-      </field>
-      <field>
-        <name>causa_acidente</name>
-      </field>
-      <field>
-        <name>data_inversa</name>
-      </field>
-      <field>
-        <name>uf</name>
-      </field>
-      <field>
-        <name>municipio</name>
-      </field>
-      <field>
-        <name>tipo_pista</name>
-      </field>
-      <field>
-        <name>tracado_via</name>
-      </field>
-      <field>
-        <name>fase_dia</name>
-      </field>
-      <field>
-        <name>condicao_metereologica</name>
-      </field>
-      <field>
-        <name>br</name>
-      </field>
-      <field>
-        <name>pessoas</name>
-      </field>
-      <field>
-        <name>mortos</name>
-      </field>
-      <field>
-        <name>feridos_leves</name>
-      </field>
-      <field>
-        <name>feridos_graves</name>
-      </field>
-      <field>
-        <name>ilesos</name>
-      </field>
-      <field>
-        <name>veiculos</name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1698,7 +1539,6 @@
         <currency_symbol/>
         <storage_type/>
       </meta>
-<<<<<<< HEAD
       <meta>
         <name>classificacao_acidente</name>
         <rename>classificacao_acidente</rename>
@@ -1750,8 +1590,6 @@
         <currency_symbol/>
         <storage_type/>
       </meta>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1762,7 +1600,6 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>1040</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
@@ -1883,10 +1720,6 @@
     <GUI>
       <xloc>208</xloc>
       <yloc>240</yloc>
-=======
-      <xloc>976</xloc>
-      <yloc>96</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1920,7 +1753,6 @@
     <return_field/>
     <fields>
       <field>
-<<<<<<< HEAD
         <column_name>data_ocorrencia</column_name>
         <stream_name>data_inversa</stream_name>
       </field>
@@ -1947,34 +1779,6 @@
       <field>
         <column_name>causa_acidente</column_name>
         <stream_name>causa_acidente</stream_name>
-=======
-        <column_name>cod_ocorrencia</column_name>
-        <stream_name>id</stream_name>
-      </field>
-      <field>
-        <column_name>classificacao</column_name>
-        <stream_name>classificacao_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>tipo</column_name>
-        <stream_name>tipo_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>causa</column_name>
-        <stream_name>causa_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>data_acidente</column_name>
-        <stream_name>data_inversa</stream_name>
-      </field>
-      <field>
-        <column_name>uf</column_name>
-        <stream_name>uf</stream_name>
-      </field>
-      <field>
-        <column_name>municipio</column_name>
-        <stream_name>municipio</stream_name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       </field>
       <field>
         <column_name>tipo_pista</column_name>
@@ -1993,13 +1797,6 @@
         <stream_name>condicao_metereologica</stream_name>
       </field>
       <field>
-<<<<<<< HEAD
-=======
-        <column_name>br</column_name>
-        <stream_name>br</stream_name>
-      </field>
-      <field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <column_name>pessoas</column_name>
         <stream_name>pessoas</stream_name>
       </field>
@@ -2033,11 +1830,7 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>1040</xloc>
-=======
-      <xloc>1152</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2074,11 +1867,7 @@
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
-<<<<<<< HEAD
       <add_date>Y</add_date>
-=======
-      <add_date>N</add_date>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -2089,21 +1878,6 @@
     </file>
     <fields>
       <field>
-<<<<<<< HEAD
-=======
-        <name>id</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <name>classificacao_acidente</name>
         <type>String</type>
         <format/>
@@ -2353,7 +2127,6 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>1184</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
@@ -2462,10 +2235,6 @@
     <GUI>
       <xloc>544</xloc>
       <yloc>96</yloc>
-=======
-      <xloc>1152</xloc>
-      <yloc>240</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2485,7 +2254,6 @@
     <non_match_default/>
     <fields>
       <field>
-<<<<<<< HEAD
         <source_value>dupla</source_value>
         <target_value>1</target_value>
       </field>
@@ -2505,19 +2273,6 @@
         <source_value>(null)</source_value>
         <target_value>4</target_value>
       </field>
-=======
-        <source_value>Dupla</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>Múltipla</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>Simples</source_value>
-        <target_value>3</target_value>
-      </field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2528,13 +2283,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>704</xloc>
       <yloc>240</yloc>
-=======
-      <xloc>400</xloc>
-      <yloc>256</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2554,7 +2304,6 @@
     <non_match_default/>
     <fields>
       <field>
-<<<<<<< HEAD
         <source_value>cruzamento</source_value>
         <target_value>1</target_value>
       </field>
@@ -2606,47 +2355,6 @@
         <source_value>não informado</source_value>
         <target_value>5</target_value>
       </field>
-=======
-        <source_value>Curva</source_value>
-        <target_value>1</target_value>
-      </field>
-      <field>
-        <source_value>Desvio Temporário</source_value>
-        <target_value>2</target_value>
-      </field>
-      <field>
-        <source_value>Interseção de vias</source_value>
-        <target_value>3</target_value>
-      </field>
-      <field>
-        <source_value>Não Informado</source_value>
-        <target_value>4</target_value>
-      </field>
-      <field>
-        <source_value>Ponte</source_value>
-        <target_value>5</target_value>
-      </field>
-      <field>
-        <source_value>Reta</source_value>
-        <target_value>6</target_value>
-      </field>
-      <field>
-        <source_value>Retorno Regulamentado</source_value>
-        <target_value>7</target_value>
-      </field>
-      <field>
-        <source_value>Rotatória</source_value>
-        <target_value>8</target_value>
-      </field>
-      <field>
-        <source_value>Túnel</source_value>
-        <target_value>9</target_value>
-      </field>
-      <field>
-        <source_value>Viaduto</source_value>
-        <target_value>10</target_value>
-      </field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2657,13 +2365,8 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>704</xloc>
       <yloc>96</yloc>
-=======
-      <xloc>600</xloc>
-      <yloc>256</yloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <draw>Y</draw>
     </GUI>
   </step>

@@ -428,13 +428,8 @@
     <created_user>-</created_user>
     <created_date>2019/09/27 14:57:36.859</created_date>
     <modified_user>-</modified_user>
-<<<<<<< HEAD
     <modified_date>2019/10/08 11:36:57.674</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-=======
-    <modified_date>2019/09/27 15:01:08.193</modified_date>
-    <key_for_session_key/>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -508,7 +503,6 @@
     </hop>
   </order>
   <step>
-<<<<<<< HEAD
     <name>Get system info</name>
     <type>SystemInfo</type>
     <description/>
@@ -583,8 +577,6 @@
     </GUI>
   </step>
   <step>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
@@ -712,88 +704,6 @@
     </GUI>
   </step>
   <step>
-<<<<<<< HEAD
-=======
-    <name>Get system info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>3</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>lindata</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>3</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_reclamacao</name>
-        <rename/>
-      </field>
-      <field>
-        <name>grupo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>problema</name>
-        <rename/>
-      </field>
-      <field>
-        <name>lindata</name>
-        <rename/>
-      </field>
-      <field>
-        <name>linorigem</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>600</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <name>Table output</name>
     <type>TableOutput</type>
     <description/>

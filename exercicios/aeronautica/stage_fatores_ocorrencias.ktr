@@ -428,13 +428,8 @@
     <created_user>-</created_user>
     <created_date>2019/09/19 15:36:23.275</created_date>
     <modified_user>-</modified_user>
-<<<<<<< HEAD
-    <modified_date>2019/10/21 16:53:34.928</modified_date>
+    <modified_date>2020/02/10 09:19:51.296</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-=======
-    <modified_date>2019/09/19 15:56:28.542</modified_date>
-    <key_for_session_key/>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,7 +487,6 @@
   </connection>
   <order>
     <hop>
-<<<<<<< HEAD
       <from>Select values</from>
       <to>Table output</to>
       <enabled>Y</enabled>
@@ -510,30 +504,6 @@
     <hop>
       <from>Replace in string</from>
       <to>Select values</to>
-=======
-      <from>CSV file input</from>
-      <to>Value mapper</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Value mapper</from>
-      <to>Value mapper 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Value mapper 2</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Table output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table output</from>
-      <to>Text file output</to>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -548,7 +518,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/mnt/dados/treinamento/materiais/aeronautica/ftc.csv</filename>
+    <filename>/home/rodolfo/Documentos/Dados Publicos/Aeronáutica/opendata_aig_brazil-master/data/ftc.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -650,23 +620,14 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>96</xloc>
-=======
-      <xloc>176</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-<<<<<<< HEAD
     <name>Replace in string</name>
     <type>ReplaceString</type>
-=======
-    <name>Select values</name>
-    <type>SelectValues</type>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -677,7 +638,6 @@
     </partitioning>
     <fields>
       <field>
-<<<<<<< HEAD
         <in_stream_name>fator_area</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
@@ -701,24 +661,6 @@
         <case_sensitive>no</case_sensitive>
         <is_unicode>no</is_unicode>
       </field>
-=======
-        <name>codigo_ocorrencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fator_area</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fator_aspecto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fator_nome</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -729,23 +671,14 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>368</xloc>
-=======
-      <xloc>704</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-<<<<<<< HEAD
     <name>Select values</name>
     <type>SelectValues</type>
-=======
-    <name>Value mapper</name>
-    <type>ValueMapper</type>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -754,7 +687,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<<<<<<< HEAD
     <fields>
       <field>
         <name>codigo_ocorrencia</name>
@@ -769,15 +701,6 @@
         <name>fator_nome</name>
       </field>
       <select_unspecified>N</select_unspecified>
-=======
-    <field_to_use>fator_area</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>***</source_value>
-        <target_value>NÃO INFORMADO</target_value>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -788,46 +711,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Value mapper 2</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <field_to_use>fator_aspecto</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>***</source_value>
-        <target_value>NÃO INFORMADO</target_value>
-      </field>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-<<<<<<< HEAD
       <xloc>624</xloc>
-=======
-      <xloc>528</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -862,11 +746,7 @@
     <return_field/>
     <fields>
       <field>
-<<<<<<< HEAD
         <column_name>cod_ocorrencia</column_name>
-=======
-        <column_name>codigo_ocorrencia</column_name>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         <stream_name>codigo_ocorrencia</stream_name>
       </field>
       <field>
@@ -891,11 +771,7 @@
       </output>
     </remotesteps>
     <GUI>
-<<<<<<< HEAD
       <xloc>832</xloc>
-=======
-      <xloc>904</xloc>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -932,11 +808,7 @@
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
-<<<<<<< HEAD
       <add_date>Y</add_date>
-=======
-      <add_date>N</add_date>
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
