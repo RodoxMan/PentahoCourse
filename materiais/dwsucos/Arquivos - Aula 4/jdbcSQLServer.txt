@@ -3,3 +3,10 @@ fontes/driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
 fontes/url=jdbc:sqlserver://localhost:1433;databaseName=fontes_db
 fontes/user=sa
 fontes/password=8ii
+
+
+RESTORE DATABASE FONTES_DB
+FROM DISK = '/mnt/dados/treinamento/designer-tools/data-integration/export/FONTES_DB.BAk'
+WITH MOVE 'FONTES_DB' TO '/var/opt/mssql/data/FONTES_DB.mdf',
+MOVE 'FONTES_DB_log' TO '/var/opt/mssql/data/FONTES_DB_log.ldf'
+GO

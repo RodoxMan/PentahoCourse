@@ -1,0 +1,171 @@
+2020/02/11 09:54:26 - Kitchen - Logging is at level : Basic
+2020/02/11 09:54:26 - Kitchen - Start of run.
+2020/02/11 09:54:26 - RepositoriesMeta - Reading repositories XML file: /home/rodolfo/.kettle/repositories.xml
+2020/02/11 09:54:32 - jobPrincipal - Start of job execution
+2020/02/11 09:54:32 - jobPrincipal - Starting entry [Set variables]
+2020/02/11 09:54:32 - jobPrincipal - Starting entry [Carga Dimensões]
+2020/02/11 09:54:32 - Carga Dimensões - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Starting entry [Carga Fábrica]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Launched job entry [Carga Fábrica] in parallel.
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Starting entry [Carga de Cliente]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Launched job entry [Carga de Cliente] in parallel.
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Starting entry [Carga Produto]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Launched job entry [Carga Produto] in parallel.
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Starting entry [Carga Organizacional]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Launched job entry [Carga Organizacional] in parallel.
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Starting entry [Carga Tempo]
+2020/02/11 09:54:32 - jobCargaDimensoesParalelo - Launched job entry [Carga Tempo] in parallel.
+2020/02/11 09:54:32 - Carga Produto - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - jobCargaDimensãoProduto - Starting entry [Carga da Categoria]
+2020/02/11 09:54:32 - Carga Organizacional - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - jobCargaDimensãoOrganizacional - Starting entry [Processo 1]
+2020/02/11 09:54:32 - Processo 1 - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - Carga Fábrica - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - Carga de Cliente - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - Carga da Categoria - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - Carga da Categoria - Running transformation using the Kettle execution engine
+2020/02/11 09:54:32 - Carga de Cliente - Running transformation using the Kettle execution engine
+2020/02/11 09:54:32 - Carga Fábrica - Running transformation using the Kettle execution engine
+2020/02/11 09:54:32 - Processo 1 - Running transformation using the Kettle execution engine
+2020/02/11 09:54:32 - Carga Tempo - Using run configuration [Pentaho local]
+2020/02/11 09:54:32 - Carga Tempo - Running transformation using the Kettle execution engine
+2020/02/11 09:54:32 - DimensaoFabrica - Dispatching started for transformation [DimensaoFabrica]
+2020/02/11 09:54:32 - DimensaoProduto_Categoria - Dispatching started for transformation [DimensaoProduto_Categoria]
+2020/02/11 09:54:32 - DimensaoCliente - Dispatching started for transformation [DimensaoCliente]
+2020/02/11 09:54:32 - DimensaoOrganizacional_Processo1 - Dispatching started for transformation [DimensaoOrganizacional_Processo1]
+2020/02/11 09:54:32 - DimensãoTempo - Dispatching started for transformation [DimensãoTempo]
+2020/02/11 09:54:33 - Gerar 4000 linhas.0 - Finished processing (I=0, O=0, R=0, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Incremento de Dia.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Leitura das Categorias.0 - Header row skipped in file '/mnt/dados/treinamento/designer-tools/data-integration/export/MARCAS E CATEGORIAS.csv'
+2020/02/11 09:54:33 - Leitura Fábricas.0 - Header row skipped in file '/mnt/dados/treinamento/designer-tools/data-integration/export/Fabricas.txt'
+2020/02/11 09:54:33 - Leitura Fábricas.0 - Finished processing (I=4, O=0, R=0, W=3, U=0, E=0)
+2020/02/11 09:54:33 - Leitura das Categorias.0 - Finished processing (I=10, O=0, R=0, W=9, U=0, E=0)
+2020/02/11 09:54:33 - Leitura das Regiões.0 - Header row skipped in file '/mnt/dados/treinamento/designer-tools/data-integration/export/REGIOES DOS ESTADOS.csv'
+2020/02/11 09:54:33 - Leitura das Regiões.0 - Finished processing (I=10, O=0, R=0, W=9, U=0, E=0)
+2020/02/11 09:54:33 - Dimensão Fábrica.0 - Finished processing (I=3, O=0, R=3, W=3, U=0, E=0)
+2020/02/11 09:54:33 - Nível Categoria.0 - Finished processing (I=9, O=0, R=9, W=9, U=0, E=0)
+2020/02/11 09:54:33 - jobCargaDimensoesParalelo - Starting entry [Success]
+2020/02/11 09:54:33 - jobCargaDimensãoProduto - Starting entry [Carga da Marca]
+2020/02/11 09:54:33 - jobCargaDimensoesParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:33 - Carga da Marca - Using run configuration [Pentaho local]
+2020/02/11 09:54:33 - Carga da Marca - Running transformation using the Kettle execution engine
+2020/02/11 09:54:33 - DimensaoProduto_Marca - Dispatching started for transformation [DimensaoProduto_Marca]
+2020/02/11 09:54:33 - Leitura das Marcas.0 - Header row skipped in file '/mnt/dados/treinamento/designer-tools/data-integration/export/MARCAS E CATEGORIAS.csv'
+2020/02/11 09:54:33 - Leitura das Marcas.0 - Finished processing (I=10, O=0, R=0, W=9, U=0, E=0)
+2020/02/11 09:54:33 - Nível Marca.0 - Finished processing (I=9, O=0, R=9, W=9, U=0, E=0)
+2020/02/11 09:54:33 - jobCargaDimensãoProduto - Starting entry [Carga Produto]
+2020/02/11 09:54:33 - Calcula o Dia.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Agregadores de Tempo.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Achar o Semestre da Data.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Nome do Trimestre.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Nome do Semestre.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:33 - Carga Produto - Using run configuration [Pentaho local]
+2020/02/11 09:54:33 - Carga Produto - Running transformation using the Kettle execution engine
+2020/02/11 09:54:33 - DimensaoProduto_Produto - Dispatching started for transformation [DimensaoProduto_Produto]
+2020/02/11 09:54:35 - Nome dos Mêses.0 - Finished processing (I=12, O=0, R=0, W=12, U=0, E=0)
+2020/02/11 09:54:35 - Leitura Funcionarios Grupo 1.0 - Finished processing (I=8, O=0, R=0, W=8, U=0, E=0)
+2020/02/11 09:54:35 - Inicializa Cod_Pai Esquerda Direita Nível.0 - Finished processing (I=0, O=0, R=8, W=8, U=0, E=0)
+2020/02/11 09:54:35 - Leitura da Dimensão Produto.0 - Finished processing (I=35, O=0, R=0, W=35, U=0, E=0)
+2020/02/11 09:54:35 - Duplica coluna de descrição.0 - Finished processing (I=0, O=0, R=35, W=35, U=0, E=0)
+2020/02/11 09:54:35 - Split Marca Tamanho e Sabor.0 - Finished processing (I=0, O=0, R=35, W=35, U=0, E=0)
+2020/02/11 09:54:35 - Leitura Planilha de Clientes.0 - Finished processing (I=57, O=0, R=0, W=57, U=0, E=0)
+2020/02/11 09:54:35 - Split fields.0 - Finished processing (I=0, O=0, R=57, W=57, U=0, E=0)
+2020/02/11 09:54:35 - Split Endereço.0 - Finished processing (I=0, O=0, R=57, W=57, U=0, E=0)
+2020/02/11 09:54:35 - Dimensão Produto.0 - Finished processing (I=35, O=0, R=35, W=35, U=0, E=0)
+2020/02/11 09:54:35 - jobCargaDimensãoProduto - Starting entry [Success]
+2020/02/11 09:54:35 - jobCargaDimensãoProduto - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:35 - jobCargaDimensãoProduto - Finished job entry [Carga Produto] (result=[true])
+2020/02/11 09:54:35 - jobCargaDimensãoProduto - Finished job entry [Carga da Marca] (result=[true])
+2020/02/11 09:54:35 - jobCargaDimensãoProduto - Finished job entry [Carga da Categoria] (result=[true])
+2020/02/11 09:54:35 - jobCargaDimensoesParalelo - Starting entry [Success]
+2020/02/11 09:54:35 - jobCargaDimensoesParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:35 - Dimensão Organizacional.0 - Finished processing (I=8, O=0, R=8, W=8, U=2, E=0)
+2020/02/11 09:54:35 - jobCargaDimensãoOrganizacional - Starting entry [Processo 2]
+2020/02/11 09:54:35 - Processo 2 - Using run configuration [Pentaho local]
+2020/02/11 09:54:35 - Processo 2 - Running transformation using the Kettle execution engine
+2020/02/11 09:54:35 - DimensaoOrganizacional_Processo2 - Dispatching started for transformation [DimensaoOrganizacional_Processo2]
+2020/02/11 09:54:35 - Juntando Cliente com Regiões.0 - Finished processing (I=0, O=0, R=66, W=57, U=0, E=0)
+2020/02/11 09:54:35 - Dimensão Cliente.0 - Finished processing (I=57, O=0, R=57, W=57, U=0, E=0)
+2020/02/11 09:54:35 - Leitura Funcionarios Grupo 1.0 - Finished processing (I=8, O=0, R=0, W=8, U=0, E=0)
+2020/02/11 09:54:35 - Acha o nome do mês.0 - Finished processing (I=0, O=0, R=4012, W=4000, U=0, E=0)
+2020/02/11 09:54:35 - jobCargaDimensoesParalelo - Starting entry [Success]
+2020/02/11 09:54:35 - jobCargaDimensoesParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:35 - Inicializa Esquerda Direita Nível.0 - Finished processing (I=0, O=0, R=8, W=8, U=0, E=0)
+2020/02/11 09:54:35 - Exclui Colunas.0 - Finished processing (I=0, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:36 - Dimensão Organizacional.0 - Finished processing (I=8, O=0, R=8, W=8, U=4, E=0)
+2020/02/11 09:54:36 - jobCargaDimensãoOrganizacional - Starting entry [Processo 3]
+2020/02/11 09:54:36 - Processo 3 - Using run configuration [Pentaho local]
+2020/02/11 09:54:36 - Processo 3 - Running transformation using the Kettle execution engine
+2020/02/11 09:54:36 - DimensaoOrganizacional_Processo3 - Dispatching started for transformation [DimensaoOrganizacional_Processo3]
+2020/02/11 09:54:36 - Leitura Funcionarios Grupo 1.0 - Finished processing (I=8, O=0, R=0, W=8, U=0, E=0)
+2020/02/11 09:54:36 - Inicializa Esquerda Direita Nível.0 - Finished processing (I=0, O=0, R=8, W=8, U=0, E=0)
+2020/02/11 09:54:36 - Dimensão Organizacional.0 - Finished processing (I=8, O=0, R=8, W=8, U=8, E=0)
+2020/02/11 09:54:36 - jobCargaDimensãoOrganizacional - Starting entry [Processo 4]
+2020/02/11 09:54:36 - Processo 4 - Using run configuration [Pentaho local]
+2020/02/11 09:54:36 - Processo 4 - Running transformation using the Kettle execution engine
+2020/02/11 09:54:36 - DimensaoOrganizacional_Processo4 - Dispatching started for transformation [DimensaoOrganizacional_Processo4]
+2020/02/11 09:54:36 - Leitura Funcionarios Grupo 2.0 - Finished processing (I=4, O=0, R=0, W=4, U=0, E=0)
+2020/02/11 09:54:36 - Inicializa Cod_Pai Esquerda Direita Nível.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/11 09:54:36 - Gravação da Dimensão Tempo.0 - Finished processing (I=4000, O=0, R=4000, W=4000, U=0, E=0)
+2020/02/11 09:54:36 - jobCargaDimensoesParalelo - Starting entry [Success]
+2020/02/11 09:54:36 - jobCargaDimensoesParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:36 - Dimensão Organizacional.0 - Finished processing (I=4, O=0, R=4, W=4, U=1, E=0)
+2020/02/11 09:54:36 - jobCargaDimensãoOrganizacional - Starting entry [Processo 5]
+2020/02/11 09:54:36 - Processo 5 - Using run configuration [Pentaho local]
+2020/02/11 09:54:36 - Processo 5 - Running transformation using the Kettle execution engine
+2020/02/11 09:54:36 - DimensaoOrganizacional_Processo5 - Dispatching started for transformation [DimensaoOrganizacional_Processo5]
+2020/02/11 09:54:36 - Leitura Funcionarios Grupo 2.0 - Finished processing (I=4, O=0, R=0, W=4, U=0, E=0)
+2020/02/11 09:54:36 - Inicializa Esquerda Direita Nível.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/11 09:54:36 - Dimensão Organizacional.0 - Finished processing (I=4, O=0, R=4, W=4, U=4, E=0)
+2020/02/11 09:54:36 - jobCargaDimensãoOrganizacional - Starting entry [EsqDirNivel]
+2020/02/11 09:54:37 - EsqDirNivel - Using run configuration [Pentaho local]
+2020/02/11 09:54:37 - EsqDirNivel - Running transformation using the Kettle execution engine
+2020/02/11 09:54:37 - DimensaoOrganizacional_EsqDirNivel - Dispatching started for transformation [DimensaoOrganizacional_EsqDirNivel]
+2020/02/11 09:54:43 - Criação das Tabelas Auxiliares.0 - Finished reading query, closing connection.
+2020/02/11 09:54:43 - Inicializa Esq Dir Nivel da Dimensão.0 - Finished reading query, closing connection.
+2020/02/11 09:54:43 - Inicializa Esq Dir Nivel da Dimensão.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/11 09:54:43 - Criação das Tabelas Auxiliares.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/11 09:54:43 - Leitura da Tabela Auxiliar.0 - Finished reading query, closing connection.
+2020/02/11 09:54:43 - Leitura da Tabela Auxiliar.0 - Finished processing (I=19, O=0, R=0, W=19, U=0, E=0)
+2020/02/11 09:54:43 - Gravação do Esq Dir Nível.0 - Finished processing (I=19, O=0, R=19, W=19, U=19, E=0)
+2020/02/11 09:54:43 - Carte - Installing timer to purge stale objects after 1440 minutes.
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Starting entry [Success]
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [EsqDirNivel] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Processo 5] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Processo 4] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Processo 3] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Processo 2] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensãoOrganizacional - Finished job entry [Processo 1] (result=[true])
+2020/02/11 09:54:43 - jobCargaDimensoesParalelo - Starting entry [Success]
+2020/02/11 09:54:43 - jobCargaDimensoesParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:43 - jobPrincipal - Starting entry [Carga Fatos]
+2020/02/11 09:54:43 - Carga Fatos - Using run configuration [Pentaho local]
+2020/02/11 09:54:43 - jobFatosParalelo - Starting entry [Carga Todas as Fatos]
+2020/02/11 09:54:43 - Carga Todas as Fatos - Using run configuration [Pentaho local]
+2020/02/11 09:54:43 - Carga Todas as Fatos - Running transformation using the Kettle execution engine
+2020/02/11 09:54:43 - Fato - Dispatching started for transformation [Fato]
+2020/02/11 09:54:44 - Leitura Tabela de Fato 003.0 - Finished reading query, closing connection.
+2020/02/11 09:54:44 - Leitura Tabela de Fato 003.0 - Finished processing (I=2, O=0, R=0, W=2, U=0, E=0)
+2020/02/11 09:54:44 - Leitura Tabela de Fato 005.0 - Finished reading query, closing connection.
+2020/02/11 09:54:44 - Leitura Tabela de Fato 005.0 - Finished processing (I=62, O=0, R=0, W=62, U=0, E=0)
+2020/02/11 09:54:44 - Leitura Tabela de Fato 002.0 - Finished reading query, closing connection.
+2020/02/11 09:54:44 - Leitura Tabela de Fato 002.0 - Finished processing (I=1502, O=0, R=0, W=1502, U=0, E=0)
+2020/02/11 09:54:44 - Leitura Tabela de Fato 001.0 - Finished reading query, closing connection.
+2020/02/11 09:54:44 - Leitura Tabela de Fato 001.0 - Finished processing (I=1502, O=0, R=0, W=1502, U=0, E=0)
+2020/02/11 09:54:44 - Gravação Tabela de Fato 003.0 - Finished processing (I=2, O=2, R=2, W=2, U=0, E=0)
+2020/02/11 09:54:44 - Gravação Tabela de Fato 005.0 - Finished processing (I=62, O=62, R=62, W=62, U=0, E=0)
+2020/02/11 09:54:46 - Gravação Tabela de Fato 001.0 - Finished processing (I=1502, O=1502, R=1502, W=1502, U=0, E=0)
+2020/02/11 09:54:46 - Gravação Tabela de Fato 002.0 - Finished processing (I=1502, O=1502, R=1502, W=1502, U=0, E=0)
+2020/02/11 09:54:46 - jobFatosParalelo - Starting entry [Success]
+2020/02/11 09:54:46 - jobFatosParalelo - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:46 - jobFatosParalelo - Finished job entry [Carga Todas as Fatos] (result=[true])
+2020/02/11 09:54:46 - jobPrincipal - Starting entry [Success]
+2020/02/11 09:54:46 - jobPrincipal - Finished job entry [Success] (result=[true])
+2020/02/11 09:54:46 - jobPrincipal - Finished job entry [Carga Fatos] (result=[true])
+2020/02/11 09:54:46 - jobPrincipal - Finished job entry [Carga Dimensões] (result=[true])
+2020/02/11 09:54:46 - jobPrincipal - Finished job entry [Set variables] (result=[true])
+2020/02/11 09:54:46 - jobPrincipal - Job execution finished
+2020/02/11 09:54:46 - Kitchen - Finished!
+2020/02/11 09:54:46 - Kitchen - Start=2020/02/11 09:54:26.310, Stop=2020/02/11 09:54:46.367
+2020/02/11 09:54:46 - Kitchen - Processing ended after 20 seconds.
