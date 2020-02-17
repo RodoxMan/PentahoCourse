@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_ANO" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_PIECHART" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_BARCHART" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_ANO" id="QUERY_ANO" type="sql">
+      <Name>QUERY_ANO</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT DISTINCT t.AnoTempo FROM tbl_dmns_tmp t]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_PIECHART" id="QUERY_PIECHART" type="sql">
+      <Name>QUERY_PIECHART</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_ANO" name="PARAM_ANO" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    v.TerritorioVendedor,
+    sum(f.PrecoTotal) as PrecoTotal
+from
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+	inner join tbl_dmns_tmp t
+		on f.TempoIdPedido = t.TempoId
+where
+	t.AnoTempo = ${PARAM_ANO}
+group by
+	v.TerritorioVendedor]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_BARCHART" id="QUERY_BARCHART" type="sql">
+      <Name>QUERY_BARCHART</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_ANO" name="PARAM_ANO" type="Integer"/>
+         <Parameter default="PARAM_TERRITORIO" name="PARAM_TERRITORIO" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    p.LinhaProduto, t.AnoTempo, sum(f.PrecoTotal) as PrecoTotal
+from
+    tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+	inner join tbl_dmns_tmp t
+		on f.TempoIdPedido = t.TempoId
+	inner join tbl_dmns_prdt p
+		on f.ProdutoId = p.ProdutoId
+where
+	t.AnoTempo IN (${PARAM_ANO}-1,${PARAM_ANO})
+	and v.TerritorioVendedor = ${PARAM_TERRITORIO}
+group by p.LinhaProduto, t.AnoTempo]]></Query>
+   </DataAccess>
+</CDADescriptor>

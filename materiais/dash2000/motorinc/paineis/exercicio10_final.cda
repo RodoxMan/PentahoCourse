@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="sql1" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="sql1" id="sql1" type="sql">
+      <Name>sql1</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_VEND" name="PARAM_VEND" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+	b.`LinhaProduto`
+	, b.`FornecedorProduto`
+	, b.`NomeProduto`	
+    , sum(a.`QuantidadePedida`) as QuantidadePedida
+    , sum(a.`PrecoTotal`) as PrecoTotal    
+from 
+	`tbl_ft_vnds` a
+	inner join `tbl_dmns_prdt` b
+		on a.`ProdutoId` = b.`ProdutoId`
+	inner join `tbl_dmns_vnddr` c
+		on a.`VendedorId` = c.`VendedorId`
+where
+	c.`NomeVendedor` = ${PARAM_VEND}
+group by
+	b.`LinhaProduto`
+	, b.`FornecedorProduto`
+	, b.`NomeProduto`	
+order by
+	b.`LinhaProduto`
+	, b.`FornecedorProduto`
+	, b.`NomeProduto`]]></Query>
+   </DataAccess>
+</CDADescriptor>

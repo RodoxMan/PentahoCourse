@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_EMEA" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_LATAM" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_APAC" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_AN" type="sql.jndi">
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_EMEA" id="QUERY_EMEA" type="sql">
+      <Name>QUERY_EMEA</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="EMEA" name="PARAM_TERRITORIO" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    ${PARAM_TERRITORIO} as TerritorioVendedor
+    , sum(f.PrecoTotal) as PrecoTotalEmea
+     , (select sum(f2.PrecoTotal) from tbl_ft_vnds f2 where f2.VendedorId not between 7 and 12) as PrecoTotalOutros
+from 
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+where
+	v.TerritorioVendedor = ${PARAM_TERRITORIO}
+group by
+	v.TerritorioVendedor]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_LATAM" id="QUERY_LATAM" type="sql">
+      <Name>QUERY_LATAM</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 
+    'LATAM' as TerritorioVendedor
+    , sum(f.PrecoTotal) as PrecoTotalEmea
+     , (select sum(f2.PrecoTotal) from tbl_ft_vnds f2 where f2.VendedorId not between 13 and 14) as PrecoTotalOutros
+from 
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+where
+	v.TerritorioVendedor = 'LATAM'
+group by
+	v.TerritorioVendedor]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_APAC" id="QUERY_APAC" type="sql">
+      <Name>QUERY_APAC</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 
+    'APAC' as TerritorioVendedor
+    , sum(f.PrecoTotal) as PrecoTotalEmea
+     , (select sum(f2.PrecoTotal) from tbl_ft_vnds f2 where f2.VendedorId not between 2 and 4) as PrecoTotalOutros
+from 
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+where
+	v.TerritorioVendedor = 'APAC'
+group by
+	v.TerritorioVendedor]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_AN" id="QUERY_AN" type="sql">
+      <Name>QUERY_AN</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 
+    'AN' as TerritorioVendedor
+    , sum(f.PrecoTotal) as PrecoTotalEmea
+     , (select sum(f2.PrecoTotal) from tbl_ft_vnds f2 where f2.VendedorId not between 15 and 18) as PrecoTotalOutros
+from 
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+where
+	v.TerritorioVendedor = 'AN'
+group by
+	v.TerritorioVendedor]]></Query>
+   </DataAccess>
+</CDADescriptor>

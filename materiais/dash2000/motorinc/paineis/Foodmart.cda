@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_UNIT_SALES_GROWTH" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_AVG_SPEND_GROWTH" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_CUSTOMER_GROWTH" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_REVENUE_SALES_GROWTH" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_PRODUCT_FAMILY_SALES" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_REGIONS" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_STORE_TYPE_SALES" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_DRINK_SALES" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+      <Connection id="QUERY_SALES_PERFORMANCE" type="mondrian.jndi">
+         <Catalog>mondrian:/FoodMart</Catalog>
+         <Jndi>foodmart_dwh</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_UNIT_SALES_GROWTH"
+               id="QUERY_UNIT_SALES_GROWTH"
+               type="mdx">
+      <Name>QUERY_UNIT_SALES_GROWTH</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[with member [Measures].[Weekly Avg] as AVG({[Time.Weekly].CurrentMember:[Time.Weekly].CurrentMember.Lag(${PARAM_LAG})}, [Measures].[Unit Sales])
+member [Measures].[Diff] as (([Measures].[Unit Sales]-[Measures].[Weekly Avg])/[Measures].[Weekly Avg])*100, FORMAT_STRING = "0.00"
+select NON EMPTY {[Measures].[Unit Sales],[Measures].[Diff]} ON COLUMNS,
+  NON EMPTY [Time.Weekly].[1997].[${PARAM_WEEK}] ON ROWS
+from [Sales]
+where {[Store].[USA].[${PARAM_REGION}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_AVG_SPEND_GROWTH" id="QUERY_AVG_SPEND_GROWTH"
+               type="mdx">
+      <Name>QUERY_AVG_SPEND_GROWTH</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[with member [Measures].[Weekly Avg] as '(Avg({([Time.Weekly].CurrentMember : [Time.Weekly].CurrentMember.Lag(${PARAM_LAG}))}, [Measures].[Store Sales]) / Avg({([Time.Weekly].CurrentMember : [Time.Weekly].CurrentMember.Lag(${PARAM_LAG}))}, [Measures].[Unit Sales]))'
+  member [Measures].[Average Spend] as '([Measures].[Store Sales] / [Measures].[Unit Sales])'
+  member [Measures].[Diff] as '((([Measures].[Average Spend] - [Measures].[Weekly Avg]) / [Measures].[Weekly Avg]) * 100.0)', FORMAT_STRING = "0.00"
+select NON EMPTY {[Measures].[Average Spend], [Measures].[Diff]} ON COLUMNS,
+  NON EMPTY {[Time.Weekly].[1997].[${PARAM_WEEK}]} ON ROWS
+from [Sales]
+where {[Store].[USA].[${PARAM_REGION}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_CUSTOMER_GROWTH" id="QUERY_CUSTOMER_GROWTH"
+               type="mdx">
+      <Name>QUERY_CUSTOMER_GROWTH</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[with member [Measures].[Weekly Avg] as 'Avg({([Time.Weekly].CurrentMember : [Time.Weekly].CurrentMember.Lag(${PARAM_LAG}))}, [Measures].[Customer Count])'
+  member [Measures].[Diff] as '((([Measures].[Customer Count] - [Measures].[Weekly Avg]) / [Measures].[Weekly Avg]) * 100.0)', FORMAT_STRING = "0.00"
+select NON EMPTY {[Measures].[Customer Count], [Measures].[Diff]} ON COLUMNS,
+  NON EMPTY {[Time.Weekly].[1997].[${PARAM_WEEK}]} ON ROWS
+from [Sales]
+where {[Store].[USA].[${PARAM_REGION}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_REVENUE_SALES_GROWTH"
+               id="QUERY_REVENUE_SALES_GROWTH"
+               type="mdx">
+      <Name>QUERY_REVENUE_SALES_GROWTH</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[with member [Measures].[Weekly Avg] as AVG({[Time.Weekly].CurrentMember:[Time.Weekly].CurrentMember.Lag(${PARAM_LAG})}, [Measures].[Store Sales])
+member [Measures].[Diff] as (([Measures].[Store Sales]-[Measures].[Weekly Avg])/[Measures].[Weekly Avg])*100, FORMAT_STRING = "0.00"
+select NON EMPTY {[Measures].[Store Sales],[Measures].[Diff]} ON COLUMNS,
+  NON EMPTY [Time.Weekly].[1997].[${PARAM_WEEK}] ON ROWS
+from [Sales]
+where {[Store].[USA].[${PARAM_REGION}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_PRODUCT_FAMILY_SALES"
+               id="QUERY_PRODUCT_FAMILY_SALES"
+               type="mdx">
+      <Name>QUERY_PRODUCT_FAMILY_SALES</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY [Product].[All Products].Children ON COLUMNS,
+  NON EMPTY {([Time.Weekly].[1997].[${PARAM_WEEK}] : [Time.Weekly].[1997].[${PARAM_WEEK}].Lag(${PARAM_LAG}))} ON ROWS
+from [Sales]
+where {[Store].[USA].[${PARAM_REGION}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_REGIONS" id="QUERY_REGIONS" type="mdx">
+      <Name>QUERY_REGIONS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Unit Sales]} ON COLUMNS,
+  NON EMPTY [Store].[USA].Children ON ROWS
+from [Sales]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_STORE_TYPE_SALES" id="QUERY_STORE_TYPE_SALES"
+               type="mdx">
+      <Name>QUERY_STORE_TYPE_SALES</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Unit Sales]} ON COLUMNS,
+  NON EMPTY Crossjoin({[Store Type].[Deluxe Supermarket], [Store Type].[Supermarket]}, {([Time.Weekly].[1997].[${PARAM_WEEK}].Lag(${PARAM_LAG}) : [Time.Weekly].[1997].[${PARAM_WEEK}])}) ON ROWS
+from [Sales]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_DRINK_SALES" id="QUERY_DRINK_SALES"
+               type="mdx">
+      <Name>QUERY_DRINK_SALES</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_REGION" name="PARAM_REGION" type="String"/>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Unit Sales]} ON COLUMNS,
+  NON EMPTY [Product].Children ON ROWS
+from [Sales]
+where Crossjoin({[Store].[USA].[${PARAM_REGION}]}, {[Time.Weekly].[1997].[${PARAM_WEEK}]})]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_SALES_PERFORMANCE"
+               id="QUERY_SALES_PERFORMANCE"
+               type="mdx">
+      <Name>QUERY_SALES_PERFORMANCE</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_WEEK" name="PARAM_WEEK" type="String"/>
+         <Parameter default="PARAM_LAG" name="PARAM_LAG" type="String"/>
+      </Parameters>
+      <Query><![CDATA[with member [Measures].[Calculated Avg] as 'Avg({([Time.Weekly].CurrentMember : [Time.Weekly].CurrentMember.Lag(${PARAM_LAG}))}, [Measures].[Unit Sales])'
+ member [Measures].[Last Week Sales] as '([Time.Weekly].CurrentMember.Lag(1.0), [Measures].[Unit Sales])'
+  member [Measures].[Diff] as '((([Measures].[Unit Sales] - [Measures].[Calculated Avg]) / [Measures].[Calculated Avg]) * 100.0)', FORMAT_STRING = "0.00"
+  set monthdays as '{([Time.Weekly].CurrentMember : [Time.Weekly].CurrentMember.Lag(${PARAM_LAG}))}'
+  member [Measures].[sparklines] as 'Generate([monthdays], CAST(([Measures].[Unit Sales] + 0.0) AS String), " , ")'
+select NON EMPTY {[Measures].[Last Week Sales], [Measures].[Unit Sales], [Measures].[Calculated Avg], [Measures].[Diff]} ON COLUMNS,
+  NON EMPTY TopCount(Descendants({[Product].[All Products]}, 2.0), 9.0) ON ROWS
+from [Sales]
+where ([Store].[USA].[CA], [Time.Weekly].[1997].[${PARAM_WEEK}])]]></Query>
+   </DataAccess>
+</CDADescriptor>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_TERRITORIO" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_LINHA" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_CLIENTE" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_TERRITORIO" id="QUERY_TERRITORIO" type="mdx">
+      <Name>QUERY_TERRITORIO</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Preco Total]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[Mercado].[Territorio].Members})} ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_LINHA" id="QUERY_LINHA" type="mdx">
+      <Name>QUERY_LINHA</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Preco Total]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[Produto].[Linha].Members})} ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_CLIENTE" id="QUERY_CLIENTE" type="mdx">
+      <Name>QUERY_CLIENTE</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_TERRITORIO" name="PARAM_TERRITORIO" type="String"/>
+         <Parameter default="PARAM_LINHA" name="PARAM_LINHA" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Preco Total]} ON COLUMNS,
+  NON EMPTY Order({TopCount([Cliente].[Nome Cliente].Members, 10.0, [Measures].[Preco Total])}, [Measures].[Preco Total], ASC) ON ROWS
+from [Motor Inc Vendas]
+where Crossjoin({[Produto].[${PARAM_LINHA}]}, {[Mercado].[${PARAM_TERRITORIO}]})]]></Query>
+   </DataAccess>
+</CDADescriptor>

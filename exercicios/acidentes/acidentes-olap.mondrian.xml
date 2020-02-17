@@ -19,11 +19,7 @@
       </Level>
     </Hierarchy>
   </Dimension>
-<<<<<<< HEAD
   <Cube name="Acidentes de Transito" caption="Acidentes de Tr&#226;nsito - 2014 &#224; 2017" visible="true" description="Ocorrencia de Acidentes no Brasil" cache="true" enabled="true">
-=======
-  <Cube name="Acidentes de Transito" caption="Acidentes de Tr&#226;nsito  - 2017" visible="true" description="Ocorrencia de Acidentes no Brasil" cache="true" enabled="true">
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <Table name="ft_acidentes" schema="public">
     </Table>
     <DimensionUsage source="Tempo" name="Tempo Dados" visible="true" foreignKey="tempo_id" highCardinality="false">
@@ -37,25 +33,10 @@
         <Level name="Municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
         </Level>
       </Hierarchy>
-<<<<<<< HEAD
       <Hierarchy name="BRs" visible="true" hasAll="true" allMemberName="Todas as BRs" primaryKey="id_ocorrencia">
         <Table name="dim_ocorrencias" schema="public">
         </Table>
         <Level name="br" visible="true" column="br" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-=======
-      <Hierarchy name="Tipo Acidente" visible="true" hasAll="true" allMemberName="Todas as Ocorrencias" allMemberCaption="Todas as Ocorr&#234;ncias" primaryKey="id_ocorrencia">
-        <Table name="dim_ocorrencias" schema="public">
-        </Table>
-        <Level name="Classificacao" visible="true" column="classificacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Classifica&#231;&#227;o">
-        </Level>
-        <Level name="Tipo" visible="true" column="tipo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-        </Level>
-      </Hierarchy>
-      <Hierarchy name="Causa do Acidente" visible="true" hasAll="true" allMemberName="Todas as Causas" primaryKey="id_ocorrencia">
-        <Table name="dim_ocorrencias" schema="public">
-        </Table>
-        <Level name="Causa" visible="true" column="causa" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
         </Level>
       </Hierarchy>
     </Dimension>
@@ -67,12 +48,8 @@
               <![CDATA[Case tipo_pista
    When 1 Then 'Dupla'
    When 2 Then 'Múltipla'
-<<<<<<< HEAD
    When 3 Then 'Simples'
    Else 'Não Informado'
-=======
-   Else 'Simples'
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
 End]]>
             </SQL>
           </CaptionExpression>
@@ -85,7 +62,6 @@ End]]>
           <CaptionExpression>
             <SQL dialect="postgres">
               <![CDATA[Case tracado_via
-<<<<<<< HEAD
     When 1 Then 'Cruzamento'
     When 2 Then 'Curva'
     When 3 Then 'Desvio Temporário'
@@ -97,17 +73,6 @@ End]]>
     When 9 Then 'Retorno Regulamentado'
     When 10 Then 'Rotatória'
     When 11 Then 'Túnel'
-=======
-    When 1 Then 'Curva'
-    When 2 Then 'Desvio Temporário'
-    When 3 Then 'Interseção de vias'
-    When 4 Then 'Não Informado'
-    When 5 Then 'Ponte'
-    When 6 Then 'Reta'
-    When 7 Then 'Retorno Regulamentado'
-    When 8 Then 'Rotatória'
-    When 9 Then 'Túnel'
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     Else 'Viaduto'
 End]]>
             </SQL>
@@ -123,12 +88,8 @@ End]]>
               <![CDATA[Case fase_dia
     When 1 Then 'Amanhecer'
     When 2 Then 'Anoitecer'
-<<<<<<< HEAD
     When 4 Then 'Não Identificado'
     When 5 Then 'Plena Noite'
-=======
-    When 3 Then 'Plena Noite'
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     Else 'Pleno dia'
 End]]>
             </SQL>
@@ -142,7 +103,6 @@ End]]>
           <CaptionExpression>
             <SQL dialect="postgres">
               <![CDATA[Case condicao_metereologica
-<<<<<<< HEAD
     When 1 Then 'Céu Claro'
     When 2 Then 'Chuva'
     When 3 Then 'Garoa/Chuvisco'
@@ -153,17 +113,6 @@ End]]>
     When 8 Then 'Nevoeiro/Neblina'
     When 9 Then 'Nublado'
     When 10 Then 'Sol'
-=======
-    When 1 Then 'Chuva'
-    When 2 Then 'Céu Claro'
-    When 3 Then 'Garoa/Chuvisco'
-    When 4 Then 'Granizo'
-    When 5 Then 'Ignorado'
-    When 6 Then 'Neve'
-    When 7 Then 'Nevoeiro/Neblina'
-    When 8 Then 'Nublado'
-    When 9 Then 'Sol'
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     Else 'Vento'
 End]]>
             </SQL>
@@ -171,7 +120,6 @@ End]]>
         </Level>
       </Hierarchy>
     </Dimension>
-<<<<<<< HEAD
     <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Classificacao Acidente" caption="Classifica&#231;&#227;o Acidente">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Classificacoes" allMemberCaption="Todas as Classifica&#231;&#245;es">
         <Level name="Classificacao" visible="true" column="classificacao_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Classifica&#231;&#227;o">
@@ -256,8 +204,6 @@ End]]>
         </Level>
       </Hierarchy>
     </Dimension>
-=======
->>>>>>> 52a9b4662f9c94ccbe1611f84122fb13cef2db29
     <Measure name="Pessoas" column="pessoas" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
     <Measure name="Mortos" column="mortos" datatype="Integer" aggregator="sum" visible="true">
