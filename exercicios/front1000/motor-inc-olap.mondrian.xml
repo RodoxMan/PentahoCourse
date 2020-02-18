@@ -1,4 +1,4 @@
-<Schema name="Motor Inc Vendas">
+<Schema name="Motor Inc Vendas - Meu">
   <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
     <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="tempoid" caption="Calend&#225;rio">
       <Table name="tbl_dmns_tmp" schema="public">
@@ -113,4 +113,22 @@ End]]>
       </CalculatedMemberProperty>
     </CalculatedMember>
   </Cube>
+  <Role name="Administrator">
+    <SchemaGrant access="all">
+    </SchemaGrant>
+  </Role>
+  <Role name="Authenticated">
+    <SchemaGrant access="none">
+    </SchemaGrant>
+  </Role>
+  <Role name="LATAM">
+    <SchemaGrant access="all_dimensions">
+      <CubeGrant cube="Motor Inc Vendas" access="all">
+        <HierarchyGrant hierarchy="[Cliente]" topLevel="[Cliente].[Territorio]" access="custom">
+          <MemberGrant member="[Cliente].[LATAM]" access="all">
+          </MemberGrant>
+        </HierarchyGrant>
+      </CubeGrant>
+    </SchemaGrant>
+  </Role>
 </Schema>
