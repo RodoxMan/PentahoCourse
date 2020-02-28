@@ -1,4 +1,4 @@
-<Schema name="Motor Inc Vendas - Meu">
+<Schema name="Motor Inc Vendas - V1">
   <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
     <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="tempoid" caption="Calend&#225;rio">
       <Table name="tbl_dmns_tmp" schema="public">

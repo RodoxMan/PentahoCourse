@@ -4,8 +4,8 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="Data Warehouse - MYSQL" />
    <property key="Connection Type" value="MySQL" />
+   <property key="Logical" value="Modelo de Dados" />
    <property key="JDBC URL" value="jdbc:mysql://localhost:3306/" />
    <property key="UID" value="root" />
    <property key="PWD" value="rodk1605" />
@@ -499,7 +499,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="dwsucos"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.4999999999999994" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.1892071150027193" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB13" x="2413" y="1054" bgColor="0xbfd6ff" fgColor="0x000000" rounded="true" dashed="false"/>
   <table-pane table-ref="TAB18" x="1713" y="2046" bgColor="0xbfd6ff" fgColor="0x000000" rounded="true" dashed="false"/>
   <table-pane table-ref="TAB31" x="1911" y="920" bgColor="0xbfd6ff" fgColor="0x000000" rounded="true" dashed="false"/>

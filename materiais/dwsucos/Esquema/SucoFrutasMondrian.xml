@@ -13,59 +13,67 @@
       </Level>
     </Hierarchy>
   </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="Produto">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Produto">
     <Hierarchy name="Produto" visible="true" hasAll="true" allMemberName="Todos os Produtos" primaryKey="id_produto">
       <Table name="dim_produto">
       </Table>
-      <Level name="Categoria" visible="true" column="cod_categoria" type="String" uniqueMembers="false" levelType="Regular" captionColumn="desc_categoria">
+      <Level name="Categoria" visible="true" column="cod_categoria" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" captionColumn="desc_categoria">
       </Level>
-      <Level name="Marca" visible="true" column="cod_marca" type="String" uniqueMembers="false" levelType="Regular" caption="Marca" description="Marca" captionColumn="desc_marca">
+      <Level name="Marca" visible="true" column="cod_marca" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Marca" description="Marca" captionColumn="desc_marca">
       </Level>
-      <Level name="Produto" visible="true" column="cod_produto" type="String" uniqueMembers="false" levelType="Regular" caption="Produto" captionColumn="desc_produto">
+      <Level name="Produto" visible="true" column="cod_produto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Produto" captionColumn="desc_produto">
       </Level>
     </Hierarchy>
     <Hierarchy name="Tamanho" visible="true" hasAll="true" allMemberName="Todos os Tamanhos" primaryKey="id_produto">
       <Table name="dim_produto">
       </Table>
-      <Level name="Tamanho" visible="true" column="atr_tamanho" type="String" uniqueMembers="false" levelType="Regular" caption="Tamanho" description="Tamanho" captionColumn="atr_tamanho">
+      <Level name="Tamanho" visible="true" column="atr_tamanho" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Tamanho" description="Tamanho" captionColumn="atr_tamanho">
       </Level>
     </Hierarchy>
     <Hierarchy name="Sabor" visible="true" hasAll="true" allMemberName="Todos os Sabores" primaryKey="id_produto">
       <Table name="dim_produto">
       </Table>
-      <Level name="Sabor" visible="true" column="atr_sabor" type="String" uniqueMembers="false" levelType="Regular" caption="Sabor" description="Sabor" captionColumn="atr_sabor">
+      <Level name="Sabor" visible="true" column="atr_sabor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Sabor" description="Sabor" captionColumn="atr_sabor">
       </Level>
     </Hierarchy>
   </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="Cliente">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Cliente">
     <Hierarchy name="Cliente" visible="true" hasAll="true" allMemberName="Todos os Clientes" primaryKey="id_cliente" description="Cliente">
       <Table name="dim_cliente">
       </Table>
-      <Level name="Regiao" visible="true" column="cod_regiao" type="String" uniqueMembers="false" levelType="Regular" caption="Regi&#227;o" description="Regiao" captionColumn="desc_regiao">
+      <Level name="Regiao" visible="true" column="cod_regiao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Regi&#227;o" description="Regiao" captionColumn="desc_regiao">
       </Level>
-      <Level name="Estado" visible="true" column="cod_estado" type="String" uniqueMembers="false" levelType="Regular" caption="Estado" description="Estado" captionColumn="desc_estado">
+      <Level name="Estado" visible="true" column="cod_estado" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Estado" description="Estado" captionColumn="desc_estado">
       </Level>
-      <Level name="Cidade" visible="true" column="cod_cidade" type="String" uniqueMembers="false" levelType="Regular" caption="Cidade" description="Cidade" captionColumn="desc_cidade">
+      <Level name="Cidade" visible="true" column="cod_cidade" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Cidade" description="Cidade" captionColumn="desc_cidade">
       </Level>
-      <Level name="Cliente" visible="true" column="cod_cliente" type="String" uniqueMembers="false" levelType="Regular" caption="Cliente" description="Cliente" captionColumn="desc_cliente">
+      <Level name="Cliente" visible="true" column="cod_cliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Cliente" description="Cliente" captionColumn="desc_cliente">
       </Level>
     </Hierarchy>
     <Hierarchy name="Segmento" visible="true" hasAll="true" allMemberName="Todos os Segmentos" primaryKey="id_cliente">
       <Table name="dim_cliente">
       </Table>
-      <Level name="Segmento" visible="true" column="cod_segmento" type="String" uniqueMembers="false" levelType="Regular" caption="Segmento" captionColumn="desc_segmento">
+      <Level name="Segmento" visible="true" column="cod_segmento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Segmento" captionColumn="desc_segmento">
       </Level>
     </Hierarchy>
   </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="Organizacional" description="Organizacional">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Organizacional" description="Organizacional">
     <Hierarchy name="Organizacional" visible="true" hasAll="true" allMemberName="Todos da Organizacao" allMemberCaption="Todos da Organiza&#231;&#227;o" primaryKey="id_vendedor" description="Organizacional">
       <Table name="dim_organizacional">
       </Table>
-      <Level name="Diretor" visible="true" column="cod_diretor" type="String" uniqueMembers="false" levelType="Regular" caption="Diretor" description="Diretor" captionColumn="desc_diretor">
+      <Level name="Diretor" visible="true" column="cod_diretor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Diretor" description="Diretor" captionColumn="desc_diretor">
       </Level>
-      <Level name="Gerente" visible="true" column="cod_gerente" type="String" uniqueMembers="false" levelType="Regular" caption="Gerente" description="Gerente" captionColumn="desc_gerente">
+      <Level name="Gerente" visible="true" column="cod_gerente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Gerente" description="Gerente" captionColumn="desc_gerente">
       </Level>
-      <Level name="Vendedor" visible="true" column="cod_vendedor" type="String" uniqueMembers="false" levelType="Regular" caption="Vendedor" description="Vendedor" captionColumn="desc_vendedor">
+      <Level name="Vendedor" visible="true" column="cod_vendedor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Vendedor" description="Vendedor" captionColumn="desc_vendedor">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Fabrica" caption="F&#225;brica">
+    <Hierarchy name="Fabrica" visible="true" hasAll="true" allMemberName="Todas as Fabricas" allMemberCaption="Todas as F&#225;bricas" primaryKey="id_fabrica" caption="F&#225;brica" description="Fabrica">
+      <Table name="dim_fabrica">
+      </Table>
+      <Level name="Fabrica" visible="true" column="cod_fabrica" type="String" uniqueMembers="false" levelType="Regular" caption="F&#225;brica" captionColumn="desc_fabrica">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -74,11 +82,13 @@
     </Table>
     <DimensionUsage source="Tempo" name="Tempo" visible="true" foreignKey="id_tempo" highCardinality="false">
     </DimensionUsage>
-    <DimensionUsage source="Produto" name="Produto" visible="true" foreignKey="id_produto">
+    <DimensionUsage source="Produto" name="Produto" visible="true" foreignKey="id_produto" highCardinality="false">
     </DimensionUsage>
-    <DimensionUsage source="Cliente" name="Cliente" visible="true" foreignKey="id_cliente">
+    <DimensionUsage source="Cliente" name="Cliente" visible="true" foreignKey="id_cliente" highCardinality="false">
     </DimensionUsage>
-    <DimensionUsage source="Organizacional" name="Organizacional" visible="true" foreignKey="id_vendedor">
+    <DimensionUsage source="Organizacional" name="Organizacional" visible="true" foreignKey="id_vendedor" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Fabrica" name="Fabrica" caption="F&#225;brica" visible="true" foreignKey="id_fabrica">
     </DimensionUsage>
     <Measure name="Faturamento" column="faturamento" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Faturamento em Reais" visible="true">
     </Measure>
@@ -98,5 +108,17 @@
     </Measure>
     <Measure name="Unidade Vendida" column="unidade_vendida" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Unidade Vendida em R$" visible="true">
     </Measure>
+    <CalculatedMember name="Faturamento Liquido" caption="Faturamento L&#237;quido" formula="[Measures].[Faturamento]-[Measures].[Custo de Frete]-[Measures].[Imposto]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Margem" caption="Margem" formula="[Measures].[Faturamento Liquido]-[Measures].[Custo Fixo]-[Measures].[Custo Variavel]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Preco Medio" caption="Preco M&#233;dio" formula="[Measures].[Faturamento]/[Measures].[Quantidade Vendida]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Variacao da Meta Faturamento" caption="Varia&#231;&#227;o da Meta Faturamento" formula="(([Measures].[Faturamento Liquido]/[Measures].[Meta Faturamento])-1)*100" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Variacao da Meta Custo" caption="Varia&#231;&#227;o da Meta Custo" formula="((([Measures].[Custo Fixo]+[Measures].[Custo Variavel])/[Measures].[Meta Custo])-1)*100" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="Variacao da Meta Margem" caption="Varia&#231;&#227;o da Meta Margem" formula="((([Measures].[Margem])/([Measures].[Meta Faturamento]-[Measures].[Meta Custo]))-1)*100" dimension="Measures" visible="true">
+    </CalculatedMember>
   </Cube>
 </Schema>

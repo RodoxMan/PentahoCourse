@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2020/02/12 09:57:20.843</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/02/19 21:07:27.317</modified_date>
+    <modified_date>2020/02/20 08:45:24.463</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -924,6 +924,46 @@
     </GUI>
   </step>
   <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Teste de Lookup</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>DELETE FROM fato WHERE data='2019-01-01';
+DELETE FROM fato_incremento WHERE data='2019-01-01';
+DELETE FROM fato_data WHERE data='2019-01-01';</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Filtrar a Data</name>
     <type>FilterRows</type>
     <description/>
@@ -945,7 +985,7 @@
         <value>
           <name>constant</name>
           <type>String</type>
-          <text>20190101</text>
+          <text>20200301</text>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
@@ -1109,46 +1149,6 @@
     <GUI>
       <xloc>768</xloc>
       <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Execute SQL script</name>
-    <type>ExecSQL</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Teste de Lookup</connection>
-    <execute_each_row>N</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>DELETE FROM fato WHERE data='2019-01-01';
-DELETE FROM fato_incremento WHERE data='2019-01-01';
-DELETE FROM fato_data WHERE data='2019-01-01';</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
