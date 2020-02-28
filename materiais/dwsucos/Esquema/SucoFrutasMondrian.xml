@@ -1,0 +1,102 @@
+<Schema name="SucoFrutas" description="Esquema dos Data Marts da Empresa de Suco de Frutas">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Total Calendario" allMemberCaption="Total Calend&#225;rio" primaryKey="id_tempo" caption="Calend&#225;rio">
+      <Table name="dim_tempo">
+      </Table>
+      <Level name="Ano" visible="true" column="numero_ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Semestre" visible="true" column="numero_semestre" nameColumn="nome_semestre" type="String" uniqueMembers="false" levelType="TimeHalfYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="numero_trimestre" nameColumn="nome_trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="numero_mes" nameColumn="nome_mes" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Produto">
+    <Hierarchy name="Produto" visible="true" hasAll="true" allMemberName="Todos os Produtos" primaryKey="id_produto">
+      <Table name="dim_produto">
+      </Table>
+      <Level name="Categoria" visible="true" column="cod_categoria" type="String" uniqueMembers="false" levelType="Regular" captionColumn="desc_categoria">
+      </Level>
+      <Level name="Marca" visible="true" column="cod_marca" type="String" uniqueMembers="false" levelType="Regular" caption="Marca" description="Marca" captionColumn="desc_marca">
+      </Level>
+      <Level name="Produto" visible="true" column="cod_produto" type="String" uniqueMembers="false" levelType="Regular" caption="Produto" captionColumn="desc_produto">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Tamanho" visible="true" hasAll="true" allMemberName="Todos os Tamanhos" primaryKey="id_produto">
+      <Table name="dim_produto">
+      </Table>
+      <Level name="Tamanho" visible="true" column="atr_tamanho" type="String" uniqueMembers="false" levelType="Regular" caption="Tamanho" description="Tamanho" captionColumn="atr_tamanho">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Sabor" visible="true" hasAll="true" allMemberName="Todos os Sabores" primaryKey="id_produto">
+      <Table name="dim_produto">
+      </Table>
+      <Level name="Sabor" visible="true" column="atr_sabor" type="String" uniqueMembers="false" levelType="Regular" caption="Sabor" description="Sabor" captionColumn="atr_sabor">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Cliente">
+    <Hierarchy name="Cliente" visible="true" hasAll="true" allMemberName="Todos os Clientes" primaryKey="id_cliente" description="Cliente">
+      <Table name="dim_cliente">
+      </Table>
+      <Level name="Regiao" visible="true" column="cod_regiao" type="String" uniqueMembers="false" levelType="Regular" caption="Regi&#227;o" description="Regiao" captionColumn="desc_regiao">
+      </Level>
+      <Level name="Estado" visible="true" column="cod_estado" type="String" uniqueMembers="false" levelType="Regular" caption="Estado" description="Estado" captionColumn="desc_estado">
+      </Level>
+      <Level name="Cidade" visible="true" column="cod_cidade" type="String" uniqueMembers="false" levelType="Regular" caption="Cidade" description="Cidade" captionColumn="desc_cidade">
+      </Level>
+      <Level name="Cliente" visible="true" column="cod_cliente" type="String" uniqueMembers="false" levelType="Regular" caption="Cliente" description="Cliente" captionColumn="desc_cliente">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Segmento" visible="true" hasAll="true" allMemberName="Todos os Segmentos" primaryKey="id_cliente">
+      <Table name="dim_cliente">
+      </Table>
+      <Level name="Segmento" visible="true" column="cod_segmento" type="String" uniqueMembers="false" levelType="Regular" caption="Segmento" captionColumn="desc_segmento">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Organizacional" description="Organizacional">
+    <Hierarchy name="Organizacional" visible="true" hasAll="true" allMemberName="Todos da Organizacao" allMemberCaption="Todos da Organiza&#231;&#227;o" primaryKey="id_vendedor" description="Organizacional">
+      <Table name="dim_organizacional">
+      </Table>
+      <Level name="Diretor" visible="true" column="cod_diretor" type="String" uniqueMembers="false" levelType="Regular" caption="Diretor" description="Diretor" captionColumn="desc_diretor">
+      </Level>
+      <Level name="Gerente" visible="true" column="cod_gerente" type="String" uniqueMembers="false" levelType="Regular" caption="Gerente" description="Gerente" captionColumn="desc_gerente">
+      </Level>
+      <Level name="Vendedor" visible="true" column="cod_vendedor" type="String" uniqueMembers="false" levelType="Regular" caption="Vendedor" description="Vendedor" captionColumn="desc_vendedor">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="dmpresidencia" caption="Data Mart da Presid&#234;ncia" visible="true" description="Data Mart da Presidencia" cache="true" enabled="true">
+    <Table name="fato_presidencia">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo" visible="true" foreignKey="id_tempo" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Produto" name="Produto" visible="true" foreignKey="id_produto">
+    </DimensionUsage>
+    <DimensionUsage source="Cliente" name="Cliente" visible="true" foreignKey="id_cliente">
+    </DimensionUsage>
+    <DimensionUsage source="Organizacional" name="Organizacional" visible="true" foreignKey="id_vendedor">
+    </DimensionUsage>
+    <Measure name="Faturamento" column="faturamento" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Faturamento em Reais" visible="true">
+    </Measure>
+    <Measure name="Custo de Frete" column="custo_frete" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Custo de Frete em R$" visible="true">
+    </Measure>
+    <Measure name="Custo Fixo" column="custo_fixo" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Custo Fixo em R$" visible="true">
+    </Measure>
+    <Measure name="Custo Variavel" column="custo_variavel" datatype="Numeric" formatString="#,###.00" aggregator="sum" caption="Custo Vari&#225;vel" description="Custo Variavel em R$" visible="true">
+    </Measure>
+    <Measure name="Imposto" column="imposto" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Imposto em R$" visible="true">
+    </Measure>
+    <Measure name="Meta Custo" column="meta_custo" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Meta CUsto em R$" visible="true">
+    </Measure>
+    <Measure name="Meta Faturamento" column="meta_faturamento" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Meta Faturamento em R$" visible="true">
+    </Measure>
+    <Measure name="Quantidade Vendida" column="quantidade_vendida" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Quantidade Vendida em Litros" visible="true">
+    </Measure>
+    <Measure name="Unidade Vendida" column="unidade_vendida" datatype="Numeric" formatString="#,###.00" aggregator="sum" description="Unidade Vendida em R$" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
