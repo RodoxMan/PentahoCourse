@@ -19,7 +19,7 @@
       </Level>
     </Hierarchy>
   </Dimension>
-  <Cube name="Motor Inc Vendas" visible="true" description="Cubo de Vendas" cache="true" enabled="true">
+  <Cube name="Motor Inc Vendas V1" visible="true" description="Cubo de Vendas" cache="true" enabled="true">
     <Table name="tbl_ft_vnds" schema="public">
       <AggName name="a_t_motor_inc" ignorecase="true">
         <AggFactCount column="factcount">
@@ -123,7 +123,7 @@ End]]>
   </Role>
   <Role name="LATAM">
     <SchemaGrant access="all_dimensions">
-      <CubeGrant cube="Motor Inc Vendas" access="all">
+      <CubeGrant cube="Motor Inc Vendas V1" access="all">
         <HierarchyGrant hierarchy="[Cliente]" topLevel="[Cliente].[Territorio]" access="custom">
           <MemberGrant member="[Cliente].[LATAM]" access="all">
           </MemberGrant>
