@@ -1,0 +1,6 @@
+#Ignorar todos os arquivos e sub-pastas da pasta de downloads!
+downloads/
+bases/
+designer-tools/
+pentaho-server/
+materiais/Livros/
