@@ -1,0 +1,12 @@
+function f(data) {    
+    this.chartDefinition.dimensions = {
+        series: {isHidden: true},
+        category: {label: "Category"},
+        value:      {label: "Value" }
+    };   
+    return data;
+}
+
+
+margin-top: -0.7em;
+logo-fumec.png

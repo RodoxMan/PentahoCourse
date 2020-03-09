@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_TERRITORIOS" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_VENDAS_LINHA" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_SITUACAO_PEDIDOS" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_TERRITORIOS" id="QUERY_TERRITORIOS"
+               type="mdx">
+      <Name>QUERY_TERRITORIOS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+  NON EMPTY {[Mercado].[Todos os mercados].Children} ON ROWS
+from [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_VENDAS_LINHA" id="QUERY_VENDAS_LINHA"
+               type="mdx">
+      <Name>QUERY_VENDAS_LINHA</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_TERRITORIO" name="PARAM_TERRITORIO" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Quantidade],[Measures].[Preco Total]} ON COLUMNS,
+  NON EMPTY [Produto].[Todos os produtos].Children ON ROWS
+from [Motor Inc Vendas]
+where {[Mercado].[${PARAM_TERRITORIO}]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_SITUACAO_PEDIDOS" id="QUERY_SITUACAO_PEDIDOS"
+               type="mdx">
+      <Name>QUERY_SITUACAO_PEDIDOS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="PARAM_TERRITORIO" name="PARAM_TERRITORIO" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+  NON EMPTY Order(Except([Situacao].[Todas as situacoes].Children, {[Situacao].[Enviado]}), [Measures].[Quantidade], DESC) ON ROWS
+from [Motor Inc Vendas]
+where [Mercado].[${PARAM_TERRITORIO}]]]></Query>
+   </DataAccess>
+</CDADescriptor>

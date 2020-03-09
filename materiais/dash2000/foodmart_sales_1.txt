@@ -1,0 +1,4 @@
+SELECT
+NON EMPTY Hierarchize(Union(CrossJoin([Time].[Quarter].Members, {[Measures].[Store Sales]}), Union(CrossJoin([Time].[Quarter].Members, {[Measures].[Unit Sales]}), CrossJoin([Time].[Quarter].Members, {[Measures].[Profit]})))) ON COLUMNS,
+NON EMPTY {Hierarchize({{[Product].[Product Family].Members}, {[Product].[Product Department].Members}})} ON ROWS
+FROM [Sales]

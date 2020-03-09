@@ -1,0 +1,156 @@
+<Schema name="Motor Inc Vendas">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" allLevelName="Todos" primaryKey="tempoid" caption="Calend&#225;rio">
+      <Table name="tbl_dmns_tmp" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="anotempo" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestretempo" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="mestempo" nameColumn="mesdesctempo" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Semana" visible="true" hasAll="true" allMemberName="Todas as semanas" allLevelName="Todos" primaryKey="tempoid">
+      <Table name="tbl_dmns_tmp" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="anotempo" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Semana" visible="true" column="semanaanotempo" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Motor Inc Vendas" visible="true" cache="true" enabled="true">
+    <Table name="tbl_ft_vnds" schema="public">
+      <AggName name="a_t_motor_inc" ignorecase="true">
+        <AggFactCount column="factcount">
+        </AggFactCount>
+        <AggForeignKey factColumn="clienteid" aggColumn="clienteid">
+        </AggForeignKey>
+        <AggForeignKey factColumn="produtoid" aggColumn="produtoid">
+        </AggForeignKey>
+        <AggForeignKey factColumn="vendedorid" aggColumn="vendedorid">
+        </AggForeignKey>
+        <AggMeasure column="quantidadepedida" name="[Measures].[Quantidade Pedida]">
+        </AggMeasure>
+        <AggMeasure column="precototal" name="[Measures].[Preco Total]">
+        </AggMeasure>
+        <AggLevel column="anotempo" name="[Tempo Pedido.Calendario].[Ano]" collapsed="true">
+        </AggLevel>
+        <AggLevel column="trimestretempo" name="[Tempo Pedido.Calendario].[Trimestre]" collapsed="true">
+        </AggLevel>
+      </AggName>
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Pedido" caption="Tempo Perdido" visible="true" foreignKey="tempoidpedido" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Tempo" name="Tempo Entrega" caption="Tempo Entrega" visible="true" foreignKey="tempoidentrega" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clienteid" highCardinality="false" name="Cliente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os clientes" primaryKey="clienteid">
+        <Table name="tbl_dmns_clnt" schema="public">
+        </Table>
+        <Level name="Territorio" visible="true" column="territoriocliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Territ&#243;rio">
+        </Level>
+        <Level name="Pais" visible="true" column="paiscliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Pa&#237;s">
+        </Level>
+        <Level name="Estado" visible="true" column="estadocliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cidade" visible="true" column="cidadecliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cliente" visible="true" column="nomecliente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="produtoid" highCardinality="false" name="Produto">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os produtos" primaryKey="produtoid">
+        <Table name="tbl_dmns_prdt" schema="public">
+        </Table>
+        <Level name="Linha" visible="true" column="linhaproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Fornecedor" visible="true" column="fornecedorproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Produto" visible="true" column="nomeproduto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Situacao" caption="Situa&#231;&#227;o">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as situacoes" allMemberCaption="Todas as situa&#231;&#245;es">
+        <Level name="Situacao" visible="true" column="situacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Situa&#231;&#227;o">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case Situacao
+     When 'E' Then 'Enviado'
+     When 'R' Then 'Resolvido'
+     When 'C' Then 'Cancelado'
+     When 'A' Then 'Aguardando'
+     When 'N' Then 'Negociado'
+     Else 'Processando'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="vendedorid" highCardinality="false" name="Vendedor">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os vendedores" primaryKey="vendedorid">
+        <Table name="tbl_dmns_vnddr" schema="public">
+        </Table>
+        <Level name="Presidente" visible="true" column="nomevendedor3" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="VP" visible="true" column="nomevendedor2" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Gerente" visible="true" column="nomevendedor1" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Vendedor" visible="true" column="nomevendedor" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade Pedida" column="quantidadepedida" datatype="Integer" formatString="#,###" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Preco Total" column="precototal" datatype="Numeric" formatString="#,###.00" aggregator="sum" caption="Pre&#231;o Total" visible="true">
+    </Measure>
+    <CalculatedMember name="Percentual Produto" formula="([Produto].CurrentMember/[Produto].CurrentMember.Parent)" dimension="Measures" visible="true">
+      <CalculatedMemberProperty name="format_string" expression="IIf(([Measures].[Percentual Produto] &#60; 0.08), &#34;|0.00%|style=red&#34;, &#34;|0.00%|style=lightgreen&#34;)">
+      </CalculatedMemberProperty>
+    </CalculatedMember>
+  </Cube>
+  <Cube name="Motor Inc Metas" visible="false" cache="true" enabled="true">
+    <Table name="tbl_ft_orcmnt" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Pedido" caption="Tempo Pedido" visible="true" foreignKey="tempoid" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Quantidade Orcada" column="quantidadeorcada" datatype="Integer" formatString="#,##0" aggregator="sum" caption="Quantidade Or&#231;ada" visible="true">
+    </Measure>
+  </Cube>
+  <VirtualCube enabled="true" name="Motor Inc Vendas Metas">
+    <VirtualCubeDimension cubeName="Motor Inc Vendas" caption="Tempo Pedido" name="Tempo Pedido">
+    </VirtualCubeDimension>
+    <VirtualCubeDimension cubeName="Motor Inc Vendas" name="Cliente">
+    </VirtualCubeDimension>
+    <VirtualCubeMeasure cubeName="Motor Inc Vendas" name="[Measures].[Quantidade Pedida]" visible="true">
+    </VirtualCubeMeasure>
+    <VirtualCubeMeasure cubeName="Motor Inc Metas" name="[Measures].[Quantidade Orcada]" visible="true">
+    </VirtualCubeMeasure>
+    <CalculatedMember name="Alcance" formula="[Measures].[Quantidade Orcada]-[Measures].[Quantidade Pedida]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="% Alcance" formatString="0.00%" formula="[Measures].[Quantidade Pedida]/[Measures].[Quantidade Orcada]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </VirtualCube>
+  <Role name="Administrator">
+    <SchemaGrant access="all">
+    </SchemaGrant>
+  </Role>
+  <Role name="Authenticated">
+    <SchemaGrant access="none">
+    </SchemaGrant>
+  </Role>
+  <Role name="LATAM">
+    <SchemaGrant access="all_dimensions">
+      <CubeGrant cube="Motor Inc Vendas" access="all">
+        <HierarchyGrant hierarchy="[Cliente]" topLevel="[Cliente].[Territorio]" access="custom">
+          <MemberGrant member="[Cliente].[LATAM]" access="all">
+          </MemberGrant>
+        </HierarchyGrant>
+      </CubeGrant>
+    </SchemaGrant>
+  </Role>
+</Schema>

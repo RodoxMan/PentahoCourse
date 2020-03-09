@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="mdx1" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="mdx2" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="mdx3" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="mdx4" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="mdx1" id="mdx1" type="mdx">
+      <Name>mdx1</Name>
+      <BandedMode>classic</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Quantidade]})} ON COLUMNS,
+NON EMPTY Order({Hierarchize({TopCount([Produto].[Fornecedor].Members, 3.0, [Measures].[Quantidade])})}, [Measures].[Quantidade], BDESC) ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mdx2" id="mdx2" type="mdx">
+      <Name>mdx2</Name>
+      <BandedMode>classic</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Quantidade]})} ON COLUMNS,
+NON EMPTY Order({Hierarchize({TopCount([Mercado].[Territorio].Members, 3.0, [Measures].[Quantidade])})}, [Measures].[Quantidade], BDESC) ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mdx3" id="mdx3" type="mdx">
+      <Name>mdx3</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Quantidade]})} ON COLUMNS,
+NON EMPTY Order({Hierarchize({TopCount([Vendedor].[Vendedor].Members, 3.0, [Measures].[Quantidade])})}, [Measures].[Quantidade], BDESC) ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mdx4" id="mdx4" type="mdx">
+      <Name>mdx4</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+NON EMPTY {Hierarchize({[Measures].[Quantidade]})} ON COLUMNS,
+NON EMPTY {Hierarchize({TopCount([Mercado].[Pais].Members, 10.0, [Measures].[Quantidade])})} ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+</CDADescriptor>

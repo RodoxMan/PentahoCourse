@@ -1,0 +1,216 @@
+<Schema name="Acidentes de Transito">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os Calendarios" allMemberCaption="Todos os Calend&#225;rios" primaryKey="tempo_id" caption="Calend&#225;rio">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesctempo" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Semana" visible="true" hasAll="true" allMemberName="Todas as semanas" primaryKey="tempo_id" caption="Semana">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Semana" visible="true" column="diasemana" nameColumn="diasemanadesctempo" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Acidentes de Transito" caption="Acidentes de Tr&#226;nsito - 2014 &#224; 2017" visible="true" description="Ocorrencia de Acidentes no Brasil" cache="true" enabled="true">
+    <Table name="ft_acidentes" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Dados" visible="true" foreignKey="tempo_id" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" highCardinality="false" name="Acidentes">
+      <Hierarchy name="Regiao" visible="true" hasAll="true" allMemberName="Todos os Acidentes" primaryKey="id_ocorrencia" caption="Regi&#227;o">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="Estado" visible="true" column="uf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Munic&#237;pio">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="BRs" visible="true" hasAll="true" allMemberName="Todas as BRs" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="br" visible="true" column="br" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Tipo de Pista">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Pistas">
+        <Level name="Pista" visible="true" column="tipo_pista" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case tipo_pista
+   When 1 Then 'Dupla'
+   When 2 Then 'Múltipla'
+   When 3 Then 'Simples'
+   Else 'Não Informado'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Tracado" caption="Tra&#231;ado">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Tracados" allMemberCaption="Todos os Tra&#231;ados">
+        <Level name="Tracado" visible="true" column="tracado_via" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Tra&#231;ado">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case tracado_via
+    When 1 Then 'Cruzamento'
+    When 2 Then 'Curva'
+    When 3 Then 'Desvio Temporário'
+    When 4 Then 'Interseção de vias'
+    When 5 Then 'Não Informado'
+    When 6 Then 'Não Informado'
+    When 7 Then 'Ponte'
+    When 8 Then 'Reta'
+    When 9 Then 'Retorno Regulamentado'
+    When 10 Then 'Rotatória'
+    When 11 Then 'Túnel'
+    Else 'Viaduto'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Fase do Dia">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Fases">
+        <Level name="Fase do Dia" visible="true" column="fase_dia" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case fase_dia
+    When 1 Then 'Amanhecer'
+    When 2 Then 'Anoitecer'
+    When 4 Then 'Não Identificado'
+    When 5 Then 'Plena Noite'
+    Else 'Pleno dia'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Condicao Meteorologica" caption="Condi&#231;&#227;o Meteorol&#243;gica">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Condicoes" allMemberCaption="Todas as Condi&#231;&#245;es">
+        <Level name="Condicao" visible="true" column="condicao_metereologica" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Condi&#231;&#227;o">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case condicao_metereologica
+    When 1 Then 'Céu Claro'
+    When 2 Then 'Chuva'
+    When 3 Then 'Garoa/Chuvisco'
+    When 4 Then 'Granizo'
+    When 5 Then 'Ignorado'
+    When 6 Then 'Não Identificado'
+    When 7 Then 'Neve'
+    When 8 Then 'Nevoeiro/Neblina'
+    When 9 Then 'Nublado'
+    When 10 Then 'Sol'
+    Else 'Vento'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Classificacao Acidente" caption="Classifica&#231;&#227;o Acidente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Classificacoes" allMemberCaption="Todas as Classifica&#231;&#245;es">
+        <Level name="Classificacao" visible="true" column="classificacao_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Classifica&#231;&#227;o">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case classificacao_acidente
+    When 1 Then 'Com Vítimas Fatais'
+    When 2 Then 'Com Vítimas Feridas'
+    When 3 Then 'Ignorado'
+    When 4 Then 'Não Informado'
+    Else 'Sem Vítimas'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Tipo Acidente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Acidentes">
+        <Level name="Tipo" visible="true" column="tipo_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case tipo_acidente
+    When 1 Then 'Atropelamento de Animal'
+    When 2 Then 'Atropelamento de Pedestre'
+    When 3 Then 'Capotamento'
+    When 4 Then 'Colisão com bicicleta'
+    When 5 Then 'Colisão com objeto em movimento'
+    When 6 Then 'Colisão com objeto estático'
+    When 7 Then 'Colisão frontal'
+    When 8 Then 'Colisão lateral'
+    When 9 Then 'Colisão transversal'
+    When 10 Then 'Colisão traseira'
+    When 11 Then 'Danos eventuais'
+    When 12 Then 'Derramamento de carga'
+    When 13 Then 'Engavetamento'
+    When 14 Then 'Incêndio'
+    When 15 Then 'Queda de motocicleta / bicicleta / veículo'
+    When 16 Then 'Queda de ocupante de veículo'
+    When 17 Then 'Saída de leito carroçável'
+    When 18 Then 'Saída de Pista'    
+    Else 'Tombamento'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Causa Acidente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas as Causas">
+        <Level name="Causa" visible="true" column="causa_acidente" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[Case causa_acidente
+    When 1 Then 'Animais na Pista'
+    When 2 Then 'Avaria no Pneu'
+    When 3 Then 'Carga Mal Acondicionada'
+    When 4 Then 'Condutor Dormindo'
+    When 5 Then 'Defeito Mecânico no Veículo'
+    When 6 Then 'Defeito na Via'
+    When 7 Then 'Deficiência ou não Acionamento do Sistema de Iluminação/Sinalização do Veículo'
+    When 8 Then 'Desobediência à Sinalização'
+    When 9 Then 'Dormindo'
+    When 10 Then 'Falta de atenção'
+    When 11 Then 'Falta de Atenção à Condução'
+    When 12 Then 'Falta de Atenção do Pedestre'
+    When 13 Then 'Fenômenos da Natureza'
+    When 14 Then 'Ingestão de Álcool'
+    When 15 Then 'Ingestão de Substâncias Psicoativas'
+    When 16 Then 'Mal Súbito'
+    When 17 Then 'Não guardar distância de segurança'
+    When 18 Then 'Obstáculo Estático sobre a Via'
+    When 19 Then 'Outras'
+    When 20 Then 'Pista Escorregadia'
+    When 21 Then 'Restrição de Visibilidade'
+    When 22 Then 'Sinalização da via insuficiente ou inadequada'
+    When 23 Then 'Ultrapassagem Indevida'
+    Else 'Velocidade Incompatível'
+End]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Pessoas" column="pessoas" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Mortos" column="mortos" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Feridos Leves" column="feridos_leves" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Feridos Graves" column="feridos_graves" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

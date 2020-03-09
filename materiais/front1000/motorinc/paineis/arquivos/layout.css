@@ -1,0 +1,14 @@
+body{
+    background: url('layout.png') top center no-repeat,
+    url('bg.png') repeat-x top;
+}
+
+.title{
+    
+    font-family: 'Tahoma,Times New Roman',Times,serif;
+    font-size: 24px;
+    color: #ff0000;
+    letter-spacing: 1px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}

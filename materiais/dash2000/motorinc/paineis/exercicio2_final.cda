@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_TRENS" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_MOTOCICLETAS" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_EMBARCACOES" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_CARROS" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_CAMINHOES" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor+Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_AVIOES" type="kettle.TransFromFile">
+         <KtrFile>arquivos/avioes.ktr</KtrFile>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_TRENS" id="QUERY_TRENS" type="mdx">
+      <Name>QUERY_TRENS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    {[Produto].[TRENS]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_MOTOCICLETAS" id="QUERY_MOTOCICLETAS"
+               type="mdx">
+      <Name>QUERY_MOTOCICLETAS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    {[Produto].[MOTOCICLETAS]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_EMBARCACOES" id="QUERY_EMBARCACOES"
+               type="mdx">
+      <Name>QUERY_EMBARCACOES</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    {[Produto].[EMBARCAÇÕES]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_CARROS" id="QUERY_CARROS" type="mdx">
+      <Name>QUERY_CARROS</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    {[Produto].[CARROS CLÁSSICOS]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_CAMINHOES" id="QUERY_CAMINHOES" type="mdx">
+      <Name>QUERY_CAMINHOES</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+SET [~ROWS] AS
+    {[Produto].[CAMINHÕES E ÔNIBUS]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_AVIOES" id="QUERY_AVIOES" type="kettle">
+      <Name>QUERY_AVIOES</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[output]]></Query>
+   </DataAccess>
+</CDADescriptor>

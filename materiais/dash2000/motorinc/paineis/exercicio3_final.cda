@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="QUERY_TENDENCIA" type="mondrian.jndi">
+         <Catalog>mondrian:/Motor Inc</Catalog>
+         <Jndi>MotorInc</Jndi>
+      </Connection>
+      <Connection id="QUERY_LATAM" type="kettle.TransFromFile">
+         <KtrFile>arquivos/metas_latam.ktr</KtrFile>
+      </Connection>
+      <Connection id="QUERY_EMEA" type="kettle.TransFromFile">
+         <KtrFile>arquivos/metas_emea.ktr</KtrFile>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="QUERY_TENDENCIA" id="QUERY_TENDENCIA" type="mdx">
+      <Name>QUERY_TENDENCIA</Name>
+      <BandedMode>compact</BandedMode>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[with member [Measures].[Tendencia] as 'LinRegPoint(Rank([Tempo].CurrentMember, [Tempo].CurrentMember.Level.Members), {[Tempo].CurrentMember.Level.Members}, [Measures].[Preco Total], Rank([Tempo].CurrentMember, [Tempo].CurrentMember.Level.Members))'
+select {[Measures].[Tendencia], [Measures].[Preco Total]} ON COLUMNS,
+  {[Tempo].[2005].[TRIM1].[JAN], [Tempo].[2005].[TRIM1].[FEV], [Tempo].[2005].[TRIM1].[MAR], [Tempo].[2005].[TRIM2].[ABR], [Tempo].[2005].[TRIM2].[MAI], [Tempo].[2005].[TRIM2].[JUN], [Tempo].[2005].[TRIM3].[JUL], [Tempo].[2005].[TRIM3].[AGO], [Tempo].[2005].[TRIM3].[SET], [Tempo].[2005].[TRIM4].[OUT], [Tempo].[2005].[TRIM4].[NOV], [Tempo].[2005].[TRIM4].[DEZ]} ON ROWS
+from [Motor Inc Vendas]
+where {[Cliente].[Todos os clientes]}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_LATAM" id="QUERY_LATAM" type="kettle">
+      <Name>QUERY_LATAM</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[output]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="QUERY_EMEA" id="QUERY_EMEA" type="kettle">
+      <Name>QUERY_EMEA</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[output]]></Query>
+   </DataAccess>
+</CDADescriptor>

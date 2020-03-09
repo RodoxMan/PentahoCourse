@@ -1,0 +1,8 @@
+select stage_reclamacoes.id_reclamacao as cod_reclamacao , stage_consumidor.id_consumidor as cod_consumidor
+,stage_empresa.id_empresa as cod_empresa, stage_grupo_problema.id_grupo as cod_grupo
+1 as total
+,stage_reclamacoes.data_abertura, case when stage_reclamacoes.data_resposta is null then TO_DATE('1900-1-1', 'YYYY/MM/DD') else stage_reclamacoes.data_resposta end as data_resposta
+from stage_reclamacoes inner join stage_consumidor on stage_reclamacoes.id_reclamacao = stage_consumidor.id_reclamacao
+inner join stage_empresa on stage_reclamacoes.id_reclamacao = stage_empresa.id_reclamacao
+inner join stage_grupo_problema on stage_reclamacoes.id_reclamacao = stage_grupo_problema.id_reclamacao
+inner join stage_reclamacoes_assuntos on stage_reclamacoes.id_reclamacao = stage_reclamacoes_assuntos.id_reclamacao

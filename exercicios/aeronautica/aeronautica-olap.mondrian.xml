@@ -1,0 +1,148 @@
+<Schema name="Acidente de Avioes">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os calendarios" allMemberCaption="Todos os calend&#225;rios" primaryKey="tempo_id" caption="Calend&#225;rio">
+      <Table name="dim_tempo" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="ano" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestre" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="mes" nameColumn="mesdesctempo" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Acidente de Avioes" caption="Acidentes de avi&#227;o" visible="true" cache="true" enabled="true">
+    <Table name="ft_acidentes" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo Dados" caption="Tempo Dados" visible="true" foreignKey="tempo_id" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_aeronave" highCardinality="false" name="Aeronaves">
+      <Hierarchy name="Categorias" visible="true" hasAll="true" allMemberName="Todas as Categorias" primaryKey="id_aeronave">
+        <Table name="dim_aeronaves" schema="public">
+        </Table>
+        <Level name="Tipo Aeronave" visible="true" column="categoria" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Modelo Aeronave" visible="true" hasAll="true" allMemberName="Todos os Modelos" primaryKey="id_aeronave">
+        <Table name="dim_aeronaves" schema="public">
+        </Table>
+        <Level name="Modelo" visible="true" column="modelo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_ocorrencia" highCardinality="false" name="Ocorrencias" caption="Ocorr&#234;ncias">
+      <Hierarchy name="Tipo Ocorrencia" visible="true" hasAll="true" allMemberName="Todas as Ocorrencias" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="Tipo" visible="true" column="tipo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Regiao" visible="true" hasAll="true" allMemberName="Todas as Regioes" allMemberCaption="Todas as Regi&#245;es" primaryKey="id_ocorrencia" caption="Regi&#227;o">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="Estado" visible="true" column="estado" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cidade" visible="true" column="cidade" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Classificacao Ocorrencia" visible="true" hasAll="true" allMemberName="Todas as Classificacoes" allMemberCaption="Todas as Classifica&#231;&#245;es" primaryKey="id_ocorrencia">
+        <Table name="dim_ocorrencias" schema="public">
+        </Table>
+        <Level name="Classificacao" visible="true" column="classificacao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="Classifica&#231;&#227;o">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_fator_contribuinte" highCardinality="false" name="Fatores Contribuintes">
+      <Hierarchy name="Fatores" visible="true" hasAll="true" allMemberName="Todos os Fatores" primaryKey="id_fator_contribuinte">
+        <Table name="dim_fatores_ocorrencias" schema="public">
+        </Table>
+        <Level name="Area" visible="true" column="fator_area" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#193;rea">
+        </Level>
+        <Level name="Aspecto" visible="true" column="fator_aspecto" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Nome" visible="true" column="fator_nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_fabricante" highCardinality="false" name="Fabricantes Aeronaves">
+      <Hierarchy name="Pais Fabricante" visible="true" hasAll="true" allMemberName="Todos os Paises" allMemberCaption="Todos os Pa&#237;ses" primaryKey="id_fabricante">
+        <Table name="dim_fabricantes" schema="public">
+        </Table>
+        <Level name="Pais" visible="true" column="pais" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Fabricante" visible="true" hasAll="true" allMemberName="Todos os Fabricantes" primaryKey="id_fabricante">
+        <Table name="dim_fabricantes" schema="public">
+        </Table>
+        <Level name="Fabricante" visible="true" column="fabricante" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Operador Aeronaves">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Operadores">
+        <Level name="Operador" visible="true" column="operador" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[CASE operador
+   WHEN 1 THEN 'AEROCLUBE'
+   WHEN 2 THEN 'ESCOLA DE AVIAÇÃO'
+   WHEN 3 THEN 'FABRICANTE AERONÁUTICO'
+   WHEN 4 THEN 'OPERADOR DE AERONAVE'
+   WHEN 5 THEN 'OPERADOR PARTICULAR'
+ELSE 'ÓRGÃO PÚBLICO'
+END]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Segmento Aeronaves">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Segmentos">
+        <Level name="Segmento" visible="true" column="segmento" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[CASE segmento
+   WHEN 1 THEN 'ADMINISTRAÇÃO DIRETA'
+   WHEN 2 THEN 'ADMINISTRAÇÃO INDIRETA'
+   WHEN 3 THEN 'AGRÍCOLA'
+   WHEN 4 THEN 'ESPECIALIZADA'
+   WHEN 5 THEN 'EXPERIMENTAL'
+   WHEN 6 THEN 'HISTÓRICA'
+   WHEN 7 THEN 'INSTRUÇÃO'
+   WHEN 8 THEN 'MÚLTIPLA'
+   WHEN 9 THEN 'NÃO REGULAR'
+   WHEN 10 THEN 'PARTICULAR'
+   WHEN 11 THEN 'REGULAR'
+   WHEN 12 THEN 'TÁXI AÉREO'
+ELSE 'NÃO INFORMADO'
+END]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Danos Aeronaves">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Danos">
+        <Level name="Dano" visible="true" column="dano" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <CaptionExpression>
+            <SQL dialect="postgres">
+              <![CDATA[CASE dano
+   WHEN 1 THEN 'DESTRUÍDA'
+   WHEN 2 THEN 'INDETERMINADO'
+   WHEN 3 THEN 'LEVE'
+   WHEN 4 THEN 'NENHUM'
+ELSE 'SUBSTANCIAL'
+END]]>
+            </SQL>
+          </CaptionExpression>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Total de Fatalidades" column="total_fatalidades" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Total de Acidentes" column="total_acidentes" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Total Aeronaves Envolvidas" column="total_aeronaves_envolvidas" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

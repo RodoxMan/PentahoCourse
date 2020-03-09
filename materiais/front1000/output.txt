@@ -1,0 +1,13 @@
+pagina;contagem
+pagina 1;7
+pagina 11;7
+pagina 12;7
+pagina 13;9
+pagina 2;7
+pagina 21;7
+pagina 22;7
+pagina 23;7
+pagina 3;5
+pagina 31;7
+pagina 32;7
+pagina 33;7

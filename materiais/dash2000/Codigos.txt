@@ -1,0 +1,247 @@
+#exercicio2
+###
+WITH
+SET [~ROWS] AS
+    {[Produto].[CAMINHÕES E ÔNIBUS]}
+SELECT
+NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+NON EMPTY [~ROWS] ON ROWS
+FROM [Motor Inc Vendas]
+
+###
+function(){
+    return["#FF4B4B","#FFBF7C","#FFFD7C","#C5FF60"][this.index];
+}
+
+#exercicio3
+
+###
+with member [Measures].[Tendencia] as 
+	'LinRegPoint(Rank([Tempo].CurrentMember, [Tempo].CurrentMember.Level.Members), {[Tempo].CurrentMember.Level.Members}, [Measures].[Preco Total], Rank([Tempo].CurrentMember, [Tempo].CurrentMember.Level.Members))'
+select {[Measures].[Preco Total], [Measures].[Tendencia]} ON COLUMNS, 
+{[Tempo].[2005].[TRIM1].[JAN], [Tempo].[2005].[TRIM1].[FEV], [Tempo].[2005].[TRIM1].[MAR], [Tempo].[2005].[TRIM2].[ABR], [Tempo].[2005].[TRIM2].[MAI], [Tempo].[2005].[TRIM2].[JUN], [Tempo].[2005].[TRIM3].[JUL], [Tempo].[2005].[TRIM3].[AGO], [Tempo].[2005].[TRIM3].[SET], [Tempo].[2005].[TRIM4].[OUT], [Tempo].[2005].[TRIM4].[NOV], [Tempo].[2005].[TRIM4].[DEZ]} ON ROWS
+from [Motor Inc Vendas]
+where {[Cliente].[Todos os clientes]}
+
+###
+function f(data) {
+		this.chartDefinition.dimensions = {
+		series: {isHidden: true},
+		category: {label: "Mês"},
+		value: {label: "Valor" }
+		};   
+	return data;
+	}
+
+###
+function f(v) {
+    return "R$" + sprintf('%d', v/1000) + 'M'; 
+    }
+	
+###
+function(){return [{"lo":0,"hi":20,"color":"#FF0000"},{"lo":21,"hi":72,"color":"#FFFF00"},{"lo":73,"hi":100,"color":"#00FF00"}];}
+
+#exercicio4
+
+###
+select NON EMPTY(TopCount({Descendants([Produto].[Todos os produtos] ,[Produto].[Linha])}, 10, [Measures].[Quantidade])) on ROWS,  
+NON EMPTY({[Measures].[Quantidade]}) on Columns  
+from [Motor Inc Vendas] 
+where ([Cliente].[${PARAM_CLIENTE}])
+
+###
+import org.pentaho.reporting.engine.classic.core.util.TypedTableModel;
+
+String[] columnNames = new String[]{
+"Latitude", "Longitude", "City", "Country", "Client"
+};
+
+Class[] columnTypes = new Class[]{
+String.class,String.class,String.class,String.class,String.class
+};
+
+TypedTableModel model = new TypedTableModel(columnNames, columnTypes);
+
+model.addRow(new Object[]{ new String("47.21725"), new String(" -1.55336"), new String("Nantes"), new String("France"), new String("Atelier graphique")});
+model.addRow(new Object[]{ new String("-37.814"), new String("144.96332"), new String("Melbourne"), new String("Australia"), new String("Australian Collectors, Co.")});
+model.addRow(new Object[]{ new String("36.114647"), new String("-115.172813"), new String("Las Vegas"), new String("USA"), new String("Signal Gift Stores")});
+model.addRow(new Object[]{ new String("55.751244"), new String("37.618423"), new String("Moscow"), new String("Russia"), new String("La Rochelle Gifts")});
+model.addRow(new Object[]{ new String("58.998287"),new String("10.035595"), new String("Stavern"),new String("Norway"),  new String("Baane Mini Imports")});
+model.addRow(new Object[]{ new String("-34.6132"), new String("-68.341"), new String("San Rafael"), new String("Argentina"), new String("Mini Gifts Distributors Ltd.")});
+model.addRow(new Object[]{ new String("50.110924"), new String("8.682127"), new String("Frankfurt"), new String("Germany"), new String("Blauer See Auto, Co.")});
+
+return model;
+
+#exercicio5
+
+###
+select 
+ 	v.TerritorioVendedor
+    , sum(f.PrecoTotal) as PrecoTotalEmea
+    , (select sum(f2.PrecoTotal) from tbl_ft_vnds f2 where f2.VendedorId not between 7 and 12) as PrecoTotalOutros
+from 
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+where
+	v.TerritorioVendedor = 'EMEA'
+group by
+	v.TerritorioVendedor
+	
+###
+function f(data){
+    var value = (data.resultset[0][1]/(data.resultset[0][1]+data.resultset[0][2]))*100;
+    var div = $("<div>").addClass("pieFloat").text(sprintf("%d%%",value));
+    $('#'+this.htmlObject).empty().append(div);
+    return data;
+}
+
+#exercicio6
+
+###
+SELECT DISTINCT t.AnoTempo FROM tbl_dmns_tmp t
+
+###
+select
+    v.TerritorioVendedor,
+	sum(f.PrecoTotal) as PrecoTotal
+from
+	tbl_ft_vnds f
+	inner join tbl_dmns_vnddr v
+		on f.VendedorId = v.VendedorId
+	inner join tbl_dmns_tmp t
+		on f.TempoIdPedido = t.TempoId
+where
+	t.AnoTempo = ${PARAM_ANO}
+group by
+	v.TerritorioVendedor
+	
+#exercicio7
+
+###
+select NON EMPTY {[Measures].[Quantidade]} ON COLUMNS,
+  NON EMPTY {[Mercado].[Todos os mercados].Children} ON ROWS
+from [Motor Inc Vendas]
+
+###
+select NON EMPTY {[Measures].[Quantidade],[Measures].[Preco Total]} ON COLUMNS,
+  NON EMPTY [Produto].[Todos os produtos].Children ON ROWS
+from [Motor Inc Vendas]
+where {[Mercado].[${PARAM_TERRITORIO}]}
+
+###
+function(){
+	return "<h2>Análise de Território em Tempo Real - "+PARAM_TERRITORIO+"</h2>";   
+}
+
+#exercicio8
+
+###
+SELECT
+NON EMPTY {Hierarchize({[Measures].[Preco Total]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[Mercado].[Territorio].Members})} ON ROWS
+FROM [Motor Inc Vendas]
+
+###
+select NON EMPTY {[Measures].[Preco Total]} ON COLUMNS,
+  NON EMPTY Order({TopCount([Cliente].[Nome Cliente].Members, 10.0, [Measures].[Preco Total])}, [Measures].[Preco Total], ASC) ON ROWS
+from [Motor Inc Vendas]
+where {[Mercado].[${PARAM_TERRITORIO}]}
+
+###
+function(){
+    if(PARAM_TERRITORIO == "Todos os mercados"){
+        return "<h2>Análise da Receita</h2>";  
+    } else {
+        return "<h2>Análise da Receita - "+PARAM_TERRITORIO+"</h2>";  
+    } 
+} 
+
+###
+function(scene){
+	Dashboards.fireChange('PARAM_TERRITORIO',scene.vars.category.value);
+}
+
+###
+function f(scene){
+    top.mantle_openTab("Exercicio8", "Exercicio8", "http://localhost:8080/pentaho/api/repos/:public:motorinc:relatorios:exercicio8.prpt/viewer?vCliente="+scene.vars.category.value);
+}
+
+#exercicio9
+
+###
+SELECT
+NON EMPTY {Hierarchize({[Measures].[Quantidade]})} ON COLUMNS,
+NON EMPTY Order({Hierarchize({TopCount([Vendedor].[Vendedor].Members, 3.0, [Measures].[Quantidade])})}, [Measures].[Quantidade], BDESC) ON ROWS
+FROM [Motor Inc Vendas]
+
+###
+function sendParameter(scene){
+    var url='http://localhost:8080/pentaho/api/repos/:public:motorinc:paineis:exercicio10_final.wcdf/generatedContent?userid=admin&password=password';
+    var c = scene.vars.category.value;
+	window.location=url+'&PARAM_VEND='+c;
+}
+
+###
+function f(){
+var myself = this;
+  // Set initial width to match the placeholder
+  myself.chartDefinition.width = myself.placeholder().width();
+
+  // Attach the resize handler only on the first execution of the chart component
+  if (!this.resizeHandlerAttached){
+
+    // Ensure render is only triggered after resize events have stopped
+    var debouncedResize = _.debounce(function(){
+
+      // Show chart again.
+      myself.placeholder().children().css('visibility','visible');
+
+      // Change chart width
+      myself.chartDefinition.width = myself.placeholder().width();
+      myself.render( myself.query.lastResults() );
+    }, 200);
+
+    // Attach resize handler
+    $(window).resize(function(){
+
+      // Only trigger resize if the container has changed width
+      if ( myself.chartDefinition.width != myself.placeholder().width()){
+
+        // Temporarily hide chart so that overflow does not happen
+        myself.placeholder().children().css('visibility','hidden');
+
+        // Trigger the resize with debounce
+        debouncedResize();
+      }    
+    });
+
+    this.resizeHandlerAttached = true;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
