@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/09/24 13:50:37.911</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/03/08 18:19:34.855</modified_date>
+    <modified_date>2020/03/09 17:02:12.511</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -507,16 +507,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Table output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table output</from>
-      <to>Text file output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Classificacao Acidente</from>
       <to>Tipo Acidente</to>
       <enabled>Y</enabled>
@@ -527,7 +517,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel input</from>
+      <from>Acidentes - 2017</from>
       <to>Classificacao Acid</to>
       <enabled>Y</enabled>
     </hop>
@@ -549,6 +539,16 @@
     <hop>
       <from>Causa Acidente</from>
       <to>Tipo Pista</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update</from>
+      <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -581,7 +581,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>416</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -707,7 +707,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>576</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -783,7 +783,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>256</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -837,7 +837,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>416</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -975,7 +975,135 @@
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel input</name>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Acidentes-oltp</connection>
+    <commit>1000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>public</schema>
+      <table>stage_ocorrencias</table>
+      <key>
+        <name>id</name>
+        <field>cod_ocorrencia</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>cod_ocorrencia</name>
+        <rename>id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>data_ocorrencia</name>
+        <rename>data_inversa</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>uf</name>
+        <rename>uf</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>municipio</name>
+        <rename>municipio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>br</name>
+        <rename>br</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>classificacao_acidente</name>
+        <rename>classificacao_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipo_acidente</name>
+        <rename>tipo_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>causa_acidente</name>
+        <rename>causa_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipo_pista</name>
+        <rename>tipo_pista</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tracado_via</name>
+        <rename>tracado_via</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fase_dia</name>
+        <rename>fase_dia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>condicao_metereologica</name>
+        <rename>condicao_metereologica</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pessoas</name>
+        <rename>pessoas</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>mortos</name>
+        <rename>mortos</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>feridos_leves</name>
+        <rename>feridos_leves</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>feridos_graves</name>
+        <rename>feridos_graves</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ilesos</name>
+        <rename>ilesos</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>veiculos</name>
+        <rename>veiculos</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Acidentes - 2017</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1386,6 +1514,9 @@
     </partitioning>
     <fields>
       <field>
+        <name>id</name>
+      </field>
+      <field>
         <name>data_inversa</name>
       </field>
       <field>
@@ -1701,120 +1832,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>256</xloc>
       <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>3</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Acidentes-oltp</connection>
-    <schema>public</schema>
-    <table>stage_ocorrencias</table>
-    <commit>10000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>data_ocorrencia</column_name>
-        <stream_name>data_inversa</stream_name>
-      </field>
-      <field>
-        <column_name>uf</column_name>
-        <stream_name>uf</stream_name>
-      </field>
-      <field>
-        <column_name>municipio</column_name>
-        <stream_name>municipio</stream_name>
-      </field>
-      <field>
-        <column_name>br</column_name>
-        <stream_name>br</stream_name>
-      </field>
-      <field>
-        <column_name>classificacao_acidente</column_name>
-        <stream_name>classificacao_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>tipo_acidente</column_name>
-        <stream_name>tipo_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>causa_acidente</column_name>
-        <stream_name>causa_acidente</stream_name>
-      </field>
-      <field>
-        <column_name>tipo_pista</column_name>
-        <stream_name>tipo_pista</stream_name>
-      </field>
-      <field>
-        <column_name>tracado_via</column_name>
-        <stream_name>tracado_via</stream_name>
-      </field>
-      <field>
-        <column_name>fase_dia</column_name>
-        <stream_name>fase_dia</stream_name>
-      </field>
-      <field>
-        <column_name>condicao_metereologica</column_name>
-        <stream_name>condicao_metereologica</stream_name>
-      </field>
-      <field>
-        <column_name>pessoas</column_name>
-        <stream_name>pessoas</stream_name>
-      </field>
-      <field>
-        <column_name>mortos</column_name>
-        <stream_name>mortos</stream_name>
-      </field>
-      <field>
-        <column_name>feridos_leves</column_name>
-        <stream_name>feridos_leves</stream_name>
-      </field>
-      <field>
-        <column_name>feridos_graves</column_name>
-        <stream_name>feridos_graves</stream_name>
-      </field>
-      <field>
-        <column_name>ilesos</column_name>
-        <stream_name>ilesos</stream_name>
-      </field>
-      <field>
-        <column_name>veiculos</column_name>
-        <stream_name>veiculos</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1040</xloc>
-      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1860,6 +1879,18 @@
       <splitevery/>
     </file>
     <fields>
+      <field>
+        <name>id</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
       <field>
         <name>classificacao_acidente</name>
         <type>String</type>
@@ -2216,7 +2247,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>576</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2266,7 +2297,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>720</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2348,14 +2379,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>720</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
     <error>
-      <source_step>Table output</source_step>
+      <source_step>Insert / update</source_step>
       <target_step>Text file output</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename>nr_error</nr_valuename>

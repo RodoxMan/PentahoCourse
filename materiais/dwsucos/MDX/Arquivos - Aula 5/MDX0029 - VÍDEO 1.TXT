@@ -3,9 +3,9 @@ AS
 'iif ([Measures].[Faturamento] >= 800000, 1, 0)'
 SELECT
 NON EMPTY {[Measures].[Faturamento], [Measures].[STATUS]} ON COLUMNS,
-NON EMPTY Order(  Crossjoin([Tempo.Calendario].[2014].[Primeiro Semestre].[Primeiro Trimestre].[MarÁo],
-	{[Produto].[Mate].[Frescor do Ver„o], [Produto].[Suco de Frutas].[Clean], [Produto].[Suco de Frutas].[Festival de Sabores], 
-	[Produto].[Suco de Frutas].[Light], [Produto].[Suco de Frutas].[PedaÁos de Frutas], [Produto].[Suco de Frutas].[Videira do Campo], 
-	[Produto].[¡guas Minerais].[Linha Citros], [Produto].[¡guas Minerais].[Linha Refrescante], 
-	[Produto].[¡guas Minerais].[Sabor da Montanha]}), [Measures].[Faturamento], BDESC) ON ROWS
+NON EMPTY Order(  Crossjoin([Tempo.Calendario].[2014].[Primeiro Semestre].[Primeiro Trimestre].[Mar√ßo],
+	{[Produto].[Mate].[Frescor do Ver√£o], [Produto].[Suco de Frutas].[Clean], [Produto].[Suco de Frutas].[Festival de Sabores], 
+	[Produto].[Suco de Frutas].[Light], [Produto].[Suco de Frutas].[Peda√ßos de Frutas], [Produto].[Suco de Frutas].[Videira do Campo], 
+	[Produto].[√Åguas Minerais].[Linha Citros], [Produto].[√Åguas Minerais].[Linha Refrescante], 
+	[Produto].[√Åguas Minerais].[Sabor da Montanha]}), [Measures].[Faturamento], BDESC) ON ROWS
 FROM [dmpresidencia]
