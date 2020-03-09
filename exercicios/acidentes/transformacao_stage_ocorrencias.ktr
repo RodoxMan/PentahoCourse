@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/09/24 13:50:37.911</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/02/14 21:07:33.068</modified_date>
+    <modified_date>2020/03/08 18:19:34.855</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1603,7 +1603,7 @@
       <field>
         <in_stream_name>classificacao_acidente</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1616,7 +1616,7 @@
       <field>
         <in_stream_name>tipo_acidente</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1629,7 +1629,7 @@
       <field>
         <in_stream_name>causa_acidente</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1642,7 +1642,7 @@
       <field>
         <in_stream_name>tipo_pista</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1655,7 +1655,7 @@
       <field>
         <in_stream_name>tracado_via</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1668,7 +1668,7 @@
       <field>
         <in_stream_name>fase_dia</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1681,7 +1681,7 @@
       <field>
         <in_stream_name>condicao_metereologica</in_stream_name>
         <out_stream_name/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>

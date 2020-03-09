@@ -1,0 +1,38 @@
+<Schema name="Cubo Teste Motor Inc">
+  <Dimension type="TimeDimension" visible="true" name="Tempo">
+    <Hierarchy name="Calendario" visible="true" hasAll="true" allMemberName="Todos os Calendarios" allMemberCaption="Todos os Calend&#225;rios" primaryKey="tempoid">
+      <Table name="tbl_dmns_tmp" schema="public">
+      </Table>
+      <Level name="Ano" visible="true" column="anotempo" type="String" uniqueMembers="false" levelType="TimeYears">
+      </Level>
+      <Level name="Trimestre" visible="true" column="trimestretempo" type="String" uniqueMembers="false" levelType="TimeQuarters">
+      </Level>
+      <Level name="Mes" visible="true" column="mestempo" nameColumn="mesdesctempo" type="String" uniqueMembers="false" levelType="TimeMonths" caption="M&#234;s">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Cubo Teste Motor Inc" visible="true" cache="true" enabled="true">
+    <Table name="tbl_ft_vnds" schema="public">
+    </Table>
+    <DimensionUsage source="Tempo" name="Tempo" visible="true" foreignKey="tempoidpedido">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="clienteid" name="Cliente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos os Clientes" primaryKey="clienteid">
+        <Table name="tbl_dmns_clnt" schema="public">
+        </Table>
+        <Level name="Territorio" visible="true" column="territoriocliente" type="String" uniqueMembers="false" levelType="Regular" caption="Territ&#243;rio">
+        </Level>
+        <Level name="Pais" visible="true" column="paiscliente" type="String" uniqueMembers="false" levelType="Regular" caption="Pais">
+        </Level>
+        <Level name="Estado" visible="true" column="estadocliente" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Cidade" visible="true" column="cidadecliente" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+        <Level name="Cliente" visible="true" column="nomecliente" type="String" uniqueMembers="false" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="quantidadepedida" formatString="#" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

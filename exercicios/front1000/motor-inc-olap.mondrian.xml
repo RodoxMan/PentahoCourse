@@ -19,7 +19,7 @@
       </Level>
     </Hierarchy>
   </Dimension>
-  <Cube name="Motor Inc Vendas V1" visible="true" description="Cubo de Vendas" cache="true" enabled="true">
+  <Cube name="Motor Inc Vendas V1" visible="false" description="Cubo de Vendas" cache="true" enabled="false">
     <Table name="tbl_ft_vnds" schema="public">
       <AggName name="a_t_motor_inc" ignorecase="true">
         <AggFactCount column="factcount">
