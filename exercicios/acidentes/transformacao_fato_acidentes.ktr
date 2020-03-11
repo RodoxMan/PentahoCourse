@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/09/25 08:30:17.725</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/03/08 18:41:53.289</modified_date>
+    <modified_date>2020/03/10 10:07:36.586</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -554,15 +554,134 @@
     </hop>
     <hop>
       <from>Select values</from>
-      <to>Table output</to>
+      <to>Atulizar / Inserir</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Table output</from>
+      <from>Atulizar / Inserir</from>
       <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Atulizar / Inserir</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>3</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Acidentes-olap</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>public</schema>
+      <table>ft_acidentes</table>
+      <key>
+        <name>tempo_id</name>
+        <field>tempo_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>id_ocorrencia</name>
+        <field>id_ocorrencia</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>tempo_id</name>
+        <rename>tempo_id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>id_ocorrencia</name>
+        <rename>id_ocorrencia</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>classificacao_acidente</name>
+        <rename>classificacao_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipo_acidente</name>
+        <rename>tipo_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>causa_acidente</name>
+        <rename>causa_acidente</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipo_pista</name>
+        <rename>tipo_pista</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tracado_via</name>
+        <rename>tracado_via</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fase_dia</name>
+        <rename>fase_dia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>condicao_metereologica</name>
+        <rename>condicao_metereologica</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pessoas</name>
+        <rename>pessoas</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>mortos</name>
+        <rename>mortos</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>feridos_leves</name>
+        <rename>feridos_leves</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>feridos_graves</name>
+        <rename>feridos_graves</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ilesos</name>
+        <rename>ilesos</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>veiculos</name>
+        <rename>veiculos</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Lookup Ocorrencia</name>
     <type>DBLookup</type>
@@ -1116,50 +1235,6 @@ from stage_ocorrencias
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>3</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Acidentes-olap</connection>
-    <schema>public</schema>
-    <table>ft_acidentes</table>
-    <commit>10000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Text file output</name>
     <type>TextFileOutput</type>
     <description/>
@@ -1271,18 +1346,6 @@ from stage_ocorrencias
         <nullif/>
         <trim_type>none</trim_type>
         <length>4</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>br</name>
-        <type>Integer</type>
-        <format>####0;-####0</format>
-        <currency/>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>9</length>
         <precision>0</precision>
       </field>
       <field>
@@ -1403,14 +1466,14 @@ from stage_ocorrencias
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>256</yloc>
+      <xloc>992</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
     <error>
-      <source_step>Table output</source_step>
+      <source_step>Atulizar / Inserir</source_step>
       <target_step>Text file output</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename>nr_error</nr_valuename>
