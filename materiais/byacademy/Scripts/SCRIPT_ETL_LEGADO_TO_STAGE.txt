@@ -1,0 +1,47 @@
+﻿-- dropar tudo se precisar comecar de novo.
+--drop table cadastro_cliente, st_cliente cascade;
+
+
+-- tabela exemplo legado
+CREATE TABLE IF NOT EXISTS cadastro_cliente (     -- ou create table nome_tabela
+	cdcli int4 NOT NULL,
+	nomecli varchar(100) NOT NULL,
+	emailcli varchar(100) NOT NULL,
+	CONSTRAINT cadastro_cliente_pk PRIMARY KEY (cdcli)
+);
+
+
+-- insert dados ficticios no lagado
+INSERT INTO cadastro_cliente (cdcli, nomecli, emailcli) VALUES(1001, 'piton', 'suporte@raizzer.com');
+INSERT INTO cadastro_cliente (cdcli, nomecli, emailcli) VALUES(2001, 'doriva', 'doriva@doriva.com');
+INSERT INTO cadastro_cliente (cdcli, nomecli, emailcli) VALUES(3001, 'rigo', 'rigo@rigonis.com');
+INSERT INTO cadastro_cliente (cdcli, nomecli, emailcli) VALUES(4001, 'rob', 'rob@robhud.com');
+
+--validar insert no legado
+select* from cadastro_cliente;
+
+-- tabela exemplo STAGE
+CREATE TABLE IF NOT EXISTS ST_CLIENTE  (
+	CD_CLIENTE integer, -- pode user um varchar também.... não sabemos o que vai vir.... depois é só converter
+	NOME_CLIENTE varchar(255), --reserva um espaço maior sempre! e Geralmente usa varchar para manipular isso depois.
+	EMAIL_CLIENTE varchar(255)
+);
+
+
+-- podemos criar indeces na tabela de stage para melhorar a performance do ETL e o processamento no banco
+CREATE INDEX st_cliente_cd_cliente_idx ON st_cliente (cd_cliente);
+
+
+-- antes de inserir deve zerar a tabela de STAGE
+truncate table st_cliente; -- stage é sempre limpa! trunca a tabela antes de carregar ela. Sempre!
+
+
+-- Insert na STAGE
+-- exemplo de um insert na stage(na unha).
+INSERT INTO st_cliente
+	SELECT cdcli, nomecli, emailcli
+	FROM cadastro_cliente;
+
+
+-- valida carga
+select* from st_cliente;

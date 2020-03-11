@@ -1,0 +1,28 @@
+-- passo 1: criar a fato venda
+create table fato_venda_teste (
+                sk_data integer not null,
+                sk_cliente integer not null,
+                qtd_venda integer not null,
+                vl_venda_uni numeric(12,2) not null,
+                vl_venda_total numeric(12,2) not null
+);
+
+-- passo 2: insert/select na fato!
+--truncate fato_venda_teste;
+insert into fato_venda_teste (
+		 				sk_data, -- st_venda.dt_venda
+		                sk_cliente, -- dim_cliente.sk_cliente
+		                qtd_venda, -- st_venda.qtd_vendida
+		                vl_venda_uni, -- st_venda.vl_vendido
+		                vl_venda_total --  st_venda.qtd_vendida * st_venda.vl_vendido
+						)
+				select
+						st_venda.dt_venda ,
+				  		dim_cliente.sk_cliente,
+						st_venda.qtd_vendida,
+						st_venda.vl_vendido,
+						st_venda.qtd_vendida * st_venda.vl_vendido as vl_venda_total
+		  		from st_venda , dim_cliente;
+
+select * from fato_venda_teste;
+		

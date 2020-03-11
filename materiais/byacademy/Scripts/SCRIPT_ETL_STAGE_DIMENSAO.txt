@@ -1,0 +1,87 @@
+﻿
+/* PASSO 1: Criar a SEQUENCE para SURROGATE KEY.  */
+-- drop sequence tabela_dim_id_seq CASCADE;
+
+CREATE SEQUENCE tabela_dim_id_seq
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START 15;
+--select nextval('tabela_dim_id_seq');
+
+
+/* PASSO 2: Criar Tabela de DIMENSÃO */
+
+CREATE TABLE tabela_dim (
+    surrogate_key integer primary key NOT NULL DEFAULT nextval('tabela_dim_id_seq'), --CHAVE ARTIFICIAL AUTO-INCREMENTAL. PRIMARY KEY.
+	natural_key varchar (60) not null,
+	atributo_1 varchar (60) not null,
+	atributo_2 varchar (60) not null,
+	atributo_3 varchar (60) not null
+    );
+    --drop table tabela_dim cascade;
+
+
+/*PASSO 3: Inserir na DIMENSÃO com base na STAGE AREA. */
+
+INSERT INTO TABELA_DIMENSAO
+  SELECT
+     nextval('tabela_dim_id_seq'), --sk sequence
+     CAMPO_1_TABELA_STAGE_AREA, -- campos da stage
+     CAMPO_2_TABELA_STAGE_AREA,
+  FROM
+    TABELA_STAGE_AREA;
+
+
+/* PASSO 4: Validar Carga */
+
+    select * from TABELA_DIMENSAO;
+
+
+/* * * * *
+ * * * * *
+ *EXEMPLO
+ * * * * *
+ * * * * */
+
+
+/* PASSO 1: Criar a SEQUENCE para SURROGATE KEY.  */
+-- drop sequence tabela_dim_id_seq CASCADE;
+
+CREATE SEQUENCE dim_cliente_id_seq
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 999999
+START 200;
+
+-- select nextval('dim_cliente_id_seq');
+
+
+/* PASSO 2: Criar Tabela de DIMENSÃO */
+
+CREATE TABLE dim_cliente (
+    sk_cliente integer primary key NOT NULL DEFAULT nextval('dim_cliente_id_seq'), --CHAVE ARTIFICIAL AUTO-INCREMENTAL. PRIMARY KEY.
+	nk_cliente varchar (60) not null,
+	nm_cliente varchar (100) not null,
+	nm_email   varchar (100) not null
+ );
+    --drop table tabela_dim cascade;
+
+ truncate dim_cliente;
+
+ /*PASSO 3: Inserir na DIMENSÃO com base na STAGE AREA. */
+
+INSERT INTO dim_cliente
+  SELECT
+     nextval('dim_cliente_id_seq') as sk_cliente, -- sk_cliente
+     cd_cliente, -- nk_cliente
+     UPPER (nome_cliente) as nome_cliente, -- nm_cliente
+     upper (email_cliente) -- nm_email
+  FROM
+    st_cliente;
+
+ -- validar a carga
+ select * from dim_cliente;
+ select * from st_cliente;
+ select count(1) from dim_cliente;
+ select count(1) from st_cliente;
